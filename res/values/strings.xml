@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">CarPal</string>
+    <string name="server_base_url">http://ip:port/</string>
+    <string name="server_login_method">login</string>
+    <string name="login_unexpected_error">Unexpected behavior while trying to log in, please try again.</string>
 </resources>

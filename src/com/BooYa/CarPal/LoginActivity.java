@@ -13,6 +13,10 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+import org.apache.http.client.HttpResponseException;
+
+import javax.security.auth.login.LoginException;
 
 /**
  * Activity which displays a login screen to the user, offering registration as
@@ -29,7 +33,7 @@ public class LoginActivity extends Activity {
 	/**
 	 * The default email to populate the email field with.
 	 */
-	public static final String EXTRA_EMAIL = "com.example.android.authenticatordemo.extra.EMAIL";
+	public static final String EXTRA_EMAIL = "com.BooYa.CarPal.extra.EMAIL";
 
 	/**
 	 * Keep track of the login task to ensure we can cancel it if requested.
@@ -55,10 +59,10 @@ public class LoginActivity extends Activity {
 
 		// Set up the login form.
 		mEmail = getIntent().getStringExtra(EXTRA_EMAIL);
-		mEmailView = (EditText) findViewById(R.id.email);
+		mEmailView = (EditText) findViewById(R.id.txtEmail);
 		mEmailView.setText(mEmail);
 
-		mPasswordView = (EditText) findViewById(R.id.password);
+		mPasswordView = (EditText) findViewById(R.id.txtPassword);
 		mPasswordView
 				.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 					@Override
@@ -194,27 +198,24 @@ public class LoginActivity extends Activity {
 	 * the user.
 	 */
 	public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-		@Override
+        private String _errorMsg;
+
+        @Override
 		protected Boolean doInBackground(Void... params) {
-			// TODO: attempt authentication against a network service.
+            try {
+                UsersAuthenticator authenticator = new UsersAuthenticator(getString(R.string.server_base_url) + getString(R.string.server_login_method));
+                authenticator.Authenticate(mEmail, mPassword);
+                return true;
+            }
+            catch (HttpResponseException loginEx) {
+                _errorMsg = loginEx.getMessage();
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(getBaseContext(), getString(R.string.login_unexpected_error), Toast.LENGTH_LONG).show();
+            }
 
-			try {
-				// Simulate network access.
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				return false;
-			}
-
-			for (String credential : DUMMY_CREDENTIALS) {
-				String[] pieces = credential.split(":");
-				if (pieces[0].equals(mEmail)) {
-					// Account exists, return true if the password matches.
-					return pieces[1].equals(mPassword);
-				}
-			}
-
-			// TODO: register the new account here.
-			return true;
+			return false;
 		}
 
 		@Override
@@ -224,9 +225,8 @@ public class LoginActivity extends Activity {
 
 			if (success) {
 				finish();
-			} else {
-				mPasswordView
-						.setError(getString(R.string.error_incorrect_password));
+			}  else {
+				mPasswordView.setError(_errorMsg);
 				mPasswordView.requestFocus();
 			}
 		}
