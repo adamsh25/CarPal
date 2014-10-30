@@ -1,6 +1,7 @@
 package com.BooYa.CarPal;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -31,8 +32,34 @@ public class MainActivity extends Activity implements View.OnClickListener{
         findViews();
         getPendingRequests();
         getWeeklyDrivers();
+        final Intent mServiceIntent = new Intent(getBaseContext(), NotificationService.class);
+        startService(mServiceIntent);
+    }
+
+
+
+
+        static public class MyThread extends Thread {
+            @Override
+            public void run() {
+
+
+                //startService(mServiceIntent);
+
+            }
+        }
+
+
+
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
     }
+
 
     private void findViews() {
         listviewPendingRequests = (ListView) findViewById(R.id.listviewPendingRequests);
