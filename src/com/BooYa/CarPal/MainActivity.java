@@ -1,6 +1,7 @@
 package com.BooYa.CarPal;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,9 +51,13 @@ public class MainActivity extends Fragment implements View.OnClickListener {
         findViews();
         getPendingRequests();
         getWeeklyDrivers();
+        final Intent mServiceIntent = new Intent(getBaseContext(), NotificationService.class);
+        startService(mServiceIntent);
+    
 
         return rootView;
     }
+
     private void findViews() {
         listviewPendingRequests = (ListView) rootView.findViewById(R.id.listviewPendingRequests);
         btnSettings = (Button) rootView.findViewById(R.id.btnSettings);
