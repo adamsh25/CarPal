@@ -2,8 +2,6 @@ package com.BooYa.CarPal;
 
 import android.app.Notification;
 import android.app.PendingIntent;
-import android.app.Service;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
@@ -24,43 +22,31 @@ public class NotificationHelper
         switch (notificationType)
         {
             case USER_CANCEL_CARPAL:
-
-
-                return notification
-                        .setContentTitle(carPalNotification.get_mTitle())
-                        .setContentIntent(pendingIntent)
-                        .setContentText(carPalNotification.get_mText())
-                        .setSmallIcon(R.drawable.adam)
-                        .setLargeIcon(bit)
-                        .addAction (R.drawable.beeri,
-                                "לא", piYes)
-                        .addAction (R.drawable.rony,
-                                "כן", piNo)
-
-                        .build();
+            break;
 
             case ASK_TO_APPROVE_TOMORROW_CARPAL:
-                return notification
-                        .setContentTitle(carPalNotification.get_mTitle())
-                        .setContentIntent(pendingIntent)
-                        .setContentText(carPalNotification.get_mText())
-                        .setSmallIcon(R.drawable.adam)
-                        .setLargeIcon(bit)
-                        .build();
+            break;
 
             default:
-                return notification
-                        .setContentTitle(carPalNotification.get_mTitle())
-                        .setContentIntent(pendingIntent)
-                        .setContentText(carPalNotification.get_mText())
-                        .setSmallIcon(R.drawable.adam)
-                        .setLargeIcon(bit)
-                        .build();
+                break;
+
+
 
         }
 
 
-
+        return notification
+                .setContentTitle(carPalNotification.get_mTitle())
+                .setContentIntent(pendingIntent)
+                .setStyle(new Notification.BigTextStyle()
+                        .bigText(carPalNotification.get_mText()))
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setLargeIcon(bit)
+                .addAction (R.drawable.yesbutton,
+                        "", piYes)
+                .addAction (R.drawable.nobutton,
+                        "", piNo)
+                .build();
 
     }
 }

@@ -94,15 +94,13 @@ public class NotificationService extends Service
                     .CreateNotification(typeEnum, notificationBuilder, notificationDataObject, pendingIntent, piYes, piNo);
 
 
-
-
             Calendar c = Calendar.getInstance();
             int seconds = c.get(Calendar.SECOND);
             NotificationManager manager = (NotificationManager) _service.getSystemService(Context.NOTIFICATION_SERVICE);
-            manager.notify(seconds, notification);
+            manager.notify(i, notification);
             try
             {
-                Thread.sleep(5000);
+                Thread.sleep(50000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
