@@ -15,5 +15,6 @@
         </activity>
         <activity android:name=".ProfileActivity" android:label="ProfileActivity"/>
         <service android:enabled="true" android:name=".NotificationService"  />
+        <receiver android:name="ButtonListener" />
     </application>
 </manifest>

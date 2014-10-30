@@ -1,23 +1,15 @@
 package com.BooYa.CarPal;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.Service;
+import android.app.*;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.*;
-import android.os.Process;
 import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.logging.LogRecord;
 
 /**
  * Created by adam on 30/10/2014.
@@ -27,6 +19,9 @@ public class NotificationService extends Service
 
     private static final String TAG = "class: NotificationService \n";
     private static Service _service;
+    private static boolean isCancel = false;
+    private static final String USER_NAME = "אדם";
+    private static final String OTHER_USER_NAME = "רוני";
 
     @Override
     public IBinder onBind(Intent intent)
@@ -60,12 +55,13 @@ public class NotificationService extends Service
 
 
 
-    public static List<String> GetNotificationsFromServer()
+    public static List<CarPalNotification> GetNotificationsFromServer()
     {
-        final List<String> notificationsObjects = new ArrayList<String>();
+        final List<CarPalNotification> notificationsObjects = new ArrayList<CarPalNotification>();
         Calendar c = Calendar.getInstance();
         int seconds = c.get(Calendar.SECOND);
-        notificationsObjects.add("Adam " + " Can you drive tomorrow?" + seconds);
+        notificationsObjects.add(new CarPalNotification(0,USER_NAME + NotificationTypeEnum.ASK_TO_APPROVE_TOMORROW_CARPAL.toString()));
+        notificationsObjects.add(new CarPalNotification(1,OTHER_USER_NAME + NotificationTypeEnum.USER_CANCEL_CARPAL));
 
         return notificationsObjects;
     }
@@ -73,26 +69,40 @@ public class NotificationService extends Service
 
     private static void StartNotify()
     {
-        List<String> notificationsObjects = GetNotificationsFromServer();
+        List<CarPalNotification> notificationsObjects = GetNotificationsFromServer();
         for(int i = 0;i < notificationsObjects.size();i++)
         {
-            Object notificationObject = notificationsObjects.get(i);
-            Bitmap bit = BitmapFactory.decodeResource(null, R.drawable.adam);
+            CarPalNotification notificationDataObject = (CarPalNotification) notificationsObjects.get(i);
+            NotificationTypeEnum typeEnum = NotificationTypeEnum.values()[notificationDataObject.get_mTypeId()];
             Intent notificationIntent = new Intent(_service, MainActivity.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(_service, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-            Notification notification = new Notification.Builder(_service.getApplicationContext())
-                    .setContentTitle(notificationObject.toString())
-                    .setContentIntent(pendingIntent)
-                    .setContentText(notificationObject.toString())
-                    .setSmallIcon(R.drawable.adam)
-                    .setLargeIcon(bit)
-                    .build();
 
+            PendingIntent pendingIntent = PendingIntent.getActivity(_service, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            Notification.Builder notificationBuilder = new Notification.Builder(_service.getApplicationContext());
+
+
+            Intent yesIntent = new Intent(_service, ButtonListener.class);
+            yesIntent.setAction(notificationDataObject.get_mTypeId()+"_yes");
+            PendingIntent piYes = PendingIntent.getBroadcast(_service, 0, yesIntent,0 );
+
+            Intent noIntent = new Intent(_service, ButtonListener.class);
+            noIntent.setAction(notificationDataObject.get_mTypeId()+"_no");
+            PendingIntent piNo = PendingIntent.getBroadcast(_service, 0, noIntent,0);
+
+
+
+            Notification notification = NotificationHelper
+                    .CreateNotification(typeEnum, notificationBuilder, notificationDataObject, pendingIntent, piYes, piNo);
+
+
+
+
+            Calendar c = Calendar.getInstance();
+            int seconds = c.get(Calendar.SECOND);
             NotificationManager manager = (NotificationManager) _service.getSystemService(Context.NOTIFICATION_SERVICE);
-            manager.notify(i, notification);
+            manager.notify(seconds, notification);
             try
             {
-                Thread.sleep(10000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -101,24 +111,25 @@ public class NotificationService extends Service
 }
 
 
+
     private class DoBackgroundTask extends AsyncTask<String,Integer,List<String>>
     {
         @Override
         protected List<String> doInBackground(String... params)
         {
-            while(!this.isCancelled())
+            while(!(isCancel))
             {
 
                 StartNotify();
-                try
-                {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
             }
 
             return null;
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
         }
     }
 
