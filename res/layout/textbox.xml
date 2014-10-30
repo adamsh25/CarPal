@@ -12,7 +12,6 @@
             android:layout_alignLeft="@id/txtBox"
             android:layout_alignRight="@id/txtBox"
             />
-
     <EditText
             android:id="@+id/txtBox"
             android:layout_width="fill_parent"
@@ -20,5 +19,4 @@
             android:maxLines="1"
             android:singleLine="true"
             android:layout_alignParentTop="true"/>
-
 </RelativeLayout>
