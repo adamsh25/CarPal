@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-        >
-</LinearLayout>
 
+<FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_gravity="left|bottom">
+        <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:id="@+id/btnSettings"/>
+        <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change group"
+                android:id="@+id/btnChangeGroup"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="285dp" android:layout_gravity="center_horizontal|top" android:weightSum="1"
+            android:id="@+id/linearlayout_Driver_Panel">
+
+        <ImageView android:layout_width="76dp" android:layout_height="76dp" android:id="@+id/imageviewThursdayDriver"
+                   android:layout_gravity="center_vertical"/>
+        <ImageView android:layout_width="76dp" android:layout_height="76dp" android:id="@+id/imageViewWednesdayDriver"
+                   android:layout_gravity="center_vertical"/>
+        <ImageView android:layout_width="76dp" android:layout_height="76dp" android:id="@+id/imageviewTuesdayDriver"
+                   android:layout_gravity="center_vertical"/>
+        <ImageView android:layout_width="76dp" android:layout_height="76dp" android:id="@+id/imageviewMondayDriver"
+                   android:layout_gravity="center_vertical"/>
+        <ImageView android:layout_width="76dp" android:layout_height="76dp" android:id="@+id/imageviewSundayDriver"
+                   android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+    <ListView
+            android:layout_width="190dp"
+            android:layout_height="211dp"
+            android:id="@+id/listviewPendingRequests" android:layout_gravity="right|bottom" android:layout_weight="0.78"/>
+</FrameLayout>
