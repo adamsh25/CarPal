@@ -37,8 +37,8 @@
             android:layout_height="match_parent" >
 
         <LinearLayout
-                style="@style/LoginFormContainer"
-                android:orientation="vertical" >
+                android:orientation="vertical" android:background="#A8D4E2" android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -50,19 +50,13 @@
                 <ImageView android:layout_width="100dp" android:layout_height="150dp"
                            android:id="@+id/imgPhoto" android:background="@drawable/adam"/>
 
-                <EditText
-                        android:id="@+id/txtFirstName"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="שם פרטי"
-                        android:imeActionId="@+id/login"
-                        android:imeActionLabel="@string/action_sign_in_short"
-                        android:imeOptions="actionUnspecified"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:layout_alignParentTop="true" android:layout_toRightOf="@id/imgPhoto"
-                        android:enabled="false" android:layout_alignParentEnd="false"
-                        android:layout_alignParentStart="false"/>
+                <include layout="@layout/textbox"
+                         android:id="@+id/txtFirstName"
+                         android:hint="שם פרטי"
+                         android:layout_toRightOf="@id/imgPhoto"
+                         android:layout_width="fill_parent"
+                         android:layout_height="wrap_content"/>
+
                 <EditText android:id="@+id/txtLastName" android:layout_width="fill_parent"
                           android:layout_height="wrap_content" android:hint="שם משפחה" android:imeActionId="@+id/login"
                           android:imeActionLabel="@string/action_sign_in_short" android:imeOptions="actionUnspecified"
@@ -100,7 +94,7 @@
                         android:imeOptions="actionUnspecified"
                         android:maxLines="1"
                         android:singleLine="true"
-                        android:layout_alignParentTop="true" android:layout_toRightOf="@id/btnCurrentLocation"
+                        android:layout_alignParentTop="true" android:layout_toRightOf="@+id/btnCurrentLocation"
                         android:enabled="false" android:layout_alignParentEnd="false"
                         android:layout_alignParentStart="false"/>
                 <EditText android:id="@+id/txtStreet" android:layout_width="fill_parent"
@@ -108,7 +102,7 @@
                           android:imeActionLabel="@string/action_sign_in_short" android:imeOptions="actionUnspecified"
                           android:maxLines="1" android:singleLine="true"
                           android:enabled="false"
-                          android:layout_below="@+id/txtCity" android:layout_toRightOf="@id/btnCurrentLocation"/>
+                          android:layout_below="@+id/txtCity" android:layout_toRightOf="@+id/btnCurrentLocation"/>
                 <EditText
                         android:id="@+id/txtHouseNumber"
                         android:layout_width="fill_parent"
