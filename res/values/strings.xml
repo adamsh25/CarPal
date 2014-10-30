@@ -4,4 +4,6 @@
     <string name="server_base_url">http://ip:port/</string>
     <string name="server_login_method">login</string>
     <string name="login_unexpected_error">Unexpected behavior while trying to log in, please try again.</string>
+    <string name="profile_status_message">Please Wait</string>
+    <string name="title_activity_profile">Complete your profile</string>
 </resources>

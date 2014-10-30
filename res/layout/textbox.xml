@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/textbox"
+            android:layout_alignTop="@+id/txtBox"
+            android:layout_alignBottom="@id/txtBox"
+            android:layout_alignLeft="@id/txtBox"
+            android:layout_alignRight="@id/txtBox"
+            />
+
+    <EditText
+            android:id="@+id/txtBox"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:layout_alignParentTop="true"/>
+
+</RelativeLayout>

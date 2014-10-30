@@ -3,14 +3,19 @@ package com.BooYa.CarPal;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.*;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends Activity implements View.OnClickListener{
+public class MainActivity extends Fragment implements View.OnClickListener {
 
     private ListView listviewPendingRequests;
     private Button btnSettings;
@@ -21,55 +26,47 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private ImageView imageviewMondayDriver;
     private ImageView imageviewSundayDriver;
     private ArrayList<PendingRequest> pendingRequestsList;
+    private View rootView;
 
     /**
      * Called when the activity is first created.
      */
+
+    //@Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.main);
+//        findViews();
+//        getPendingRequests();
+//        getWeeklyDrivers();
+//
+//    }
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState)
+    {
+
+        rootView = inflater.inflate(R.layout.main, container, false);
         findViews();
         getPendingRequests();
         getWeeklyDrivers();
         final Intent mServiceIntent = new Intent(getBaseContext(), NotificationService.class);
         startService(mServiceIntent);
+    
+
+        return rootView;
     }
-
-
-
-
-        static public class MyThread extends Thread {
-            @Override
-            public void run() {
-
-
-                //startService(mServiceIntent);
-
-            }
-        }
-
-
-
-
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
 
     private void findViews() {
-        listviewPendingRequests = (ListView) findViewById(R.id.listviewPendingRequests);
-        btnSettings = (Button) findViewById(R.id.btnSettings);
-        btnChangeGroup = (Button) findViewById(R.id.btnChangeGroup);
-        imageviewThursdayDriver = (ImageView) findViewById(R.id.imageviewThursdayDriver);
-        imageViewWednesdayDriver = (ImageView) findViewById(R.id.imageViewWednesdayDriver);
-        imageviewTuesdayDriver = (ImageView) findViewById(R.id.imageviewTuesdayDriver);
-        imageviewMondayDriver = (ImageView) findViewById(R.id.imageviewMondayDriver);
-        imageviewSundayDriver = (ImageView) findViewById(R.id.imageviewSundayDriver);
+        listviewPendingRequests = (ListView) rootView.findViewById(R.id.listviewPendingRequests);
+        btnSettings = (Button) rootView.findViewById(R.id.btnSettings);
+        btnChangeGroup = (Button) rootView.findViewById(R.id.btnChangeGroup);
+        imageviewThursdayDriver = (ImageView) rootView.findViewById(R.id.imageviewThursdayDriver);
+        imageViewWednesdayDriver = (ImageView) rootView.findViewById(R.id.imageViewWednesdayDriver);
+        imageviewTuesdayDriver = (ImageView) rootView.findViewById(R.id.imageviewTuesdayDriver);
+        imageviewMondayDriver = (ImageView) rootView.findViewById(R.id.imageviewMondayDriver);
+        imageviewSundayDriver = (ImageView) rootView.findViewById(R.id.imageviewSundayDriver);
 
         btnSettings.setOnClickListener(this);
         btnChangeGroup.setOnClickListener(this);
@@ -81,7 +78,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
         driverList.add(new WeeklyDriver("Barry","Zavodnik","1",1,0));
 
-        //driverList = DAL.populate_weekly_drivers;
+//        driverList = DAL.populate_weekly_drivers;
 //        Collections.sort(driverList, new WeeklyDriverOrderedScheduleComparator());
 //        imageviewSundayDriver.setImageBitmap(driverList.get(4).getDriverPicture());
 //        imageviewMondayDriver.setImageBitmap(driverList.get(3).getDriverPicture());
@@ -97,7 +94,6 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private void getPendingRequests()
     {
         pendingRequestsList = new ArrayList<PendingRequest>();
-
         //pendingRequestsList = DAL.populate_weekly_drivers;
 
 
@@ -113,8 +109,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         //---------------------
 
         UserCustomAdapter userAdapter;
-        userAdapter = new UserCustomAdapter(MainActivity.this, R.layout.row,
-                pendingRequestsList);
+        userAdapter = new UserCustomAdapter(rootView.getContext(), R.layout.row, pendingRequestsList);
         listviewPendingRequests.setItemsCanFocus(false);
         listviewPendingRequests.setAdapter(userAdapter);
         /**
@@ -125,7 +120,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
             @Override
             public void onItemClick(AdapterView<?> parent, View v,
                                     final int position, long id) {
-                Toast.makeText(MainActivity.this,
+                Toast.makeText(getView().getContext(),
                         "List View Clicked:" + position, Toast.LENGTH_LONG)
                         .show();
             }
