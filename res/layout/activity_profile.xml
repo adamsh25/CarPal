@@ -1,15 +1,9 @@
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
-       xmlns:tools="http://schemas.android.com/tools"
-       tools:context=".LoginActivity" >
-
-    <ScrollView
-            android:id="@+id/profile_form"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
         <LinearLayout
-                android:orientation="vertical" android:background="#E4E8F4" android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                tools:context=".ProfileActivity"
+                android:orientation="vertical" android:layout_width="fill_parent"
+                android:layout_height="fill_parent" android:background="#E4E8F4">
 
             <TextView
                     android:layout_width="wrap_content"
@@ -19,8 +13,8 @@
                     android:id="@+id/textView" android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="10dp" android:textColor="#262261"/>
             <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
-                <ImageView android:layout_width="100dp" android:layout_height="150dp"
-                           android:id="@+id/imgPhoto" android:background="@drawable/adam"
+                <ImageView android:layout_width="100dp" android:layout_height="100dp"
+                           android:id="@+id/imgPhoto" android:background="@drawable/adam2"
                            android:layout_marginLeft="10dp"/>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="fill_parent" android:orientation="vertical"
                               android:layout_toRightOf="@+id/imgPhoto"
@@ -37,21 +31,13 @@
                               android:maxLines="1" android:singleLine="true"
                               android:enabled="false"
                               android:layout_below="@+id/txtFirstName" android:layout_toRightOf="@id/imgPhoto"
-                              android:background="@drawable/textbox" android:gravity="center" android:text="מיכאל"
-                              android:textColor="#FFA6A6A6"/>
-                    <EditText android:id="@+id/txtLastName" android:layout_width="fill_parent"
-                              android:layout_height="30dp" android:hint="שם משפחה" android:imeActionId="@+id/login"
-                              android:imeActionLabel="@string/action_sign_in_short" android:imeOptions="actionUnspecified"
-                              android:maxLines="1" android:singleLine="true"
-                              android:enabled="false"
-                              android:layout_below="@+id/txtLastName" android:layout_toRightOf="@id/imgPhoto"
-                              android:background="@drawable/textbox" android:gravity="center"
-                              android:layout_marginTop="5dp"/>
+                              android:background="@drawable/textbox" android:gravity="center" android:text="אדם שריקי"
+                            />
                     <EditText
                             android:id="@+id/txtEmail"
                             android:layout_width="fill_parent"
                             android:layout_height="30dp"
-                            android:hint="מייל"
+                            android:hint="שעת תחילת עבודה"
                             android:inputType="none"
                             android:maxLines="1"
                             android:singleLine="true"
@@ -59,7 +45,7 @@
                             android:layout_toRightOf="@+id/imgPhoto" android:background="@drawable/textbox"
                             android:gravity="center" android:layout_marginTop="5dp"/>
                     <EditText android:id="@+id/txtOrganization" android:layout_width="fill_parent"
-                              android:layout_height="30dp" android:hint="ארגון"
+                              android:layout_height="30dp" android:hint="שעת סיום עבודה"
                               android:inputType="none" android:maxLines="1" android:singleLine="true"
                               android:enabled="false"
                               android:layout_below="@+id/txtEmail" android:layout_toRightOf="@id/imgPhoto"
@@ -70,8 +56,8 @@
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textAppearance="?android:attr/textAppearanceMedium"
                       android:text="מקום מגורים" android:id="@+id/textView2"
-                      android:layout_gravity="center_horizontal" android:paddingTop="20dp"
-                      android:layout_marginBottom="5dp" android:textColor="#262261"/>
+                      android:layout_gravity="center_horizontal" android:paddingTop="10dp"
+                      android:layout_marginBottom="5dp" android:textColor="#262261" android:layout_marginTop="10dp"/>
             <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <EditText
                         android:id="@+id/txtCity"
@@ -116,7 +102,7 @@
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textAppearance="?android:attr/textAppearanceMedium"
                       android:text="ימים מועדפים" android:id="@+id/txtPreferred"
-                      android:layout_gravity="center_horizontal" android:paddingTop="20dp" android:textColor="#262261"/>
+                      android:layout_gravity="center_horizontal" android:textColor="#262261" android:paddingTop="10dp"/>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
@@ -131,7 +117,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:id="@+id/cbxPrefferedFriday"/>
+                            android:id="@+id/cbxPrefferedFriday"
+                            android:background="@android:drawable/checkbox_off_background"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_margin="10dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -142,7 +129,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:id="@+id/cbxPrefferedThursday"/>
+                            android:id="@+id/cbxPrefferedThursday"
+                            android:background="@android:drawable/checkbox_off_background"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_margin="10dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -153,7 +141,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:id="@+id/cbxPrefferedWednesday"/>
+                            android:id="@+id/cbxPrefferedWednesday"
+                            android:background="@android:drawable/checkbox_off_background"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_margin="10dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -164,7 +153,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:id="@+id/cbxPrefferedTuesday"/>
+                            android:id="@+id/cbxPrefferedTuesday"
+                            android:background="@android:drawable/checkbox_off_background"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_margin="10dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -175,7 +165,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:id="@+id/cbxPrefferedMonday"/>
+                            android:id="@+id/cbxPrefferedMonday"
+                            android:background="@android:drawable/checkbox_off_background"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_margin="10dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -186,13 +177,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:id="@+id/cbxPrefferedSunday"/>
+                            android:id="@+id/cbxPrefferedSunday"
+                            android:background="@android:drawable/checkbox_off_background"/>
                 </LinearLayout>
             </LinearLayout>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textAppearance="?android:attr/textAppearanceMedium"
-                      android:text="ימים בלי אוטו" android:id="@+id/txtNotPreferred"
-                      android:layout_gravity="center_horizontal" android:paddingTop="20dp" android:textColor="#262261"/>
+                      android:text="ימים ללא אוטו" android:id="@+id/txtNotPreferred"
+                      android:layout_gravity="center_horizontal" android:paddingTop="10dp" android:textColor="#262261"/>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
@@ -207,7 +199,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:id="@+id/cbxNotPrefferedFriday"/>
+                            android:id="@+id/cbxNotPrefferedFriday"
+                            android:background="@android:drawable/checkbox_off_background"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_margin="10dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -218,7 +211,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:id="@+id/cbxNotPrefferedThursday"/>
+                            android:id="@+id/cbxNotPrefferedThursday"
+                            android:background="@android:drawable/checkbox_off_background"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_margin="10dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -229,7 +223,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:id="@+id/cbxNotPrefferedWednesday"/>
+                            android:id="@+id/cbxNotPrefferedWednesday"
+                            android:background="@android:drawable/checkbox_off_background"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_margin="10dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -240,7 +235,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:id="@+id/cbxNotNotPrefferedTuesday"/>
+                            android:id="@+id/cbxNotNotPrefferedTuesday"
+                            android:background="@android:drawable/checkbox_off_background"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_margin="10dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -251,7 +247,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:id="@+id/cbxNotPrefferedMonday"/>
+                            android:id="@+id/cbxNotPrefferedMonday"
+                            android:background="@android:drawable/checkbox_off_background"/>
                 </LinearLayout>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:layout_margin="10dp">
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -262,12 +259,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:id="@+id/cbxNotPrefferedSunday"/>
+                            android:id="@+id/cbxNotPrefferedSunday"
+                            android:background="@android:drawable/checkbox_off_background"/>
                 </LinearLayout>
             </LinearLayout>
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="מצא לי קבוצה"
+                    android:id="@+id/btnSave" android:layout_gravity="center_horizontal"
+                    android:onClick=""/>
 
 
         </LinearLayout>
-    </ScrollView>
-
-</merge>
