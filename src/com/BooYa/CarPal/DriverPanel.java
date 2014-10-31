@@ -119,6 +119,8 @@ public class DriverPanel extends Activity implements View.OnClickListener {
             startActivity(intent);
         } else if ( v == notifications ) {
             // Handle clicks for notifications
+            Intent intent = new Intent(this, BroadCastActivity.class);
+            startActivity(intent);
         } else if ( v == btnAchievements ) {
             // Handle clicks for btnAchievements
         }
