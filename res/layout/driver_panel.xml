@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:background="@drawable/background"
+                android:id="@+id/main_relative">
+
+    <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/imageView"
+            android:background="@drawable/beeri_circle"
+            android:layout_alignBottom="@+id/listView" android:layout_toRightOf="@+id/btn_groupProfile"
+            android:visibility="invisible"
+            android:layout_marginBottom="40dp"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="63dp"
+            android:id="@+id/btn_privateProfile"
+            android:background="@android:color/transparent"
+            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+            />
+
+    <Button android:layout_width="wrap_content" android:layout_height="63dp"
+            android:id="@+id/btn_groupProfile"
+            android:background="@android:color/transparent"
+            android:layout_alignParentTop="true" android:layout_toRightOf="@+id/btn_privateProfile"
+            />
+
+    <Button android:layout_width="wrap_content" android:layout_height="63dp"
+            android:id="@+id/btn_main"
+            android:background="@android:color/transparent"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/notifications" android:layout_toRightOf="@+id/btn_groupProfile"/>
+    <Button android:layout_width="wrap_content" android:layout_height="63dp"
+            android:id="@+id/notifications"
+            android:background="@android:color/transparent"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/btnAchievements"/>
+    <Button android:layout_width="wrap_content" android:layout_height="63dp"
+            android:id="@+id/btnAchievements"
+            android:background="@android:color/transparent"
+            android:layout_alignParentTop="true" android:layout_alignParentRight="true"
+            />
+    <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:id="@+id/listView"
+            android:layout_below="@+id/btnAchievements" android:layout_marginTop="320dp"/>
+</RelativeLayout>

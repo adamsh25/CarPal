@@ -98,13 +98,13 @@ public class MainActivity extends Fragment implements View.OnClickListener {
 
 
         //---------------------
-        pendingRequestsList.add(new PendingRequest(1,"a"));
-        pendingRequestsList.add(new PendingRequest(1,"b"));
-        pendingRequestsList.add(new PendingRequest(1,"c"));
-        pendingRequestsList.add(new PendingRequest(1,"d"));
-        pendingRequestsList.add(new PendingRequest(1,"e"));
-        pendingRequestsList.add(new PendingRequest(1,"f"));
-        pendingRequestsList.add(new PendingRequest(1,"g"));
+//        pendingRequestsList.add(new PendingRequest(1,"a"));
+//        pendingRequestsList.add(new PendingRequest(1,"b"));
+//        pendingRequestsList.add(new PendingRequest(1,"c"));
+//        pendingRequestsList.add(new PendingRequest(1,"d"));
+//        pendingRequestsList.add(new PendingRequest(1,"e"));
+//        pendingRequestsList.add(new PendingRequest(1,"f"));
+//        pendingRequestsList.add(new PendingRequest(1,"g"));
 
         //---------------------
 
