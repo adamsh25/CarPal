@@ -38,7 +38,8 @@ public class DriverPanel extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.driver_panel);
         getActionBar().hide();
-
+        final Intent mServiceIntent = new Intent(this, NotificationService.class);
+        this.startService(mServiceIntent);
         findViews();
 
         getPendingRequests();
