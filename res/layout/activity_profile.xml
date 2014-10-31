@@ -2,35 +2,6 @@
        xmlns:tools="http://schemas.android.com/tools"
        tools:context=".LoginActivity" >
 
-    <!-- Login progress -->
-
-    <LinearLayout
-            android:id="@+id/profile_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:visibility="gone" >
-
-        <ProgressBar
-                style="?android:attr/progressBarStyleLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
-
-        <TextView
-                android:id="@+id/profile_status_message"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:fontFamily="sans-serif-light"
-                android:text="@string/profile_status_message"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-    </LinearLayout>
-
-    <!-- Login form -->
-
     <ScrollView
             android:id="@+id/profile_form"
             android:layout_width="match_parent"
@@ -48,36 +19,51 @@
                     android:id="@+id/textView" android:layout_gravity="center_horizontal"/>
             <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <ImageView android:layout_width="100dp" android:layout_height="150dp"
-                           android:id="@+id/imgPhoto" android:background="@drawable/adam"/>
+                           android:id="@+id/imgPhoto" android:background="@drawable/adam"
+                           android:layout_marginLeft="10dp"/>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="fill_parent" android:orientation="vertical"
+                              android:layout_toRightOf="@+id/imgPhoto"
+                              android:layout_alignParentTop="false"
+                              android:layout_alignParentLeft="false" android:layout_alignParentEnd="false"
+                              android:layout_alignParentStart="false"
+                              android:layout_marginRight="10dp" android:layout_alignBottom="@+id/imgPhoto"
+                              android:layout_centerVertical="true" android:gravity="center_vertical"
+                              android:layout_marginLeft="15dp">
 
-                <include layout="@layout/textbox"
-                         android:id="@+id/txtFirstName"
-                         android:hint="שם פרטי"
-                         android:layout_toRightOf="@id/imgPhoto"
-                         android:layout_width="fill_parent"
-                         android:layout_height="wrap_content"/>
-
-                <EditText android:id="@+id/txtLastName" android:layout_width="fill_parent"
-                          android:layout_height="wrap_content" android:hint="שם משפחה" android:imeActionId="@+id/login"
-                          android:imeActionLabel="@string/action_sign_in_short" android:imeOptions="actionUnspecified"
-                          android:maxLines="1" android:singleLine="true"
-                          android:enabled="false"
-                          android:layout_below="@+id/txtFirstName" android:layout_toRightOf="@id/imgPhoto"/>
-                <EditText
-                        android:id="@+id/txtEmail"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="מייל"
-                        android:inputType="none"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:enabled="false" android:layout_below="@+id/txtLastName"
-                        android:layout_toRightOf="@+id/imgPhoto"/>
-                <EditText android:id="@+id/txtOrganization" android:layout_width="fill_parent"
-                          android:layout_height="wrap_content" android:hint="ארגון"
-                          android:inputType="none" android:maxLines="1" android:singleLine="true"
-                          android:enabled="false"
-                          android:layout_below="@+id/txtEmail" android:layout_toRightOf="@id/imgPhoto"/>
+                    <EditText android:id="@+id/txtFirstName" android:layout_width="fill_parent"
+                              android:layout_height="30dp" android:hint="שם פרטי" android:imeActionId="@+id/login"
+                              android:imeActionLabel="@string/action_sign_in_short" android:imeOptions="actionUnspecified"
+                              android:maxLines="1" android:singleLine="true"
+                              android:enabled="false"
+                              android:layout_below="@+id/txtFirstName" android:layout_toRightOf="@id/imgPhoto"
+                              android:background="@drawable/textbox" android:gravity="center"/>
+                    <EditText android:id="@+id/txtLastName" android:layout_width="fill_parent"
+                              android:layout_height="30dp" android:hint="שם משפחה" android:imeActionId="@+id/login"
+                              android:imeActionLabel="@string/action_sign_in_short" android:imeOptions="actionUnspecified"
+                              android:maxLines="1" android:singleLine="true"
+                              android:enabled="false"
+                              android:layout_below="@+id/txtLastName" android:layout_toRightOf="@id/imgPhoto"
+                              android:background="@drawable/textbox" android:gravity="center"
+                              android:layout_marginTop="5dp"/>
+                    <EditText
+                            android:id="@+id/txtEmail"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:hint="מייל"
+                            android:inputType="none"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:enabled="false" android:layout_below="@+id/txtLastName"
+                            android:layout_toRightOf="@+id/imgPhoto" android:background="@drawable/textbox"
+                            android:gravity="center" android:layout_marginTop="5dp"/>
+                    <EditText android:id="@+id/txtOrganization" android:layout_width="fill_parent"
+                              android:layout_height="30dp" android:hint="ארגון"
+                              android:inputType="none" android:maxLines="1" android:singleLine="true"
+                              android:enabled="false"
+                              android:layout_below="@+id/txtEmail" android:layout_toRightOf="@id/imgPhoto"
+                              android:background="@drawable/textbox" android:gravity="center"
+                              android:layout_marginTop="5dp"/>
+                </LinearLayout>
             </RelativeLayout>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textAppearance="?android:attr/textAppearanceMedium"
@@ -87,7 +73,7 @@
                 <EditText
                         android:id="@+id/txtCity"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:hint="עיר"
                         android:imeActionId="@+id/login"
                         android:imeActionLabel="@string/action_sign_in_short"
@@ -95,24 +81,30 @@
                         android:maxLines="1"
                         android:singleLine="true"
                         android:layout_alignParentTop="true" android:layout_toRightOf="@+id/btnCurrentLocation"
-                        android:enabled="false" android:layout_alignParentEnd="false"
-                        android:layout_alignParentStart="false"/>
-                <EditText android:id="@+id/txtStreet" android:layout_width="fill_parent"
-                          android:layout_height="wrap_content" android:hint="רחוב" android:imeActionId="@+id/login"
+                        android:enabled="false"
+                        android:layout_alignParentStart="false" android:background="@drawable/textbox"
+                        android:layout_marginLeft="10dp" android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp" android:gravity="center"/>
+                <AutoCompleteTextView android:id="@+id/txtStreet" android:layout_width="fill_parent"
+                          android:layout_height="35dp" android:hint="רחוב" android:imeActionId="@+id/login"
                           android:imeActionLabel="@string/action_sign_in_short" android:imeOptions="actionUnspecified"
                           android:maxLines="1" android:singleLine="true"
                           android:enabled="false"
-                          android:layout_below="@+id/txtCity" android:layout_toRightOf="@+id/btnCurrentLocation"/>
+                          android:layout_below="@+id/txtCity"
+                          android:background="@drawable/textbox" android:layout_alignLeft="@+id/txtCity"
+                          android:layout_alignRight="@+id/txtCity" android:gravity="center"/>
                 <EditText
                         android:id="@+id/txtHouseNumber"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:hint="מייל"
                         android:inputType="none"
                         android:maxLines="1"
                         android:singleLine="true"
                         android:enabled="false" android:layout_below="@id/txtStreet"
-                        android:layout_toRightOf="@+id/btnCurrentLocation"/>
+                        android:background="@drawable/textbox" android:layout_alignLeft="@+id/txtStreet"
+                        android:layout_alignRight="@+id/txtStreet" android:layout_marginTop="5dp"
+                        android:gravity="center"/>
                 <Button
                         android:layout_width="50dp"
                         android:layout_height="50dp"
