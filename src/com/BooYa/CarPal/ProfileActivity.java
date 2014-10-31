@@ -1,6 +1,7 @@
 package com.BooYa.CarPal;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -44,6 +45,6 @@ public class ProfileActivity extends Activity {
     }
 
     public void Save() {
-
+        startActivity(new Intent(this));
     }
 }
