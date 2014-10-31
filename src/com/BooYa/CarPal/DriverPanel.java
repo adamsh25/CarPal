@@ -50,9 +50,9 @@ public class DriverPanel extends Activity implements View.OnClickListener {
         pendingRequestsList = new ArrayList<PendingRequest>();
         //pendingRequestsList = DAL.populate_weekly_drivers;
         //---------------------
-        pendingRequestsList.add(new PendingRequest(1,"a", BitmapFactory.decodeResource(getResources(), R.drawable.poc)));
-        pendingRequestsList.add(new PendingRequest(1,"b", BitmapFactory.decodeResource(getResources(), R.drawable.poc)));
-        pendingRequestsList.add(new PendingRequest(1,"c", BitmapFactory.decodeResource(getResources(), R.drawable.poc)));
+        pendingRequestsList.add(new PendingRequest(1,"a", BitmapFactory.decodeResource(getResources(), R.drawable.rony_last)));
+        pendingRequestsList.add(new PendingRequest(1,"b", BitmapFactory.decodeResource(getResources(), R.drawable.alert2_last)));
+        pendingRequestsList.add(new PendingRequest(1,"c", BitmapFactory.decodeResource(getResources(), R.drawable.alert3_last)));
 
         //---------------------
         userAdapter = new UserCustomAdapter(this, R.layout.row, pendingRequestsList);
