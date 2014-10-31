@@ -21,6 +21,7 @@ import java.util.List;
 public class DriverPanel extends Activity implements View.OnClickListener {
 
     private ImageView imageviewTabs;
+    public static ImageView imageView;
     private Button btnPrivateProfile;
     private Button btnGroupProfile;
     private Button btnMain;
@@ -59,62 +60,26 @@ public class DriverPanel extends Activity implements View.OnClickListener {
 
         final Animation anim = AnimationUtils.loadAnimation(this, R.anim.fade_anim);
 
-        /**
-         * get on item click listener
-         */
-//        listviewPendingRequests.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//        listviewPendingRequests.setOnItemClickListener(new AdapterView.OnItemClickListener()
+//        {
 //
 //            @Override
-//            public void onItemClick(AdapterView<?> parent, View v,
-//                                    final int position, long id) {
-//                Toast.makeText(getApplicationContext(),
-//                        "List View Clicked:" + position, Toast.LENGTH_LONG)
-//                        .show();
+//            public void onItemClick(AdapterView<?> adapterView, View view, final int position,
+//                                    long id)
+//            {
 //
 //
+//                PendingRequest item = userAdapter.getItem(position);
+//                userAdapter.remove(item);
 //            }
 //        });
-        listviewPendingRequests.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, final int position,
-                                    long id)
-            {
-
-                anim.setAnimationListener(new Animation.AnimationListener() {
-
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                        //view.setHasTransientState(true);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        PendingRequest item = userAdapter.getItem(position);
-                        userAdapter.remove(item);
-                        //view.setHasTransientState(false);
-                    }
-                });
-                RelativeLayout r = (RelativeLayout) ((ViewGroup) view.getParent()).getParent();
-
-                DriverPanel.listviewPendingRequests.getAdapter().getView(0,null,null).startAnimation(anim);
-                //view.startAnimation(anim);
-            }
-        });
 
 
     }
 
 
     private void findViews() {
+        imageView = (ImageView)findViewById( R.id.imageView );
         imageviewTabs = (ImageView)findViewById( R.id.imageview_tabs );
         btnPrivateProfile = (Button)findViewById( R.id.btn_privateProfile );
         btnGroupProfile = (Button)findViewById( R.id.btn_groupProfile );
@@ -122,7 +87,6 @@ public class DriverPanel extends Activity implements View.OnClickListener {
         notifications = (Button)findViewById( R.id.notifications );
         btnAchievements = (Button)findViewById( R.id.btnAchievements );
         listviewPendingRequests = (ListView) findViewById(R.id.listView);
-
 
         btnPrivateProfile.setOnClickListener( this );
         btnGroupProfile.setOnClickListener( this );

@@ -33,21 +33,24 @@ public class UserCustomAdapter extends ArrayAdapter<PendingRequest> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View row = convertView;
+    public View getView(final int position, View convertView, ViewGroup parent) {
         UserHolder holder = null;
 
-        if (row == null) {
-            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-            row = inflater.inflate(layoutResourceId, parent, false);
-            holder = new UserHolder();
-            holder.btnCancel = (ImageButton) row.findViewById(R.id.btnCancel);
-            holder.btnAccept = (ImageButton) row.findViewById(R.id.btnAccept);
-            holder.imageviewNotification = (ImageView)row.findViewById(R.id.imageView);
-            row.setTag(holder);
-        } else
+        if (convertView == null)
         {
-            holder = (UserHolder) row.getTag();
+            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+            convertView = inflater.inflate(layoutResourceId, null);
+            holder = new UserHolder();
+            holder.btnCancel = (ImageButton) convertView.findViewById(R.id.btnCancel);
+            holder.btnAccept = (ImageButton) convertView.findViewById(R.id.btnAccept);
+            holder.imageviewNotification = (ImageView)convertView.findViewById(R.id.imageView);
+            holder.imageviewNotification.setImageBitmap(data.get(position).getNotificationPic());
+            convertView.setTag(holder);
+        }
+        else
+        {
+            holder = (UserHolder) convertView.getTag();
+            holder.imageviewNotification.setImageBitmap(data.get(position).getNotificationPic());
         }
         PendingRequest pendingRequest = data.get(position);
         holder.btnCancel.setOnClickListener(new OnClickListener() {
@@ -58,33 +61,8 @@ public class UserCustomAdapter extends ArrayAdapter<PendingRequest> {
                 Toast.makeText(context, "You Rejected the offer",
                         Toast.LENGTH_LONG).show();
 
-                anim.setAnimationListener(new Animation.AnimationListener() {
-
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                        view.setHasTransientState(true);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        PendingRequest item = DriverPanel.userAdapter.getItem(0);
-                        DriverPanel.userAdapter.remove(item);
-                        view.setHasTransientState(false);
-                    }
-                });
-
-                //RelativeLayout r = (RelativeLayout) ((ViewGroup) view.getParent()).getParent();
-
-                view.startAnimation(anim);
-
-
+                PendingRequest item = DriverPanel.userAdapter.getItem(position);
+                DriverPanel.userAdapter.remove(item);
 
             }
         });
@@ -95,11 +73,17 @@ public class UserCustomAdapter extends ArrayAdapter<PendingRequest> {
                 // TODO Auto-generated method stub
                 Toast.makeText(context, "You Accepted the offer",
                         Toast.LENGTH_LONG).show();
+
+                PendingRequest item = DriverPanel.userAdapter.getItem(position);
+                DriverPanel.userAdapter.remove(item);
+                DriverPanel.imageView.setVisibility(View.VISIBLE);
             }
         });
-        return row;
+        return convertView;
 
     }
+
+
 
     static class UserHolder {
         ImageButton btnCancel;

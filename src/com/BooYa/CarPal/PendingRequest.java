@@ -24,6 +24,10 @@ public class PendingRequest
         return request_id;
     }
 
+    public Bitmap getNotificationPic() {
+        return notificationPicture;
+    }
+
     public void setRequest_id(int request_id) {
         this.request_id = request_id;
     }
