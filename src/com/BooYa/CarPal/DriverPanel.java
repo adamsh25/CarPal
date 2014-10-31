@@ -48,13 +48,11 @@ public class DriverPanel extends Activity implements View.OnClickListener {
         pendingRequestsList = new ArrayList<PendingRequest>();
         //pendingRequestsList = DAL.populate_weekly_drivers;
         //---------------------
-        pendingRequestsList.add(new PendingRequest(1,"a", BitmapFactory.decodeResource(getResources(), R.drawable.alerts1_01)));
-        pendingRequestsList.add(new PendingRequest(1,"b", BitmapFactory.decodeResource(getResources(), R.drawable.alerts2_01)));
-        pendingRequestsList.add(new PendingRequest(1,"c", BitmapFactory.decodeResource(getResources(), R.drawable.alerts3_01)));
+        pendingRequestsList.add(new PendingRequest(1,"a", BitmapFactory.decodeResource(getResources(), R.drawable.alertroni)));
+        pendingRequestsList.add(new PendingRequest(1,"b", BitmapFactory.decodeResource(getResources(), R.drawable.alertparking)));
+        pendingRequestsList.add(new PendingRequest(1,"c", BitmapFactory.decodeResource(getResources(), R.drawable.alertspageti)));
 
         //---------------------
-
-
         userAdapter = new UserCustomAdapter(this, R.layout.row, pendingRequestsList);
         listviewPendingRequests.setItemsCanFocus(false);
         listviewPendingRequests.setAdapter(userAdapter);
@@ -80,7 +78,7 @@ public class DriverPanel extends Activity implements View.OnClickListener {
         {
 
             @Override
-            public void onItemClick(AdapterView<?> adapterView, final View view, final int position,
+            public void onItemClick(AdapterView<?> adapterView, View view, final int position,
                                     long id)
             {
 
@@ -89,7 +87,7 @@ public class DriverPanel extends Activity implements View.OnClickListener {
                     @Override
                     public void onAnimationStart(Animation animation) {
 
-                        view.setHasTransientState(true);
+                        //view.setHasTransientState(true);
                     }
 
                     @Override
@@ -102,7 +100,7 @@ public class DriverPanel extends Activity implements View.OnClickListener {
                     public void onAnimationEnd(Animation animation) {
                         PendingRequest item = userAdapter.getItem(position);
                         userAdapter.remove(item);
-                        view.setHasTransientState(false);
+                        //view.setHasTransientState(false);
                     }
                 });
                 RelativeLayout r = (RelativeLayout) ((ViewGroup) view.getParent()).getParent();
@@ -141,9 +139,13 @@ public class DriverPanel extends Activity implements View.OnClickListener {
      */
     @Override
     public void onClick(View v) {
-        if ( v == btnPrivateProfile ) {
+        if ( v == btnPrivateProfile )
+        {
+            Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
             // Handle clicks for btnPrivateProfile
-        } else if ( v == btnGroupProfile ) {
+        } else if ( v == btnGroupProfile )
+        {
             // Handle clicks for btnGroupProfile
         } else if ( v == btnMain ) {
             Intent intent = new Intent(this, DriverPanel.class);

@@ -55,8 +55,7 @@ public class UserCustomAdapter extends ArrayAdapter<PendingRequest> {
             @Override
             public void onClick(final View view) {
                 // TODO Auto-generated method stub
-                Log.i("Edit Button Clicked", "**********");
-                Toast.makeText(context, "Edit button Clicked",
+                Toast.makeText(context, "You Rejected the offer",
                         Toast.LENGTH_LONG).show();
 
                 anim.setAnimationListener(new Animation.AnimationListener() {
@@ -94,8 +93,7 @@ public class UserCustomAdapter extends ArrayAdapter<PendingRequest> {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Log.i("Delete Button Clicked", "**********");
-                Toast.makeText(context, "Delete button Clicked",
+                Toast.makeText(context, "You Accepted the offer",
                         Toast.LENGTH_LONG).show();
             }
         });
