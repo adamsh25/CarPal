@@ -59,7 +59,7 @@ public class UserCustomAdapter extends ArrayAdapter<PendingRequest> {
             @Override
             public void onClick(final View view) {
                 // TODO Auto-generated method stub
-                Toast.makeText(context, "You Rejected the offer",
+                Toast.makeText(context, "ויתרת על ההצעה!",
                         Toast.LENGTH_LONG).show();
 
                 PendingRequest item = DriverPanel.userAdapter.getItem(position);
@@ -72,7 +72,7 @@ public class UserCustomAdapter extends ArrayAdapter<PendingRequest> {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Toast.makeText(context, "You Accepted the offer",
+                Toast.makeText(context, "הסכמת להצעה!",
                         Toast.LENGTH_LONG).show();
 
                 PendingRequest item = DriverPanel.userAdapter.getItem(position);

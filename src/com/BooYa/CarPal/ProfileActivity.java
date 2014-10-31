@@ -1,14 +1,13 @@
 package com.BooYa.CarPal;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.*;
 
 import java.io.InputStream;
+import java.sql.Driver;
 import java.util.ArrayList;
 
 public class ProfileActivity extends Activity {
@@ -41,9 +40,14 @@ public class ProfileActivity extends Activity {
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, streetNames.toArray(new String[streets.size()]));
         textView.setAdapter(adapter);
-    }
 
-    public void Save() {
+        Button clickButton = (Button) findViewById(R.id.btnSave);
+        clickButton.setOnClickListener( new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), DriverPanel.class));
+            }
+        });
     }
 }
