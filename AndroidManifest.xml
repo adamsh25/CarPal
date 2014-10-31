@@ -14,6 +14,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfileActivity" android:label="ProfileActivity" android:exported="true" android:theme="@android:style/Theme.Holo.Light.NoActionBar"/>
+        <activity android:name=".BroadCastActivity" android:label="BroadCastActivity" android:exported="true"/>
         <service android:enabled="true" android:name=".NotificationService"  />
         <receiver android:name="ButtonListener" />
 

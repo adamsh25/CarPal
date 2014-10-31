@@ -1,0 +1,123 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:tools="http://schemas.android.com/tools"
+       tools:context=".LoginActivity" >
+
+    <ScrollView
+            android:id="@+id/profile_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+        <LinearLayout
+                android:orientation="vertical" android:background="#A8D4E2" android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="דווח על נסיעה חדשה לעובדי החברה"
+                    android:id="@+id/textView1" android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"/>
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <ImageView android:layout_width="100dp" android:layout_height="150dp"
+                           android:id="@+id/imgPhoto1" android:background="@drawable/logo_new"
+                           android:layout_marginLeft="10dp"/>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="fill_parent" android:orientation="vertical"
+                              android:layout_toRightOf="@+id/imgPhoto1"
+                              android:layout_alignParentTop="false"
+                              android:layout_alignParentLeft="false" android:layout_alignParentEnd="false"
+                              android:layout_alignParentStart="false"
+                              android:layout_marginRight="10dp" android:layout_alignBottom="@+id/imgPhoto1"
+                              android:layout_centerVertical="true" android:gravity="center_vertical"
+                              android:layout_marginLeft="15dp">
+
+                    <EditText android:id="@+id/txtFirstName" android:layout_width="fill_parent"
+                              android:layout_height="30dp" android:hint="מספר מקומות פנויים ברכב" android:imeActionId="@+id/login1"
+                              android:imeActionLabel="@string/action_sign_in_short" android:imeOptions="actionUnspecified"
+                              android:maxLines="1" android:singleLine="true"
+                              android:enabled="true"
+                              android:layout_below="@+id/txtFirstName1" android:layout_toRightOf="@id/imgPhoto1"
+                              android:background="@drawable/textbox" android:gravity="center"
+                              android:textColor="#FFA6A6A6"/>
+
+                    <EditText
+                            android:id="@+id/txtEmail1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="30dp"
+                            android:hint="שעת יציאה"
+                            android:inputType="none"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:enabled="true" android:layout_below="@+id/txtLastName1"
+                            android:layout_toRightOf="@+id/imgPhoto1" android:background="@drawable/textbox"
+                            android:gravity="center" android:layout_marginTop="5dp" android:textColor="#FFA6A6A6"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textAppearance="?android:attr/textAppearanceMedium"
+                      android:text="יעד" android:id="@+id/textView21"
+                      android:layout_gravity="center_horizontal" android:paddingTop="20dp"
+                      android:layout_marginBottom="5dp"/>
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <EditText
+                        android:id="@+id/txtCity1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="35dp"
+                        android:hint="עיר"
+                        android:imeActionId="@+id/login1"
+                        android:imeActionLabel="@string/action_sign_in_short"
+                        android:imeOptions="actionUnspecified"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:layout_alignParentTop="true" android:layout_toRightOf="@+id/btnCurrentLocation1"
+                        android:layout_alignParentStart="false" android:background="@drawable/textbox"
+                        android:layout_marginLeft="10dp" android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp" android:gravity="center" android:textColor="#FFA6A6A6"/>
+                <AutoCompleteTextView android:id="@+id/txtStreet1" android:layout_width="fill_parent"
+                                      android:layout_height="35dp" android:hint="רחוב" android:imeActionId="@+id/login1"
+                                      android:imeActionLabel="@string/action_sign_in_short" android:imeOptions="actionUnspecified"
+                                      android:maxLines="1" android:singleLine="true"
+                                      android:layout_below="@+id/txtCity1"
+                                      android:background="@drawable/textbox" android:layout_alignLeft="@+id/txtCity1"
+                                      android:layout_alignRight="@+id/txtCity1" android:gravity="center"
+                                      android:textColor="#FFA6A6A6"/>
+                <EditText
+                        android:id="@+id/txtHouseNumber1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="35dp"
+                        android:hint="מספר בית"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:singleLine="true" android:layout_below="@id/txtStreet1"
+                        android:background="@drawable/textbox" android:layout_alignLeft="@+id/txtStreet1"
+                        android:layout_alignRight="@+id/txtStreet1" android:layout_marginTop="5dp"
+                        android:gravity="center" android:textColor="#FFA6A6A6"/>
+                <Button
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:id="@+id/btnCurrentLocation1" android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:background="@android:drawable/ic_menu_mylocation"/>
+            </RelativeLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textAppearance="?android:attr/textAppearanceMedium"
+                      android:text="הפץ" android:id="@+id/textView211"
+                      android:layout_gravity="center_horizontal" android:paddingTop="20dp"
+                      android:layout_marginBottom="5dp"/>
+
+            <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/btnCurrentLocation12"
+                    android:background="@android:drawable/ic_btn_speak_now"
+                    android:layout_gravity="center_horizontal" android:paddingTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:onClick=""
+                    />
+
+        </LinearLayout>
+    </ScrollView>
+
+</merge>
