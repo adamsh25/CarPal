@@ -6,7 +6,8 @@ package com.BooYa.CarPal;
 public enum NotificationTypeEnum
 {
     ASK_TO_APPROVE_TOMORROW_CARPAL(" נקבע לך לנהוג מחר, האם תוכל? ", 0),
-    USER_CANCEL_CARPAL(" ביטל את הנסיעה למחר, האם תהיה מעוניין להחליפו? ", 1)
+    USER_CANCEL_CARPAL(" ביטל את הנסיעה למחר, האם תהיה מעוניין להחליפו? ", 1),
+    USER_GOT_PRESENT("הקבוצה שלך נותנת לסביבה, ולכן הסביבה מחזירה לה.", 2)
     ;
 
     private String stringValue;

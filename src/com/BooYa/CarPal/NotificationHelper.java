@@ -22,10 +22,23 @@ public class NotificationHelper
         switch (notificationType)
         {
             case USER_CANCEL_CARPAL:
+                notification.addAction (R.drawable.yesbutton,
+                    "", piYes)
+                    .addAction (R.drawable.nobutton,
+                            "", piNo);
+
             break;
 
             case ASK_TO_APPROVE_TOMORROW_CARPAL:
+                notification.addAction (R.drawable.yesbutton,
+                        "", piYes)
+                        .addAction (R.drawable.nobutton,
+                                "", piNo);
             break;
+
+            case USER_GOT_PRESENT:
+                notification.setAutoCancel(true);
+                break;
 
             default:
                 break;
@@ -42,10 +55,6 @@ public class NotificationHelper
                         .bigText(carPalNotification.get_mText()))
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setLargeIcon(bit)
-                .addAction (R.drawable.yesbutton,
-                        "", piYes)
-                .addAction (R.drawable.nobutton,
-                        "", piNo)
                 .build();
 
     }

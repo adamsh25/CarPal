@@ -51,8 +51,8 @@ public class MainActivity extends Fragment implements View.OnClickListener {
         findViews();
         getPendingRequests();
         getWeeklyDrivers();
-        final Intent mServiceIntent = new Intent(getBaseContext(), NotificationService.class);
-        startService(mServiceIntent);
+        final Intent mServiceIntent = new Intent(this.getActivity().getBaseContext(), NotificationService.class);
+        this.getActivity().startService(mServiceIntent);
     
 
         return rootView;

@@ -22,6 +22,8 @@ public class NotificationService extends Service
     private static boolean isCancel = false;
     private static final String USER_NAME = "אדם";
     private static final String OTHER_USER_NAME = "רוני";
+    private static final String PRESENT = " אחוזת החוף מעניקה לך 50 אחוז הנחה על חנייה. לחץ עלי לקבלת ההטבה. ";
+    private static final String PRESENT_URL = "http://www.ahuzot.co.il/Parking/";
 
     @Override
     public IBinder onBind(Intent intent)
@@ -33,7 +35,6 @@ public class NotificationService extends Service
     public void onCreate()
     {
         _service = this;
-        Toast.makeText(this, "Congrats! MyService Created", Toast.LENGTH_LONG).show();
         Log.d(TAG, "onCreate");
 
     }
@@ -49,7 +50,6 @@ public class NotificationService extends Service
     @Override
     public void onDestroy()
     {
-        Toast.makeText(this, "MyService Stopped", Toast.LENGTH_LONG).show();
         Log.d(TAG, "onDestroy");
     }
 
@@ -60,9 +60,9 @@ public class NotificationService extends Service
         final List<CarPalNotification> notificationsObjects = new ArrayList<CarPalNotification>();
         Calendar c = Calendar.getInstance();
         int seconds = c.get(Calendar.SECOND);
-        notificationsObjects.add(new CarPalNotification(0,USER_NAME + NotificationTypeEnum.ASK_TO_APPROVE_TOMORROW_CARPAL.toString()));
-        notificationsObjects.add(new CarPalNotification(1,OTHER_USER_NAME + NotificationTypeEnum.USER_CANCEL_CARPAL));
-
+        notificationsObjects.add(new CarPalNotification(NotificationTypeEnum.ASK_TO_APPROVE_TOMORROW_CARPAL.ordinal(),USER_NAME + NotificationTypeEnum.ASK_TO_APPROVE_TOMORROW_CARPAL.toString()));
+        notificationsObjects.add(new CarPalNotification(NotificationTypeEnum.USER_CANCEL_CARPAL.ordinal(), OTHER_USER_NAME + NotificationTypeEnum.USER_CANCEL_CARPAL));
+        notificationsObjects.add(new CarPalNotification(NotificationTypeEnum.USER_GOT_PRESENT.ordinal(),NotificationTypeEnum.USER_GOT_PRESENT.toString() + PRESENT, PRESENT_URL));
         return notificationsObjects;
     }
 
@@ -74,9 +74,12 @@ public class NotificationService extends Service
         {
             CarPalNotification notificationDataObject = (CarPalNotification) notificationsObjects.get(i);
             NotificationTypeEnum typeEnum = NotificationTypeEnum.values()[notificationDataObject.get_mTypeId()];
-            Intent notificationIntent = new Intent(_service, MainActivity.class);
+            Intent notificationIntent = new Intent(_service, ButtonListener.class);
+            notificationIntent.putExtra("URL", PRESENT_URL);
 
-            PendingIntent pendingIntent = PendingIntent.getActivity(_service, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            notificationIntent.setAction(notificationDataObject.get_mTypeId()+"");
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(_service, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
             Notification.Builder notificationBuilder = new Notification.Builder(_service.getApplicationContext());
 
 
@@ -100,7 +103,7 @@ public class NotificationService extends Service
             manager.notify(i, notification);
             try
             {
-                Thread.sleep(50000);
+                Thread.sleep(8000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -8,6 +8,7 @@ public class CarPalNotification
     private int _mTypeId;
     private String _mTitle;
     private String _mText;
+    private String _mURL;
 
 
     private CarPalNotification()
@@ -22,6 +23,12 @@ public class CarPalNotification
     {
         this._mTypeId = _mTypeId;
         this.set_mText(_notificationText);
+    }
+    public CarPalNotification(int _mTypeId, String _notificationText, String URL)
+    {
+        this._mTypeId = _mTypeId;
+        this.set_mText(_notificationText);
+        this.set_mURL(URL);
     }
 
 
@@ -47,5 +54,13 @@ public class CarPalNotification
 
     public void set_mTitle(String _mTitle) {
         this._mTitle = _mTitle;
+    }
+
+    public String get_mURL() {
+        return _mURL;
+    }
+
+    public void set_mURL(String _mURL) {
+        this._mURL = _mURL;
     }
 }
