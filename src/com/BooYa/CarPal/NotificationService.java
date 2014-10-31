@@ -22,7 +22,7 @@ public class NotificationService extends Service
     private static boolean isCancel = false;
     private static final String USER_NAME = "אדם";
     private static final String OTHER_USER_NAME = "רוני";
-    private static final String PRESENT = " אחוזת החוף מעניקה לך 50 אחוז הנחה על חנייה. לחץ עלי לקבלת ההטבה. ";
+    private static final String PRESENT = " אחוזת החוף מעניקה לך 50 אחוז הנחה על חנייה. לחץ לקבלת הטבה. ";
     private static final String PRESENT_URL = "http://www.ahuzot.co.il/Parking/";
 
     @Override
