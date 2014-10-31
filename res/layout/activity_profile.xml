@@ -8,7 +8,7 @@
             android:layout_height="match_parent" >
 
         <LinearLayout
-                android:orientation="vertical" android:background="#A8D4E2" android:layout_width="fill_parent"
+                android:orientation="vertical" android:background="#E4E8F4" android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
 
             <TextView
@@ -17,7 +17,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="השלם את הפרופיל שלך"
                     android:id="@+id/textView" android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp" android:textColor="#262261"/>
             <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <ImageView android:layout_width="100dp" android:layout_height="150dp"
                            android:id="@+id/imgPhoto" android:background="@drawable/adam"
@@ -71,7 +71,7 @@
                       android:textAppearance="?android:attr/textAppearanceMedium"
                       android:text="מקום מגורים" android:id="@+id/textView2"
                       android:layout_gravity="center_horizontal" android:paddingTop="20dp"
-                      android:layout_marginBottom="5dp"/>
+                      android:layout_marginBottom="5dp" android:textColor="#262261"/>
             <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <EditText
                         android:id="@+id/txtCity"
@@ -116,7 +116,7 @@
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textAppearance="?android:attr/textAppearanceMedium"
                       android:text="ימים מועדפים" android:id="@+id/txtPreferred"
-                      android:layout_gravity="center_horizontal" android:paddingTop="20dp"/>
+                      android:layout_gravity="center_horizontal" android:paddingTop="20dp" android:textColor="#262261"/>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
@@ -126,7 +126,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:textAppearance="?android:attr/textAppearanceSmall"
                               android:text="שישי" android:id="@+id/textView7"
-                              android:layout_gravity="center_horizontal"/>
+                              android:layout_gravity="center_horizontal" android:textColor="#262261"/>
                     <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -137,7 +137,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:textAppearance="?android:attr/textAppearanceSmall"
                               android:text="חמישי" android:id="@+id/textView6"
-                              android:layout_gravity="center_horizontal"/>
+                              android:layout_gravity="center_horizontal" android:textColor="#262261"/>
                     <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -148,7 +148,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:textAppearance="?android:attr/textAppearanceSmall"
                               android:text="רביעי" android:id="@+id/textView5"
-                              android:layout_gravity="center_horizontal"/>
+                              android:layout_gravity="center_horizontal" android:textColor="#262261"/>
                     <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -159,7 +159,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:textAppearance="?android:attr/textAppearanceSmall"
                               android:text="שלישי" android:id="@+id/textView8"
-                              android:layout_gravity="center_horizontal"/>
+                              android:layout_gravity="center_horizontal" android:textColor="#262261"/>
                     <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:textAppearance="?android:attr/textAppearanceSmall"
                               android:text="שני" android:id="@+id/textView4"
-                              android:layout_gravity="center_horizontal"/>
+                              android:layout_gravity="center_horizontal" android:textColor="#262261"/>
                     <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -181,7 +181,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:textAppearance="?android:attr/textAppearanceSmall"
                               android:text="ראשון" android:id="@+id/textView3"
-                              android:layout_gravity="center_horizontal"/>
+                              android:layout_gravity="center_horizontal" android:textColor="#262261"/>
                     <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -192,7 +192,7 @@
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textAppearance="?android:attr/textAppearanceMedium"
                       android:text="ימים בלי אוטו" android:id="@+id/txtNotPreferred"
-                      android:layout_gravity="center_horizontal" android:paddingTop="20dp"/>
+                      android:layout_gravity="center_horizontal" android:paddingTop="20dp" android:textColor="#262261"/>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="wrap_content"
@@ -202,7 +202,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:textAppearance="?android:attr/textAppearanceSmall"
                               android:text="שישי" android:id="@+id/textView80"
-                              android:layout_gravity="center_horizontal"/>
+                              android:layout_gravity="center_horizontal" android:textColor="#262261"/>
                     <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -213,7 +213,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:textAppearance="?android:attr/textAppearanceSmall"
                               android:text="חמישי" android:id="@+id/textView9"
-                              android:layout_gravity="center_horizontal"/>
+                              android:layout_gravity="center_horizontal" android:textColor="#262261"/>
                     <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -224,7 +224,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:textAppearance="?android:attr/textAppearanceSmall"
                               android:text="רביעי" android:id="@+id/textView10"
-                              android:layout_gravity="center_horizontal"/>
+                              android:layout_gravity="center_horizontal" android:textColor="#262261"/>
                     <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -235,7 +235,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:textAppearance="?android:attr/textAppearanceSmall"
                               android:text="שלישי" android:id="@+id/textView11"
-                              android:layout_gravity="center_horizontal"/>
+                              android:layout_gravity="center_horizontal" android:textColor="#262261"/>
                     <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -246,7 +246,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:textAppearance="?android:attr/textAppearanceSmall"
                               android:text="שני" android:id="@+id/textView12"
-                              android:layout_gravity="center_horizontal"/>
+                              android:layout_gravity="center_horizontal" android:textColor="#262261"/>
                     <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -257,7 +257,7 @@
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:textAppearance="?android:attr/textAppearanceSmall"
                               android:text="ראשון" android:id="@+id/textView13"
-                              android:layout_gravity="center_horizontal"/>
+                              android:layout_gravity="center_horizontal" android:textColor="#262261"/>
                     <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
