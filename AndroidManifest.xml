@@ -13,7 +13,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileActivity" android:label="ProfileActivity"/>
+        <activity android:name=".ProfileActivity" android:label="ProfileActivity" android:exported="true"/>
         <service android:enabled="true" android:name=".NotificationService"  />
         <receiver android:name="ButtonListener" />
 
