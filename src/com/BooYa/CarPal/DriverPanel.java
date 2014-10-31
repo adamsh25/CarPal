@@ -21,6 +21,7 @@ import java.util.List;
 public class DriverPanel extends Activity implements View.OnClickListener {
 
     private ImageView imageviewTabs;
+    public static RelativeLayout relativeLayout;
     public static ImageView imageView;
     private Button btnPrivateProfile;
     private Button btnGroupProfile;
@@ -49,9 +50,9 @@ public class DriverPanel extends Activity implements View.OnClickListener {
         pendingRequestsList = new ArrayList<PendingRequest>();
         //pendingRequestsList = DAL.populate_weekly_drivers;
         //---------------------
-        pendingRequestsList.add(new PendingRequest(1,"a", BitmapFactory.decodeResource(getResources(), R.drawable.alertroni)));
-        pendingRequestsList.add(new PendingRequest(1,"b", BitmapFactory.decodeResource(getResources(), R.drawable.alertparking)));
-        pendingRequestsList.add(new PendingRequest(1,"c", BitmapFactory.decodeResource(getResources(), R.drawable.alertspageti)));
+        pendingRequestsList.add(new PendingRequest(1,"a", BitmapFactory.decodeResource(getResources(), R.drawable.poc)));
+        pendingRequestsList.add(new PendingRequest(1,"b", BitmapFactory.decodeResource(getResources(), R.drawable.poc)));
+        pendingRequestsList.add(new PendingRequest(1,"c", BitmapFactory.decodeResource(getResources(), R.drawable.poc)));
 
         //---------------------
         userAdapter = new UserCustomAdapter(this, R.layout.row, pendingRequestsList);
@@ -87,6 +88,7 @@ public class DriverPanel extends Activity implements View.OnClickListener {
         notifications = (Button)findViewById( R.id.notifications );
         btnAchievements = (Button)findViewById( R.id.btnAchievements );
         listviewPendingRequests = (ListView) findViewById(R.id.listView);
+        relativeLayout = (RelativeLayout) findViewById(R.id.main_relative);
 
         btnPrivateProfile.setOnClickListener( this );
         btnGroupProfile.setOnClickListener( this );

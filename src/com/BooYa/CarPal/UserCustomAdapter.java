@@ -7,6 +7,7 @@ package com.BooYa.CarPal;
 import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,7 +77,8 @@ public class UserCustomAdapter extends ArrayAdapter<PendingRequest> {
 
                 PendingRequest item = DriverPanel.userAdapter.getItem(position);
                 DriverPanel.userAdapter.remove(item);
-                DriverPanel.imageView.setVisibility(View.VISIBLE);
+                //DriverPanel.imageView.setVisibility(View.VISIBLE);
+                DriverPanel.relativeLayout.setBackgroundResource(R.drawable.background2);
             }
         });
         return convertView;
