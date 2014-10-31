@@ -16,6 +16,8 @@ public class ButtonListener extends BroadcastReceiver
     @Override
     public void onReceive(Context context, Intent intent)
     {
+        final Intent mServiceIntent = new Intent(context, NotificationService.class);
+        context.startService(mServiceIntent);
         boolean yes = intent.getAction().contains("yes");
         boolean no = intent.getAction().contains("no");
         int notificationTypeId =  Integer.parseInt(intent.getAction().replace("_yes","").replace("_no",""));
