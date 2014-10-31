@@ -16,7 +16,8 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="השלם את הפרופיל שלך"
-                    android:id="@+id/textView" android:layout_gravity="center_horizontal"/>
+                    android:id="@+id/textView" android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"/>
             <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <ImageView android:layout_width="100dp" android:layout_height="150dp"
                            android:id="@+id/imgPhoto" android:background="@drawable/adam"
@@ -36,7 +37,8 @@
                               android:maxLines="1" android:singleLine="true"
                               android:enabled="false"
                               android:layout_below="@+id/txtFirstName" android:layout_toRightOf="@id/imgPhoto"
-                              android:background="@drawable/textbox" android:gravity="center"/>
+                              android:background="@drawable/textbox" android:gravity="center" android:text="מיכאל"
+                              android:textColor="#FFA6A6A6"/>
                     <EditText android:id="@+id/txtLastName" android:layout_width="fill_parent"
                               android:layout_height="30dp" android:hint="שם משפחה" android:imeActionId="@+id/login"
                               android:imeActionLabel="@string/action_sign_in_short" android:imeOptions="actionUnspecified"
@@ -68,7 +70,8 @@
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textAppearance="?android:attr/textAppearanceMedium"
                       android:text="מקום מגורים" android:id="@+id/textView2"
-                      android:layout_gravity="center_horizontal" android:paddingTop="20dp"/>
+                      android:layout_gravity="center_horizontal" android:paddingTop="20dp"
+                      android:layout_marginBottom="5dp"/>
             <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <EditText
                         android:id="@+id/txtCity"
@@ -81,36 +84,34 @@
                         android:maxLines="1"
                         android:singleLine="true"
                         android:layout_alignParentTop="true" android:layout_toRightOf="@+id/btnCurrentLocation"
-                        android:enabled="false"
                         android:layout_alignParentStart="false" android:background="@drawable/textbox"
                         android:layout_marginLeft="10dp" android:layout_marginRight="10dp"
-                        android:layout_marginBottom="5dp" android:gravity="center"/>
+                        android:layout_marginBottom="5dp" android:gravity="center" android:textColor="#FFA6A6A6"/>
                 <AutoCompleteTextView android:id="@+id/txtStreet" android:layout_width="fill_parent"
                           android:layout_height="35dp" android:hint="רחוב" android:imeActionId="@+id/login"
                           android:imeActionLabel="@string/action_sign_in_short" android:imeOptions="actionUnspecified"
                           android:maxLines="1" android:singleLine="true"
-                          android:enabled="false"
                           android:layout_below="@+id/txtCity"
                           android:background="@drawable/textbox" android:layout_alignLeft="@+id/txtCity"
-                          android:layout_alignRight="@+id/txtCity" android:gravity="center"/>
+                          android:layout_alignRight="@+id/txtCity" android:gravity="center"
+                          android:textColor="#FFA6A6A6"/>
                 <EditText
                         android:id="@+id/txtHouseNumber"
                         android:layout_width="fill_parent"
                         android:layout_height="35dp"
-                        android:hint="מייל"
+                        android:hint="מספר בית"
                         android:inputType="none"
                         android:maxLines="1"
-                        android:singleLine="true"
-                        android:enabled="false" android:layout_below="@id/txtStreet"
+                        android:singleLine="true" android:layout_below="@id/txtStreet"
                         android:background="@drawable/textbox" android:layout_alignLeft="@+id/txtStreet"
                         android:layout_alignRight="@+id/txtStreet" android:layout_marginTop="5dp"
-                        android:gravity="center"/>
+                        android:gravity="center" android:textColor="#FFA6A6A6"/>
                 <Button
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:text="Use current location"
                         android:id="@+id/btnCurrentLocation" android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"/>
+                        android:layout_alignParentLeft="true"
+                        android:background="@android:drawable/ic_menu_mylocation"/>
             </RelativeLayout>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textAppearance="?android:attr/textAppearanceMedium"

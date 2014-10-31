@@ -8,6 +8,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class ProfileActivity extends Activity {
@@ -26,15 +27,19 @@ public class ProfileActivity extends Activity {
         // Get a reference to the AutoCompleteTextView in the layout
         AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.txtStreet);
 
+        InputStream ins = getResources().openRawResource(
+                getResources().getIdentifier("streets",
+                        "raw", getPackageName()));
+
         // Get the string array
-        ArrayList<Street> streets = StreetsSearcher.GetStreetsStartingWith(textView.getText().toString());
+        ArrayList<Street> streets = StreetsSearcher.GetStreets(ins);
         ArrayList<String> streetNames = new ArrayList<String>();
         for (Street street : streets) {
             streetNames.add(street.getStreet_name());
         }
         // Create the adapter and set it to the AutoCompleteTextView
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, streets.toArray(new String[streets.size()]));
+                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, streetNames.toArray(new String[streets.size()]));
         textView.setAdapter(adapter);
     }
 
