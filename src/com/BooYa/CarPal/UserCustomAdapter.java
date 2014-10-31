@@ -12,12 +12,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.*;
 
 public class UserCustomAdapter extends ArrayAdapter<PendingRequest> {
     Context context;
     int layoutResourceId;
     ArrayList<PendingRequest> data = new ArrayList<PendingRequest>();
+    final Animation anim ;
+
 
     public UserCustomAdapter(Context context, int layoutResourceId,
                              ArrayList<PendingRequest> data) {
@@ -25,6 +29,7 @@ public class UserCustomAdapter extends ArrayAdapter<PendingRequest> {
         this.layoutResourceId = layoutResourceId;
         this.context = context;
         this.data = data;
+        anim = AnimationUtils.loadAnimation(context, R.anim.fade_anim);
     }
 
     @Override
@@ -36,24 +41,52 @@ public class UserCustomAdapter extends ArrayAdapter<PendingRequest> {
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);
             holder = new UserHolder();
-            holder.request_info = (TextView) row.findViewById(R.id.textView1);
             holder.btnCancel = (ImageButton) row.findViewById(R.id.btnCancel);
             holder.btnAccept = (ImageButton) row.findViewById(R.id.btnAccept);
+            holder.imageviewNotification = (ImageView)row.findViewById(R.id.imageView);
             row.setTag(holder);
         } else
         {
             holder = (UserHolder) row.getTag();
         }
         PendingRequest pendingRequest = data.get(position);
-        holder.request_info.setText(pendingRequest.getPending_request_info());
         holder.btnCancel.setOnClickListener(new OnClickListener() {
 
             @Override
-            public void onClick(View v) {
+            public void onClick(final View view) {
                 // TODO Auto-generated method stub
                 Log.i("Edit Button Clicked", "**********");
                 Toast.makeText(context, "Edit button Clicked",
                         Toast.LENGTH_LONG).show();
+
+                anim.setAnimationListener(new Animation.AnimationListener() {
+
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                        view.setHasTransientState(true);
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        PendingRequest item = DriverPanel.userAdapter.getItem(0);
+                        DriverPanel.userAdapter.remove(item);
+                        view.setHasTransientState(false);
+                    }
+                });
+
+                //RelativeLayout r = (RelativeLayout) ((ViewGroup) view.getParent()).getParent();
+
+                view.startAnimation(anim);
+
+
+
             }
         });
         holder.btnAccept.setOnClickListener(new OnClickListener() {
@@ -71,8 +104,8 @@ public class UserCustomAdapter extends ArrayAdapter<PendingRequest> {
     }
 
     static class UserHolder {
-        TextView request_info;
         ImageButton btnCancel;
         ImageButton btnAccept;
+        ImageView imageviewNotification;
     }
 }
