@@ -46,7 +46,6 @@ proguard/
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
 .idea/uiDesigner.xml
-.idea/*.xml
 
 # Gradle:
 .idea/gradle.xml
