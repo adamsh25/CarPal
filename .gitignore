@@ -29,10 +29,10 @@ proguard/
 #####----- IntelliJ -----#####
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
 
-#*.iml
+*.iml
 
 ## Directory-based project format:
-#.idea/
+.idea/
 # if you remove the above rule, at least ignore the following:
 
 # User-specific stuff:
@@ -48,7 +48,7 @@ proguard/
 .idea/uiDesigner.xml
 
 # Gradle:
-.idea/gradle.xml
+#.idea/gradle.xml
 #.idea/libraries
 
 # Mongo Explorer plugin:
