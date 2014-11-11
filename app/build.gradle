@@ -16,9 +16,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
 }
 
 dependencies {
     compile 'com.android.support:support-v4:21.0.0'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.4.3'
+    compile 'com.github.techfreak:wizardpager:1.0.0+'
+    compile 'com.android.support:appcompat-v7:21.0.0'
 }
