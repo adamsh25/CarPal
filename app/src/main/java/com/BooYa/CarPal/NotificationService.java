@@ -100,10 +100,10 @@ public class NotificationService extends Service
             Calendar c = Calendar.getInstance();
             int seconds = c.get(Calendar.SECOND);
             NotificationManager manager = (NotificationManager) _service.getSystemService(Context.NOTIFICATION_SERVICE);
-            manager.notify(i, notification);
+            manager.notify(1, notification);
             try
             {
-                Thread.sleep(8000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
