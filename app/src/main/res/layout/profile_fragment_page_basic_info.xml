@@ -31,7 +31,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:saveEnabled="false"
-                android:enabled="false" />
+                android:enabled="false"
+                android:layout_marginBottom="16dp"/>
 
             <TextView style="@style/WizardFormLabel"
                 android:text="@string/profile_label_moto" />
@@ -39,14 +40,15 @@
             <EditText android:id="@+id/profile_moto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:saveEnabled="false" />
+                android:saveEnabled="false"
+                android:layout_marginBottom="0dp"/>
 
             <View
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider"
-                android:layout_margin="40dp"/>
+                android:layout_margin="25dp"/>
 
             <TextView style="@style/WizardFormLabel"
                 android:text="@string/profile_label_street" />
@@ -57,7 +59,8 @@
                 android:columnCount="2">
                 <EditText android:id="@+id/profile_street"
                     android:saveEnabled="false"
-                    android:layout_gravity="fill"/>
+                    android:layout_gravity="fill"
+                    android:layout_marginBottom="16dp"/>
                 <EditText android:id="@+id/profile_house_number"
                     android:saveEnabled="false"
                     android:hint="#"

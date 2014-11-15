@@ -42,4 +42,14 @@
         <item name="android:minHeight">@dimen/list_item_height_small</item>
     </style>
 
+    <style name="ImagePage" parent="@style/WizardPageImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="ImageContainer" parent="@style/WizardPageImageContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
 </resources>

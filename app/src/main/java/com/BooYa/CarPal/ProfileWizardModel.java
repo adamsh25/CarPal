@@ -22,10 +22,9 @@ public class ProfileWizardModel extends AbstractWizardModel {
     @Override
     protected PageList onNewRootPageList() {
         return new PageList(
-                new ImagePage(this, "Choose your look"),
-                new BasicInfoPage(this, "Info")/*,
-                new AddressPage(this, "Address"),
-                new SettingsPage(this, "Settings")*/);
+                new AvatarPage(this, "Choose your look"),
+                new BasicInfoPage(this, "Info"),
+                new SettingsPage(this, "Settings"));
     }
 }
 
