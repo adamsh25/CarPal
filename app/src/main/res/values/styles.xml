@@ -25,4 +25,31 @@
         <item name="android:background">@android:color/holo_red_dark</item>
     </style>
 
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="textAppearanceFinish">@style/TextAppearanceFinish</item>
+    </style>
+
+    <style name="TextAppearanceFinish">
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="ButtonBar" parent="@android:style/ButtonBar">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="ButtonBarButton">
+        <item name="android:minHeight">@dimen/list_item_height_small</item>
+    </style>
+
+    <style name="ImagePage" parent="@style/WizardPageImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="ImageContainer" parent="@style/WizardPageImageContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
 </resources>
