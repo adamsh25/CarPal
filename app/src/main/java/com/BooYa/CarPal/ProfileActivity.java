@@ -1,11 +1,6 @@
 package com.BooYa.CarPal;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -14,8 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
-
+import android.widget.Button;
 import com.tech.freak.wizardpager.model.AbstractWizardModel;
 import com.tech.freak.wizardpager.model.ModelCallbacks;
 import com.tech.freak.wizardpager.model.Page;
@@ -23,9 +17,6 @@ import com.tech.freak.wizardpager.ui.PageFragmentCallbacks;
 import com.tech.freak.wizardpager.ui.ReviewFragment;
 import com.tech.freak.wizardpager.ui.StepPagerStrip;
 
-import java.io.InputStream;
-import java.sql.Driver;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileActivity extends FragmentActivity implements
@@ -267,15 +258,15 @@ public class ProfileActivity extends FragmentActivity implements
                     : mCurrentPageSequence.size() + 1);
         }
 
+        public int getCutOffPage() {
+            return mCutOffPage;
+        }
+
         public void setCutOffPage(int cutOffPage) {
             if (cutOffPage < 0) {
                 cutOffPage = Integer.MAX_VALUE;
             }
             mCutOffPage = cutOffPage;
-        }
-
-        public int getCutOffPage() {
-            return mCutOffPage;
         }
     }
 }

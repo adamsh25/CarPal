@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
-
 import com.tech.freak.wizardpager.ui.PageFragmentCallbacks;
 
 /**
@@ -27,6 +26,9 @@ public class BasicInfoFragment extends Fragment {
     private TextView mOrganizationView;
     private TextView mMotoView;
 
+    public BasicInfoFragment() {
+    }
+
     public static BasicInfoFragment create(String key) {
         Bundle args = new Bundle();
         args.putString(ARG_KEY, key);
@@ -34,9 +36,6 @@ public class BasicInfoFragment extends Fragment {
         BasicInfoFragment fragment = new BasicInfoFragment();
         fragment.setArguments(args);
         return fragment;
-    }
-
-    public BasicInfoFragment() {
     }
 
     @Override

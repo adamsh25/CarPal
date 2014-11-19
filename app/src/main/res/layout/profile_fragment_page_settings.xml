@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/WizardPageContainer"
-    android:orientation="vertical">
+              style="@style/WizardPageContainer"
+              android:orientation="vertical">
 
-    <TextView style="@style/WizardPageTitle" />
+    <TextView style="@style/WizardPageTitle"/>
 
     <ScrollView android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
         <LinearLayout android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
-                    <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+                <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_weight="1">
-                        <TextView style="@style/WizardFormLabel"
-                            android:text="Work start time" />
+                    <TextView style="@style/WizardFormLabel"
+                              android:text="Work start time"/>
 
-                        <EditText android:id="@+id/profile_start_work_time"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:saveEnabled="false"
-                            android:longClickable="false"
-                            android:inputType="none"
-                            android:focusableInTouchMode="false"
-                            android:editable="false"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="1">
-                        <TextView style="@style/WizardFormLabel"
-                            android:text="Work end time"/>
-                        <EditText android:id="@+id/profile_end_work_time"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:editable="false"
-                            android:longClickable="false"
-                            android:focusableInTouchMode="false"
-                            android:saveEnabled="false"/>
-                    </LinearLayout>
+                    <EditText android:id="@+id/profile_start_work_time"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:saveEnabled="false"
+                              android:longClickable="false"
+                              android:inputType="none"
+                              android:focusableInTouchMode="false"
+                              android:editable="false"/>
                 </LinearLayout>
 
+                <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                    <TextView style="@style/WizardFormLabel"
+                              android:text="Work end time"/>
+                    <EditText android:id="@+id/profile_end_work_time"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:editable="false"
+                              android:longClickable="false"
+                              android:focusableInTouchMode="false"
+                              android:saveEnabled="false"/>
+                </LinearLayout>
+            </LinearLayout>
+
             <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/frmmm">
-                </FrameLayout>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/frmmm">
+            </FrameLayout>
 
             <TextView style="@style/WizardFormLabel"
-                android:text="Preferred days" />
+                      android:text="Preferred days"/>
 
             <EditText android:id="@+id/profile_preferred_days"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:saveEnabled="false"
-                android:layout_marginBottom="16dp"/>
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:saveEnabled="false"
+                      android:layout_marginBottom="16dp"/>
 
             <TextView style="@style/WizardFormLabel"
-                android:text="UnPreferred days" />
+                      android:text="UnPreferred days"/>
 
             <EditText android:id="@+id/profile_unpreferred_days"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:saveEnabled="false"
-                android:layout_marginBottom="16dp"/>
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:saveEnabled="false"
+                      android:layout_marginBottom="16dp"/>
 
         </LinearLayout>
     </ScrollView>

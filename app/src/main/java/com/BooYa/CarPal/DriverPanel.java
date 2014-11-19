@@ -2,39 +2,37 @@ package com.BooYa.CarPal;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 
-import java.sql.Driver;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Barry.Z on 10/30/2014.
  */
 public class DriverPanel extends Activity implements View.OnClickListener {
 
-    private ImageView imageviewTabs;
     public static RelativeLayout relativeLayout;
     public static ImageView imageView;
+    public static ListView listviewPendingRequests;
+    public static UserCustomAdapter userAdapter;
+    private ImageView imageviewTabs;
     private Button btnPrivateProfile;
     private Button btnGroupProfile;
     private Button btnMain;
     private Button notifications;
     private Button btnAchievements;
     private ArrayList<PendingRequest> pendingRequestsList;
-    public static ListView listviewPendingRequests;
-    public static UserCustomAdapter userAdapter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.driver_panel);
         getActionBar().hide();
@@ -45,15 +43,14 @@ public class DriverPanel extends Activity implements View.OnClickListener {
         getPendingRequests();
     }
 
-    private void getPendingRequests()
-    {
+    private void getPendingRequests() {
 
         pendingRequestsList = new ArrayList<PendingRequest>();
         //pendingRequestsList = DAL.populate_weekly_drivers;
         //---------------------
-        pendingRequestsList.add(new PendingRequest(1,"a", BitmapFactory.decodeResource(getResources(), R.drawable.rony_last)));
-        pendingRequestsList.add(new PendingRequest(1,"b", BitmapFactory.decodeResource(getResources(), R.drawable.alert2_last)));
-        pendingRequestsList.add(new PendingRequest(1,"c", BitmapFactory.decodeResource(getResources(), R.drawable.alert3_last)));
+        pendingRequestsList.add(new PendingRequest(1, "a", BitmapFactory.decodeResource(getResources(), R.drawable.rony_last)));
+        pendingRequestsList.add(new PendingRequest(1, "b", BitmapFactory.decodeResource(getResources(), R.drawable.alert2_last)));
+        pendingRequestsList.add(new PendingRequest(1, "c", BitmapFactory.decodeResource(getResources(), R.drawable.alert3_last)));
 
         //---------------------
         userAdapter = new UserCustomAdapter(this, R.layout.row, pendingRequestsList);
@@ -81,21 +78,21 @@ public class DriverPanel extends Activity implements View.OnClickListener {
 
 
     private void findViews() {
-        imageView = (ImageView)findViewById( R.id.imageView );
-        imageviewTabs = (ImageView)findViewById( R.id.imageview_tabs );
-        btnPrivateProfile = (Button)findViewById( R.id.btn_privateProfile );
-        btnGroupProfile = (Button)findViewById( R.id.btn_groupProfile );
-        btnMain = (Button)findViewById( R.id.btn_main );
-        notifications = (Button)findViewById( R.id.notifications );
-        btnAchievements = (Button)findViewById( R.id.btnAchievements );
+        imageView = (ImageView) findViewById(R.id.imageView);
+        imageviewTabs = (ImageView) findViewById(R.id.imageview_tabs);
+        btnPrivateProfile = (Button) findViewById(R.id.btn_privateProfile);
+        btnGroupProfile = (Button) findViewById(R.id.btn_groupProfile);
+        btnMain = (Button) findViewById(R.id.btn_main);
+        notifications = (Button) findViewById(R.id.notifications);
+        btnAchievements = (Button) findViewById(R.id.btnAchievements);
         listviewPendingRequests = (ListView) findViewById(R.id.listView);
         relativeLayout = (RelativeLayout) findViewById(R.id.main_relative);
 
-        btnPrivateProfile.setOnClickListener( this );
-        btnGroupProfile.setOnClickListener( this );
-        btnMain.setOnClickListener( this );
-        notifications.setOnClickListener( this );
-        btnAchievements.setOnClickListener( this );
+        btnPrivateProfile.setOnClickListener(this);
+        btnGroupProfile.setOnClickListener(this);
+        btnMain.setOnClickListener(this);
+        notifications.setOnClickListener(this);
+        btnAchievements.setOnClickListener(this);
     }
 
     /**
@@ -106,22 +103,20 @@ public class DriverPanel extends Activity implements View.OnClickListener {
      */
     @Override
     public void onClick(View v) {
-        if ( v == btnPrivateProfile )
-        {
+        if (v == btnPrivateProfile) {
             Intent intent = new Intent(this, ProfileActivity.class);
             startActivity(intent);
             // Handle clicks for btnPrivateProfile
-        } else if ( v == btnGroupProfile )
-        {
+        } else if (v == btnGroupProfile) {
             // Handle clicks for btnGroupProfile
-        } else if ( v == btnMain ) {
+        } else if (v == btnMain) {
             Intent intent = new Intent(this, DriverPanel.class);
             startActivity(intent);
-        } else if ( v == notifications ) {
+        } else if (v == notifications) {
             // Handle clicks for notifications
             Intent intent = new Intent(this, BroadCastActivity.class);
             startActivity(intent);
-        } else if ( v == btnAchievements ) {
+        } else if (v == btnAchievements) {
             // Handle clicks for btnAchievements
         }
     }

@@ -1,6 +1,5 @@
 package com.BooYa.CarPal;
 
-import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,55 +9,48 @@ import android.net.Uri;
 /**
  * Created by adam on 30/10/2014.
  */
-public class ButtonListener extends BroadcastReceiver
-{
+public class ButtonListener extends BroadcastReceiver {
 
     @Override
-    public void onReceive(Context context, Intent intent)
-    {
+    public void onReceive(Context context, Intent intent) {
         final Intent mServiceIntent = new Intent(context, NotificationService.class);
         context.startService(mServiceIntent);
         boolean yes = intent.getAction().contains("yes");
         boolean no = intent.getAction().contains("no");
-        int notificationTypeId =  Integer.parseInt(intent.getAction().replace("_yes","").replace("_no",""));
+        int notificationTypeId = Integer.parseInt(intent.getAction().replace("_yes", "").replace("_no", ""));
         NotificationTypeEnum typeEnum = NotificationTypeEnum.values()[notificationTypeId];
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         Intent newIntent;
-         if(!yes && !no)
-         {
-             switch (typeEnum)
-             {
-                 case USER_GOT_PRESENT:
-                     String URL = intent.getStringExtra("URL");
-                     newIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(URL));
-                     newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                     context.startActivity(newIntent);
-                     break;
-                 default:
-                 newIntent = new Intent(context, DriverPanel.class);
-                 newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                 context.startActivity(newIntent);
-                 break;
-             }
-         }
-        else
-         {
-             switch (typeEnum)
-             {
+        if (!yes && !no) {
+            switch (typeEnum) {
+                case USER_GOT_PRESENT:
+                    String URL = intent.getStringExtra("URL");
+                    newIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(URL));
+                    newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(newIntent);
+                    break;
+                default:
+                    newIntent = new Intent(context, DriverPanel.class);
+                    newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(newIntent);
+                    break;
+            }
+        } else {
+            switch (typeEnum) {
 
-                 case ASK_TO_APPROVE_TOMORROW_CARPAL:
+                case ASK_TO_APPROVE_TOMORROW_CARPAL:
 
-                     break;
-                 case USER_CANCEL_CARPAL:
+                    break;
+                case USER_CANCEL_CARPAL:
 
-                     break;
-                 case USER_GOT_PRESENT:
+                    break;
+                case USER_GOT_PRESENT:
 
-                     break;
+                    break;
 
-             }
-             manager.cancel(typeEnum.ordinal());
-         }
+            }
+            manager.cancel(typeEnum.ordinal());
+        }
 
     }
 }

@@ -1,71 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <FrameLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="fill_parent">
 
     <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
         <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
-            <ImageView android:layout_width="120dp" android:layout_height="120dp" android:id="@+id/imageviewSundayDriver"
-                       android:layout_gravity="center_vertical" android:background="@drawable/adam"  android:layout_marginTop="5dp" android:layout_marginBottom="5dp"
+            <ImageView android:layout_width="120dp" android:layout_height="120dp"
+                       android:id="@+id/imageviewSundayDriver"
+                       android:layout_gravity="center_vertical" android:background="@drawable/adam"
+                       android:layout_marginTop="5dp" android:layout_marginBottom="5dp"
                        android:layout_marginLeft="5dp"
                        android:layout_marginRight="5dp"/>
 
-            <ImageView android:layout_width="120dp" android:layout_height="120dp" android:id="@+id/imageviewMondayDriver"
+            <ImageView android:layout_width="120dp" android:layout_height="120dp"
+                       android:id="@+id/imageviewMondayDriver"
                        android:layout_gravity="right|top" android:layout_toRightOf="@+id/imageviewSundayDriver"
-                       android:background="@drawable/adam" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginBottom="5dp"
+                       android:background="@drawable/adam" android:layout_marginLeft="5dp"
+                       android:layout_marginTop="5dp" android:layout_marginBottom="5dp"
                        android:layout_marginRight="5dp"/>
-            <ImageView android:layout_width="120dp" android:layout_height="120dp" android:id="@+id/imageviewTuesdayDriver"
+            <ImageView android:layout_width="120dp" android:layout_height="120dp"
+                       android:id="@+id/imageviewTuesdayDriver"
                        android:layout_gravity="center_vertical" android:layout_toRightOf="@+id/imageviewMondayDriver"
-                       android:background="@drawable/adam" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginBottom="5dp"
+                       android:background="@drawable/adam" android:layout_marginLeft="5dp"
+                       android:layout_marginTop="5dp" android:layout_marginBottom="5dp"
                        android:layout_marginRight="5dp"/>
-            <ImageView android:layout_width="120dp" android:layout_height="120dp" android:id="@+id/imageViewWednesdayDriver"
+            <ImageView android:layout_width="120dp" android:layout_height="120dp"
+                       android:id="@+id/imageViewWednesdayDriver"
                        android:layout_gravity="bottom" android:layout_below="@+id/imageviewSundayDriver"
-                       android:background="@drawable/adam" android:layout_marginLeft="5dp" android:layout_marginTop="5dp"
+                       android:background="@drawable/adam" android:layout_marginLeft="5dp"
+                       android:layout_marginTop="5dp"
                        android:layout_marginRight="5dp" android:layout_alignBottom="@+id/imageviewThursdayDriver"/>
-            <ImageView android:layout_width="120dp" android:layout_height="120dp" android:id="@+id/imageviewThursdayDriver"
+            <ImageView android:layout_width="120dp" android:layout_height="120dp"
+                       android:id="@+id/imageviewThursdayDriver"
                        android:layout_gravity="center_vertical" android:layout_below="@+id/imageviewMondayDriver"
-                       android:layout_toRightOf="@+id/imageViewWednesdayDriver" android:background="@drawable/adam" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginBottom="5dp"
+                       android:layout_toRightOf="@+id/imageViewWednesdayDriver" android:background="@drawable/adam"
+                       android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginBottom="5dp"
                        android:layout_marginRight="5dp"/>
-            <ImageView android:layout_width="120dp" android:layout_height="120dp" android:id="@+id/imageviewFridayDriver"
+            <ImageView android:layout_width="120dp" android:layout_height="120dp"
+                       android:id="@+id/imageviewFridayDriver"
                        android:layout_gravity="center_vertical" android:layout_below="@+id/imageviewTuesdayDriver"
-                       android:layout_toRightOf="@+id/imageviewThursdayDriver" android:background="@drawable/adam" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginBottom="5dp"
+                       android:layout_toRightOf="@+id/imageviewThursdayDriver" android:background="@drawable/adam"
+                       android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginBottom="5dp"
                        android:layout_marginRight="5dp"/>
         </RelativeLayout>
         <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="284dp" android:layout_gravity="center_horizontal|top" android:weightSum="1"
-                    android:id="@+id/linearlayout_Driver_Panel">
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="284dp" android:layout_gravity="center_horizontal|top" android:weightSum="1"
+                android:id="@+id/linearlayout_Driver_Panel">
 
-            </LinearLayout>
+        </LinearLayout>
         <ListView
                 android:layout_width="383dp"
                 android:layout_height="125dp"
-                android:id="@+id/listviewPendingRequests" android:layout_gravity="center_horizontal|bottom" android:layout_weight="0.78"
+                android:id="@+id/listviewPendingRequests" android:layout_gravity="center_horizontal|bottom"
+                android:layout_weight="0.78"
                 android:layout_below="@+id/linearlayout_Driver_Panel"/>
         <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="137dp"
-                    android:layout_height="204dp" android:layout_gravity="right|bottom"
-                    android:layout_below="@+id/listviewPendingRequests">
-                <Button
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Settings"
-                        android:id="@+id/btnSettings"/>
-                <Button
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Change group"
-                        android:id="@+id/btnChangeGroup"/>
-            </LinearLayout>
+                android:orientation="horizontal"
+                android:layout_width="137dp"
+                android:layout_height="204dp" android:layout_gravity="right|bottom"
+                android:layout_below="@+id/listviewPendingRequests">
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Settings"
+                    android:id="@+id/btnSettings"/>
+            <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Change group"
+                    android:id="@+id/btnChangeGroup"/>
+        </LinearLayout>
     </RelativeLayout>
 </FrameLayout>

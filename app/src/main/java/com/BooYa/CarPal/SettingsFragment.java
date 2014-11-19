@@ -1,36 +1,24 @@
 package com.BooYa.CarPal;
 
 import android.app.Activity;
-import android.app.FragmentTransaction;
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.sleepbot.datetimepicker.time.RadialPickerLayout;
 import com.sleepbot.datetimepicker.time.TimePickerDialog;
 import com.tech.freak.wizardpager.ui.PageFragmentCallbacks;
 
 import java.util.Calendar;
 
-import be.billington.calendar.recurrencepicker.RecurrencePickerDialog;
-
 /**
  * Created by Rony on 13/11/2014.
  */
 public class SettingsFragment extends Fragment {
-    private static final String ARG_KEY = "key";
     public static final String TIMEPICKER_TAG = "timepicker";
+    private static final String ARG_KEY = "key";
     private final int DEFAULT_START_TIME_HOUR = 8;
     private final int DEFAULT_START_TIME_MINUTE = 0;
     private final int DEFAULT_END_TIME_HOUR = 18;
@@ -44,6 +32,9 @@ public class SettingsFragment extends Fragment {
     private TextView mPreferredDaysView;
     private TextView mUnPreferredDaysView;
 
+    public SettingsFragment() {
+    }
+
     public static SettingsFragment create(String key) {
         Bundle args = new Bundle();
         args.putString(ARG_KEY, key);
@@ -53,7 +44,8 @@ public class SettingsFragment extends Fragment {
         return fragment;
     }
 
-    public SettingsFragment() {
+    public static String GetTimeString(int hourOfDay, int minute) {
+        return String.format("%02d", hourOfDay) + ":" + String.format("%02d", minute);
     }
 
     @Override
@@ -203,9 +195,5 @@ public class SettingsFragment extends Fragment {
         mPage.getData().putInt(minuteKey, minute);
         mPage.notifyDataChanged();
         view.setText(GetTimeString(hourOfDay, minute));
-    }
-
-    public static String GetTimeString(int hourOfDay, int minute) {
-        return String.format("%02d", hourOfDay) + ":" + String.format("%02d", minute);
     }
 }

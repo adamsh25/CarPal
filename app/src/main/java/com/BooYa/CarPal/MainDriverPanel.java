@@ -11,9 +11,6 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.View;
 
 public class MainDriverPanel extends FragmentActivity implements
         ActionBar.TabListener {
@@ -22,7 +19,7 @@ public class MainDriverPanel extends FragmentActivity implements
     private TabsPagerAdapter mAdapter;
     private ActionBar actionBar;
     // Tab titles
-    private String[] tabs = { "Profile","Group", "Main", "Achievements","Notifications" };
+    private String[] tabs = {"Profile", "Group", "Main", "Achievements", "Notifications"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +55,7 @@ public class MainDriverPanel extends FragmentActivity implements
             }
 
             @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2)
-            {
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
             }
 
             @Override

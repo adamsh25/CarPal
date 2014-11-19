@@ -1,13 +1,7 @@
 package com.BooYa.CarPal;
 
-import android.util.Log;
-import android.widget.Toast;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -15,11 +9,11 @@ import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONObject;
 
-import java.io.*;
+import java.io.IOException;
 
 public class ServerCommunicator {
-    private String _url;
     private final String TAG = ServerCommunicator.class.getName();
+    private String _url;
 
     public ServerCommunicator(String url) {
         _url = url;

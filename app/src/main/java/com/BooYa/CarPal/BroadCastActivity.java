@@ -8,24 +8,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import static android.widget.Toast.*;
+import static android.widget.Toast.LENGTH_SHORT;
+import static android.widget.Toast.makeText;
 
 /**
  * Created by adam on 31/10/2014.
  */
-public class BroadCastActivity extends Activity implements View.OnClickListener{
+public class BroadCastActivity extends Activity implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.broad_cast_activity_layout);
-        ((Button)findViewById( R.id.btnCurrentLocation12 )).setOnClickListener(this);
+        ((Button) findViewById(R.id.btnCurrentLocation12)).setOnClickListener(this);
         getActionBar().hide();
     }
+
     @Override
-    public void onClick(View v)
-    {
-        if (v == findViewById( R.id.btnCurrentLocation12 ))
-        {
+    public void onClick(View v) {
+        if (v == findViewById(R.id.btnCurrentLocation12)) {
             Intent intent = new Intent(this, DriverPanel.class);
             Context context = getApplicationContext();
             CharSequence text = "תודה, המסר שודר לכל עובדי החברה.";
