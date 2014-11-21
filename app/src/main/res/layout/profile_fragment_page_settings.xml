@@ -61,22 +61,54 @@
                 </FrameLayout>
 
             <TextView style="@style/WizardFormLabel"
-                android:text="Preferred days" />
+                android:text="Preferred days"
+                android:layout_marginTop="25dp"/>
 
-            <EditText android:id="@+id/profile_preferred_days"
+            <be.billington.calendar.recurrencepicker.LinearLayoutWithMaxWidth
+                android:id="@+id/profile_preferred_days"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:saveEnabled="false"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <be.billington.calendar.recurrencepicker.WeekButton style="@style/RecurrenceDayOfWeekStyle" android:textOff="SUN" android:textOn="SUN" />
+
+                <be.billington.calendar.recurrencepicker.WeekButton style="@style/RecurrenceDayOfWeekStyle" android:textOff="MON" android:textOn="MON" />
+
+                <be.billington.calendar.recurrencepicker.WeekButton style="@style/RecurrenceDayOfWeekStyle" android:textOff="TUE" android:textOn="TUE" />
+
+                <be.billington.calendar.recurrencepicker.WeekButton style="@style/RecurrenceDayOfWeekStyle" android:textOff="WED" android:textOn="WED" />
+
+                <be.billington.calendar.recurrencepicker.WeekButton style="@style/RecurrenceDayOfWeekStyle" android:textOff="THU" android:textOn="THU" />
+            </be.billington.calendar.recurrencepicker.LinearLayoutWithMaxWidth>
 
             <TextView style="@style/WizardFormLabel"
-                android:text="UnPreferred days" />
+                android:text="UnPreferred days"
+                android:layout_marginTop="25dp"/>
 
-            <EditText android:id="@+id/profile_unpreferred_days"
+            <be.billington.calendar.recurrencepicker.LinearLayoutWithMaxWidth
+                android:id="@+id/profile_unpreferred_days"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:saveEnabled="false"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <be.billington.calendar.recurrencepicker.WeekButton style="@style/RecurrenceDayOfWeekStyle" android:textOff="SUN" android:textOn="SUN" />
+
+                <be.billington.calendar.recurrencepicker.WeekButton style="@style/RecurrenceDayOfWeekStyle" android:textOff="MON" android:textOn="MON" />
+
+                <be.billington.calendar.recurrencepicker.WeekButton style="@style/RecurrenceDayOfWeekStyle" android:textOff="TUE" android:textOn="TUE" />
+
+                <be.billington.calendar.recurrencepicker.WeekButton style="@style/RecurrenceDayOfWeekStyle" android:textOff="WED" android:textOn="WED" />
+
+                <be.billington.calendar.recurrencepicker.WeekButton style="@style/RecurrenceDayOfWeekStyle" android:textOff="THU" android:textOn="THU" />
+            </be.billington.calendar.recurrencepicker.LinearLayoutWithMaxWidth>
 
         </LinearLayout>
     </ScrollView>

@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -44,6 +46,41 @@ public class ProfileActivity extends FragmentActivity implements
 
     private List<Page> mCurrentPageSequence;
     private StepPagerStrip mStepPagerStrip;
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
+
+        // notifying nested fragments (support library bug fix)
+        final FragmentManager childFragmentManager = getSupportFragmentManager();
+
+        if (childFragmentManager != null) {
+            final List<Fragment> nestedFragments = childFragmentManager.getFragments();
+
+            if (nestedFragments == null || nestedFragments.size() == 0) return;
+
+            for (Fragment childFragment : nestedFragments) {
+                if (childFragment != null && !childFragment.isDetached() && !childFragment.isRemoving()) {
+
+                    String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+                    Cursor cursor = getContentResolver().query(intent.getData(),
+                            filePathColumn, null, null, null);
+                    cursor.moveToFirst();
+
+                    int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                    String picturePath = cursor.getString(columnIndex);
+                    cursor.close();
+                    intent.putExtra("path", picturePath);
+                    childFragment.onActivityResult(requestCode, resultCode, intent);
+                }
+            }
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

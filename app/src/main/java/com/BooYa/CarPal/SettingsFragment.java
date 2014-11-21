@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,9 @@ import com.tech.freak.wizardpager.ui.PageFragmentCallbacks;
 
 import java.util.Calendar;
 
+import be.billington.calendar.recurrencepicker.LinearLayoutWithMaxWidth;
 import be.billington.calendar.recurrencepicker.RecurrencePickerDialog;
+import be.billington.calendar.recurrencepicker.WeekButton;
 
 /**
  * Created by Rony on 13/11/2014.
@@ -36,13 +39,15 @@ public class SettingsFragment extends Fragment {
     private final int DEFAULT_END_TIME_HOUR = 18;
     private final int DEFAULT_END_TIME_MINUTE = 0;
 
+    private final String[] WEEK_DAYS = new String[] {"SUN", "MON", "TUE", "WED", "THU"};
+
     private PageFragmentCallbacks mCallbacks;
     private String mKey;
     private SettingsPage mPage;
     private TextView mStartWorkTimeView;
     private TextView mEndWorkTimeView;
-    private TextView mPreferredDaysView;
-    private TextView mUnPreferredDaysView;
+    private LinearLayoutWithMaxWidth mPreferredDaysView;
+    private LinearLayoutWithMaxWidth mUnPreferredDaysView;
 
     public static SettingsFragment create(String key) {
         Bundle args = new Bundle();
@@ -77,11 +82,11 @@ public class SettingsFragment extends Fragment {
         mEndWorkTimeView = ((TextView) rootView.findViewById(R.id.profile_end_work_time));
         mEndWorkTimeView.setText(GetTimeString(mPage.getData().getInt(SettingsPage.END_WORK_TIME_HOUR_DATA_KEY, DEFAULT_END_TIME_HOUR), mPage.getData().getInt(SettingsPage.END_WORK_TIME_MINUTE_DATA_KEY, DEFAULT_END_TIME_MINUTE)));
 
-        mPreferredDaysView = ((TextView) rootView.findViewById(R.id.profile_preferred_days));
-        mPreferredDaysView.setText(mPage.getData().getString(SettingsPage.PREFERRED_DAYS_DATA_KEY));
+        mPreferredDaysView = ((LinearLayoutWithMaxWidth) rootView.findViewById(R.id.profile_preferred_days));
+        //todo: select from page data
 
-        mUnPreferredDaysView = ((TextView) rootView.findViewById(R.id.profile_unpreferred_days));
-        mUnPreferredDaysView.setText(mPage.getData().getString(SettingsPage.UNPREFERRED_DAYS_DATA_KEY));
+        mUnPreferredDaysView = ((LinearLayoutWithMaxWidth) rootView.findViewById(R.id.profile_unpreferred_days));
+        //todo: select from page data
 
         return rootView;
     }
