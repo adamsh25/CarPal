@@ -1,20 +1,17 @@
 package com.BooYa.CarPal;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 
 /**
  * Created by Barry.Z on 10/29/2014.
  */
-public class PendingRequest
-{
+public class PendingRequest {
     private int request_id;
     private String pending_request_info;
     private Bitmap notificationPicture;
 
 
-    public PendingRequest(int request_id,String pending_request_info,Bitmap notificationPicture)
-    {
+    public PendingRequest(int request_id, String pending_request_info, Bitmap notificationPicture) {
         this.setRequest_id(request_id);
         this.setPending_request_info(pending_request_info);
         this.notificationPicture = notificationPicture;
@@ -24,12 +21,12 @@ public class PendingRequest
         return request_id;
     }
 
-    public Bitmap getNotificationPic() {
-        return notificationPicture;
-    }
-
     public void setRequest_id(int request_id) {
         this.request_id = request_id;
+    }
+
+    public Bitmap getNotificationPic() {
+        return notificationPicture;
     }
 
     public String getPending_request_info() {

@@ -1,7 +1,6 @@
 package com.BooYa.CarPal;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 
 import java.util.Comparator;
 
@@ -18,8 +17,7 @@ public class WeeklyDriver
     private int day_index;
 
 
-    public WeeklyDriver(String first_name, String last_name, String phone_number, int driver_id,int day_index)
-    {
+    public WeeklyDriver(String first_name, String last_name, String phone_number, int driver_id, int day_index) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.phone_number = phone_number;
@@ -27,16 +25,21 @@ public class WeeklyDriver
         this.day_index = day_index;
     }
 
+    public static Bitmap getDriverPicture(int driver_id) {
+        //return DAL.getDriverPicture(driver_id);
+        return null;
+    }
+
     public String getFirst_name() {
         return first_name;
     }
 
-    public int getDay_Index() {
-        return day_index;
-    }
-
     public void setFirst_name(String first_name) {
         this.first_name = first_name;
+    }
+
+    public int getDay_Index() {
+        return day_index;
     }
 
     public String getLast_name() {
@@ -55,22 +58,15 @@ public class WeeklyDriver
         this.phone_number = phone_number;
     }
 
-    public static Bitmap getDriverPicture(int driver_id)
-    {
-        //return DAL.getDriverPicture(driver_id);
-        return null;
-    }
-
-    public Bitmap getDriverPicture()
-    {
+    public Bitmap getDriverPicture() {
         //return DAL.getDriverPicture(this.driver_id)
         return null;
     }
 
 }
+
 class WeeklyDriverOrderedScheduleComparator implements Comparator<WeeklyDriver> {
-    public int compare(WeeklyDriver weeklyDriver1, WeeklyDriver weeklyDriver2)
-    {
+    public int compare(WeeklyDriver weeklyDriver1, WeeklyDriver weeklyDriver2) {
         return Integer.compare(weeklyDriver1.getDay_Index(), weeklyDriver2.getDay_Index());
     }
 }

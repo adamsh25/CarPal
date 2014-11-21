@@ -1,14 +1,10 @@
 package com.BooYa.CarPal;
 
-import android.util.JsonReader;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MappingJsonFactory;
-import org.json.JSONArray;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -63,8 +59,7 @@ public class StreetsSearcher {
             }
 
         } catch (IOException e) {
-        }
-        finally {
+        } finally {
             return result;
         }
     }

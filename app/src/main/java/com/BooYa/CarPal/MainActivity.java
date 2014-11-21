@@ -1,15 +1,12 @@
 package com.BooYa.CarPal;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,11 +38,9 @@ public class MainActivity extends Fragment implements View.OnClickListener {
 //        getWeeklyDrivers();
 //
 //    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
 
         rootView = inflater.inflate(R.layout.main, container, false);
         findViews();
@@ -53,7 +48,7 @@ public class MainActivity extends Fragment implements View.OnClickListener {
         getWeeklyDrivers();
         final Intent mServiceIntent = new Intent(this.getActivity().getBaseContext(), NotificationService.class);
         this.getActivity().startService(mServiceIntent);
-    
+
 
         return rootView;
     }
@@ -72,11 +67,10 @@ public class MainActivity extends Fragment implements View.OnClickListener {
         btnChangeGroup.setOnClickListener(this);
     }
 
-    private void getWeeklyDrivers()
-    {
-        List<WeeklyDriver> driverList= new ArrayList<WeeklyDriver>();
+    private void getWeeklyDrivers() {
+        List<WeeklyDriver> driverList = new ArrayList<WeeklyDriver>();
 
-        driverList.add(new WeeklyDriver("Barry","Zavodnik","1",1,0));
+        driverList.add(new WeeklyDriver("Barry", "Zavodnik", "1", 1, 0));
 
 //        driverList = DAL.populate_weekly_drivers;
 //        Collections.sort(driverList, new WeeklyDriverOrderedScheduleComparator());
@@ -91,8 +85,7 @@ public class MainActivity extends Fragment implements View.OnClickListener {
         imageviewTuesdayDriver.setImageResource(R.drawable.rony);
     }
 
-    private void getPendingRequests()
-    {
+    private void getPendingRequests() {
         pendingRequestsList = new ArrayList<PendingRequest>();
         //pendingRequestsList = DAL.populate_weekly_drivers;
 
@@ -115,7 +108,7 @@ public class MainActivity extends Fragment implements View.OnClickListener {
         /**
          * get on item click listener
          */
-            listviewPendingRequests.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listviewPendingRequests.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View v,
@@ -128,9 +121,9 @@ public class MainActivity extends Fragment implements View.OnClickListener {
 
 
     }
-     @Override
-    public void onClick(View v)
-     {
+
+    @Override
+    public void onClick(View v) {
         if (v == btnSettings) {
             // Handle clicks for btnSettings
         } else if (v == btnChangeGroup) {

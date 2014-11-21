@@ -1,10 +1,5 @@
 package com.BooYa.CarPal;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import org.apache.http.client.HttpResponseException;
-import org.json.JSONObject;
-
-import javax.security.auth.login.LoginException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;

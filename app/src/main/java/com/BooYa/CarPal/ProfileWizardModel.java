@@ -1,15 +1,8 @@
 package com.BooYa.CarPal;
 
 import android.content.Context;
-
 import com.tech.freak.wizardpager.model.AbstractWizardModel;
-import com.tech.freak.wizardpager.model.BranchPage;
-import com.tech.freak.wizardpager.model.ImagePage;
-import com.tech.freak.wizardpager.model.MultipleFixedChoicePage;
-import com.tech.freak.wizardpager.model.NumberPage;
 import com.tech.freak.wizardpager.model.PageList;
-import com.tech.freak.wizardpager.model.SingleFixedChoicePage;
-import com.tech.freak.wizardpager.model.TextPage;
 
 /**
  * Created by Rony on 11/11/2014.

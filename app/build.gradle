@@ -23,6 +23,11 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
+
 dependencies {
     compile 'com.android.support:support-v4:21.0.0'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.4.3'
@@ -33,4 +38,7 @@ dependencies {
     compile 'com.daimajia.slider:library:1.0.9@aar'
     compile 'com.github.flavienlaurent.datetimepicker:library:0.0.2'
     compile 'be.billington.calendar.recurrencepicker:library:1.1.0'
+    compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
+    compile 'com.makeramen:roundedimageview:1.5.0'
+    compile 'com.pkmmte.view:circularimageview:1.1'
 }

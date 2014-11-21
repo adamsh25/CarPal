@@ -22,10 +22,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.tech.freak.wizardpager.model.Page;
 import com.tech.freak.wizardpager.ui.PageFragmentCallbacks;
 
@@ -37,12 +35,10 @@ import java.io.InputStream;
  * Created by Rony on 13/11/2014.
  */
 public class AvatarFragment extends Fragment {
+    protected static final String ARG_KEY = "key";
     private static final String NEW_IMAGE_URI = "new_image_uri";
     private static final int GALLERY_REQUEST_CODE = 0;
     private static final int CAMERA_REQUEST_CODE = 1;
-
-    protected static final String ARG_KEY = "key";
-
     private PageFragmentCallbacks mCallbacks;
     private String mKey;
     private Page mPage;

@@ -2,7 +2,6 @@ package com.BooYa.CarPal;
 
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-
 import com.tech.freak.wizardpager.model.ModelCallbacks;
 import com.tech.freak.wizardpager.model.Page;
 import com.tech.freak.wizardpager.model.ReviewItem;

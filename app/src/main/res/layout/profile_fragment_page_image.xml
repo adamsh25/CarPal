@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/WizardPageContainer"
-    android:orientation="vertical"
-    tools:ignore="UseCompoundDrawables" >
+              xmlns:tools="http://schemas.android.com/tools"
+              style="@style/WizardPageContainer"
+              android:orientation="vertical"
+              tools:ignore="UseCompoundDrawables">
 
-    <TextView style="@style/WizardPageTitle" />
+    <TextView style="@style/WizardPageTitle"/>
 
     <FrameLayout
-        android:id="@+id/frameLayoutImageContainer"
-        style="@style/ImageContainer" >
+            android:id="@+id/frameLayoutImageContainer"
+            style="@style/ImageContainer">
 
         <ImageView
-            android:id="@+id/profile_image_view"
-            style="@style/ImagePage"
-            tools:ignore="ContentDescription" />
+                android:id="@+id/profile_image_view"
+                style="@style/ImagePage"
+                tools:ignore="ContentDescription"/>
     </FrameLayout>
 
 </LinearLayout>

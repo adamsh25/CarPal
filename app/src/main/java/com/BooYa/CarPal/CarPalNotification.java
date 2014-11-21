@@ -3,29 +3,27 @@ package com.BooYa.CarPal;
 /**
  * Created by adam on 30/10/2014.
  */
-public class CarPalNotification
-{
+public class CarPalNotification {
     private int _mTypeId;
     private String _mTitle;
     private String _mText;
     private String _mURL;
 
 
-    private CarPalNotification()
-    {
+    private CarPalNotification() {
 
     }
-    public CarPalNotification(int mTypeId)
-    {
+
+    public CarPalNotification(int mTypeId) {
         this._mTypeId = mTypeId;
     }
-    public CarPalNotification(int _mTypeId, String _notificationText)
-    {
+
+    public CarPalNotification(int _mTypeId, String _notificationText) {
         this._mTypeId = _mTypeId;
         this.set_mText(_notificationText);
     }
-    public CarPalNotification(int _mTypeId, String _notificationText, String URL)
-    {
+
+    public CarPalNotification(int _mTypeId, String _notificationText, String URL) {
         this._mTypeId = _mTypeId;
         this.set_mText(_notificationText);
         this.set_mURL(URL);

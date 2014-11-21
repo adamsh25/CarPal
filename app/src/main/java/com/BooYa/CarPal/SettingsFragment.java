@@ -39,8 +39,6 @@ public class SettingsFragment extends Fragment {
     private final int DEFAULT_END_TIME_HOUR = 18;
     private final int DEFAULT_END_TIME_MINUTE = 0;
 
-    private final String[] WEEK_DAYS = new String[] {"SUN", "MON", "TUE", "WED", "THU"};
-
     private PageFragmentCallbacks mCallbacks;
     private String mKey;
     private SettingsPage mPage;
