@@ -1,46 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="com.BooYa.CarPal"
-          android:versionCode="1"
-          android:versionName="1.0">
+    package="com.BooYa.CarPal"
+    android:versionCode="1"
+    android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="16"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+
+    <uses-sdk android:minSdkVersion="16" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
-            android:icon="@drawable/ic_launcher"
-            android:label="@string/app_name"
-            tools:replace="android:label">
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        tools:replace="android:label"
+            >
         <activity
-                android:name=".DriverPanel"
-                android:label="@string/app_name">
+            android:name=".DriverPanel"
+            android:label="@string/app_name"
+                >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-                android:name=".ProfileActivity"
-                android:exported="true"
-                android:label="ProfileActivity"
-                android:theme="@android:style/Theme.Holo.Light.NoActionBar"/>
+            android:name=".ProfileActivity"
+            android:exported="true"
+            android:label="ProfileActivity"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" />
         <activity
-                android:name=".BroadCastActivity"
-                android:exported="true"
-                android:label="BroadCast"/>
+            android:name=".BroadCastActivity"
+            android:exported="true"
+            android:label="BroadCast" />
 
         <service
-                android:name=".NotificationService"
-                android:enabled="true"/>
+            android:name=".NotificationService"
+            android:enabled="true" />
 
-        <receiver android:name=".ButtonListener"/>
+        <receiver android:name=".ButtonListener" />
 
         <activity
-                android:name=".GroupInfoActivity"
-                android:exported="true"
-                android:label="Group Info"
-                >
+            android:name=".GroupInfoActivity"
+            android:exported="true"
+            android:label="Group Info" >
+        </activity>
+        <activity
+            android:name=".EditTextActivity"
+            android:label="@string/title_activity_edit_text" >
         </activity>
     </application>
 

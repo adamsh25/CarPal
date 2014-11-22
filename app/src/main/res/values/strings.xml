@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">CarPal</string>
     <string name="server_base_url">http://ip:port/</string>
     <string name="server_login_method">login</string>
@@ -18,4 +19,6 @@
     <string name="wizard_finish">Finish</string>
     <string name="wizard_submit_confirm_message"></string>
     <string name="profile_label_street">Street</string>
+    <string name="title_activity_edit_text">EditTextActivity</string>
+
 </resources>

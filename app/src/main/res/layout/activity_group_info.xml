@@ -18,7 +18,13 @@
 
                     <LinearLayout android:orientation="horizontal" android:layout_width="200dp" android:layout_height="30dp">
                         <TextView android:layout_width="55dp" android:layout_height="20dp" android:text="NAME" />
-                        <TextView android:layout_width="100dp" android:layout_height="20dp" android:id="@+id/txtGroupName" android:text="MAROON FIVE" />
+                        <TextView
+                                android:layout_width="100dp"
+                                android:layout_height="20dp"
+                                android:id="@+id/txtGroupName" 
+                                android:text="MAROON FIVE"
+                                android:tag="editableText"
+                                />
                     </LinearLayout>
 
                     <LinearLayout  android:layout_width="200dp" android:layout_height="30dp" android:orientation="horizontal">
@@ -44,19 +50,23 @@
 
                 </LinearLayout>
                 <LinearLayout android:orientation="vertical" android:layoutDirection="rtl" android:layout_width="fill_parent" android:layout_height="200dp">
-                    <ImageView android:layout_width="fill_parent" android:layout_height="80dp" android:src="@drawable/map1" />
+                    <ImageView android:layout_width="fill_parent" 
+                               android:layout_height="80dp" 
+                               android:src="@drawable/map1"
+                               android:id="@+id/mapImage"/>
                 </LinearLayout>
             </TableRow>
 
 
-            <TableRow android:background="@drawable/two_lines" android:layout_width="fill_parent" android:layout_height="74dp"  android:tag="1">
+            <TableRow android:background="@drawable/bottomline" android:layout_width="fill_parent" android:layout_height="74dp"  android:tag="1">
                 <com.pkmmte.view.CircularImageView
                         android:layout_width ="80dp"
                         android:layout_height="60dp"
                         android:src="@drawable/adam"
-                        android:id="@+id/circular1"
+                        android:id="@+id/groupinfo_circularImage1"
                         android:layout_marginBottom="7dp"
                         android:layout_marginTop="7dp"
+                        android:tag="circularImage"
 
                         />
                 <LinearLayout android:orientation="vertical"      android:layout_width="110dp"                android:layout_marginTop="18dp"
@@ -73,6 +83,7 @@
                            android:src="@drawable/phone"
                            android:id="@+id/groupinfo_phoneButton1"
                            android:tag="phoneButton"
+                           android:visibility="invisible"
                         />
                 <ImageView android:layout_width="36dp"
                            android:layout_height="36dp"
@@ -82,18 +93,20 @@
                            android:src="@drawable/whats"
                            android:id="@+id/groupinfo_whatsAppButton1"
                            android:tag="whatsAppButton"
+                           android:visibility="invisible"
 
                         />
 
             </TableRow>
-            <TableRow  android:background="@drawable/two_lines" android:layout_width="fill_parent" android:layout_height="74dp"  android:tag="2">
+            <TableRow  android:background="@drawable/bottomline" android:layout_width="fill_parent" android:layout_height="74dp"  android:tag="2">
                 <com.pkmmte.view.CircularImageView
                         android:layout_width="80dp"
                         android:layout_height="60dp"
                         android:src="@drawable/beeri"
-                        android:id="@+id/circular2"
+                        android:id="@+id/groupinfo_circularImage2"
                        android:layout_marginBottom="7dp"
                         android:layout_marginTop="7dp"
+                        android:tag="circularImage"
                         />
                 <LinearLayout android:orientation="vertical"     android:layout_width="110dp"                android:layout_marginTop="18dp"
                               android:layout_marginBottom="18dp">
@@ -108,6 +121,7 @@
                            android:src="@drawable/phone"
                            android:id="@+id/groupinfo_phoneButton2"
                            android:tag="phoneButton"
+                           android:visibility="invisible"
                         />
                 <ImageView android:layout_width="36dp"
                            android:layout_height="36dp"
@@ -117,16 +131,18 @@
                            android:src="@drawable/whats"
                            android:id="@+id/groupinfo_whatsAppButton2"
                            android:tag="whatsAppButton"
+                           android:visibility="invisible"
                         />
             </TableRow>
-            <TableRow android:background="@drawable/two_lines"  android:layout_width="fill_parent" android:layout_height="74dp"  android:tag="3">
+            <TableRow android:background="@drawable/bottomline"  android:layout_width="fill_parent" android:layout_height="74dp"  android:tag="3">
                 <com.pkmmte.view.CircularImageView
                         android:layout_width="80dp"
                         android:layout_height="60dp"
                         android:src="@drawable/adam2"
-                        android:id="@+id/circular3"
+                        android:id="@+id/groupinfo_circularImage3"
                        android:layout_marginBottom="7dp"
                         android:layout_marginTop="7dp"
+                        android:tag="circularImage"
 
                         />
                 <LinearLayout android:orientation="vertical"    android:layout_width="110dp"                       android:layout_marginTop="18dp"
@@ -142,6 +158,7 @@
                            android:src="@drawable/phone"
                            android:id="@+id/groupinfo_phoneButton3"
                            android:tag="phoneButton"
+                           android:visibility="invisible"
 
                         />
                 <ImageView android:layout_width="36dp"
@@ -151,17 +168,19 @@
                            android:layout_marginLeft="30dp"
                            android:src="@drawable/whats"
                            android:id="@+id/groupinfo_whatsAppButton3"
+                           android:visibility="invisible"
                            android:tag="whatsAppButton"
                         />
             </TableRow>
-            <TableRow  android:background="@drawable/two_lines" android:layout_width="fill_parent" android:layout_height="74dp"  android:tag="4">
+            <TableRow  android:background="@drawable/bottomline" android:layout_width="fill_parent" android:layout_height="74dp"  android:tag="4">
                 <com.pkmmte.view.CircularImageView
                         android:layout_width="80dp"
                         android:layout_height="60dp"
                         android:src="@drawable/beeri"
-                        android:id="@+id/circular4"
+                        android:id="@+id/groupinfo_circularImage4"
                                 android:layout_marginTop="7dp"
                         android:layout_marginBottom="7dp"
+                        android:tag="circularImage"
                         />
                 <LinearLayout android:orientation="vertical"         android:layout_width="110dp"            android:layout_marginTop="18dp"
                               android:layout_marginBottom="18dp">
@@ -174,6 +193,7 @@
                            android:layout_marginBottom="18dp"
                            android:layout_marginLeft="30dp"
                            android:src="@drawable/phone"
+                           android:visibility="invisible"
                            android:id="@+id/groupinfo_phoneButton4"
                            android:tag="phoneButton"
                         />
@@ -182,19 +202,21 @@
                            android:layout_marginTop="18dp"
                            android:layout_marginBottom="18dp"
                            android:layout_marginLeft="30dp"
+                           android:visibility="invisible"
                            android:src="@drawable/whats"
                            android:id="@+id/groupinfo_whatsAppButton4"
                            android:tag="whatsAppButton"
                         />
             </TableRow>
-            <TableRow  android:background="@drawable/two_lines" android:layout_width="fill_parent" android:layout_height="74dp" android:tag="5">
+            <TableRow  android:background="@drawable/bottomline" android:layout_width="fill_parent" android:layout_height="74dp" android:tag="5">
                 <com.pkmmte.view.CircularImageView
                         android:layout_width="80dp"
                         android:layout_height="60dp"
                         android:src="@drawable/adam"
-                        android:id="@+id/circular5"
+                        android:id="@+id/groupinfo_circularImage5"
                         android:layout_marginTop="7dp"
                         android:layout_marginBottom="7dp"
+                        android:tag="circularImage"
                         />
                 <LinearLayout android:orientation="vertical"       android:layout_width="110dp"              android:layout_marginTop="18dp"
                               android:layout_marginBottom="18dp">
@@ -207,6 +229,7 @@
                            android:layout_marginBottom="18dp"
                            android:layout_marginLeft="30dp"
                            android:src="@drawable/phone"
+                           android:visibility="invisible"
                            android:id="@+id/groupinfo_phoneButton5"
                            android:tag="phoneButton"
                         />
@@ -215,6 +238,7 @@
                            android:layout_marginTop="18dp"
                            android:layout_marginBottom="18dp"
                            android:layout_marginLeft="30dp"
+                           android:visibility="invisible"
                            android:src="@drawable/whats"
                            android:id="@+id/groupinfo_whatsAppButton5"
                            android:tag="whatsAppButton"
