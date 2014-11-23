@@ -25,9 +25,7 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_info);
         Initiallize();
-        _groupInfo.set_groupName("MAROON 5");
-        ((TextView)findViewById(R.id.txtGroupName)).setText(_groupInfo.get_groupName());
-        //((TextView)_dicViews.get("editableText").get(R.id.txtGroupName)).setText(_groupInfo.get_groupName());
+
 
     }
 
@@ -73,27 +71,48 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
     }
 
     private void Initiallize()
-    {
+    {// Very Ugly Code - Will Be Generic Soon Sorry.
         GetMembersFromDB();
         addTouchEventsToViews();
-               /*CircularImageView circularImageView = (CircularImageView)findViewById(R.id.circular2);
-        circularImageView.setBorderColor(getResources().getColor(R.color.abc_primary_text_material_dark));
-        circularImageView.setBorderWidth(10);
-        circularImageView.setSelectorColor(getResources().getColor(R.color.abc_primary_text_material_dark));
-        circularImageView.setSelectorStrokeColor(getResources().getColor(R.color.abc_search_url_text));
-        circularImageView.setSelectorStrokeWidth(10);
-        circularImageView.addShadow();*/
+
+        ((TextView)findViewById(R.id.txtGroupName)).setText(_groupInfo.get_groupName());
+
+
+        ((TextView)findViewById(R.id.groupinfo_name_1)).setText(
+                String.format("%s %s", _groupInfo.get_groupMembers().get(0).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+        ((TextView)findViewById(R.id.groupinfo_address_1))
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+
+        ((TextView)findViewById(R.id.groupinfo_name_2)).setText(
+                String.format("%s %s", _groupInfo.get_groupMembers().get(1).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+        ((TextView)findViewById(R.id.groupinfo_address_2))
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(1).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+        ((TextView)findViewById(R.id.groupinfo_name_3)).setText(
+                String.format("%s %s", _groupInfo.get_groupMembers().get(2).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+        ((TextView)findViewById(R.id.groupinfo_address_3))
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(2).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+
+        ((TextView)findViewById(R.id.groupinfo_name_4)).setText(
+                String.format("%s %s", _groupInfo.get_groupMembers().get(3).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+        ((TextView)findViewById(R.id.groupinfo_address_4))
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(3).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+
+        ((TextView)findViewById(R.id.groupinfo_name_5)).setText(
+                String.format("%s %s", _groupInfo.get_groupMembers().get(4).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+        ((TextView)findViewById(R.id.groupinfo_address_5))
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(4).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+
+
     }
 
     private void GetMembersFromDB()
     {
         //ToDo: Supposed To Be in BL
-        _groupInfo = new GroupInfo();
-        _groupInfo.get_groupMembers().add(new UserInfo("972542501474"));
-        _groupInfo.get_groupMembers().add(new UserInfo("972548018050"));
-        _groupInfo.get_groupMembers().add(new UserInfo("972542501474"));
-        _groupInfo.get_groupMembers().add(new UserInfo("972542501474"));
-        _groupInfo.get_groupMembers().add(new UserInfo("972542501908"));
+        if(_groupInfo == null) {
+            DAL.fillFakeData();
+            _groupInfo = DAL.sta_groupInfo;
+        }
+
 
     }
 

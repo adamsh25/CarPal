@@ -109,6 +109,8 @@ public class DriverPanel extends Activity implements View.OnClickListener {
             // Handle clicks for btnPrivateProfile
         } else if (v == btnGroupProfile) {
             // Handle clicks for btnGroupProfile
+            Intent intent = new Intent(this, GroupInfoActivity.class);
+            startActivity(intent);
         } else if (v == btnMain) {
             Intent intent = new Intent(this, DriverPanel.class);
             startActivity(intent);
