@@ -4,18 +4,22 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import java.util.*;
 
 
 public class GroupInfoActivity extends Activity implements View.OnClickListener {
 
-    private ArrayList<UserInfo>  _groupMembers;
-    Map<String,List<View>> _dicViews;
 
+    private Map<String,Map<String,View>> _dicViews;
+    private GroupInfo _groupInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +51,7 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
 
     public void addTouchEventsToViews()
     {
-        _dicViews = new HashMap<String, List<View>>();
+        _dicViews = new HashMap<String, Map<String,View>>();
         addViewsToDictionary(R.id.groupinfo_whatsAppButton1);
         addViewsToDictionary(R.id.groupinfo_whatsAppButton2);
         addViewsToDictionary(R.id.groupinfo_whatsAppButton3);
@@ -58,30 +62,57 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
         addViewsToDictionary(R.id.groupinfo_phoneButton3);
         addViewsToDictionary(R.id.groupinfo_phoneButton4);
         addViewsToDictionary(R.id.groupinfo_phoneButton5);
+        addViewsToDictionary(R.id.groupinfo_circularImage1);
+        addViewsToDictionary(R.id.groupinfo_circularImage2);
+        addViewsToDictionary(R.id.groupinfo_circularImage3);
+        addViewsToDictionary(R.id.groupinfo_circularImage4);
+        addViewsToDictionary(R.id.groupinfo_circularImage5);
+        addViewsToDictionary(R.id.txtGroupName);
     }
 
     private void Initiallize()
-    {
+    {// Very Ugly Code - Will Be Generic Soon Sorry.
         GetMembersFromDB();
         addTouchEventsToViews();
-               /*CircularImageView circularImageView = (CircularImageView)findViewById(R.id.circular2);
-        circularImageView.setBorderColor(getResources().getColor(R.color.abc_primary_text_material_dark));
-        circularImageView.setBorderWidth(10);
-        circularImageView.setSelectorColor(getResources().getColor(R.color.abc_primary_text_material_dark));
-        circularImageView.setSelectorStrokeColor(getResources().getColor(R.color.abc_search_url_text));
-        circularImageView.setSelectorStrokeWidth(10);
-        circularImageView.addShadow();*/
+
+        ((TextView)findViewById(R.id.txtGroupName)).setText(_groupInfo.get_groupName());
+
+
+        ((TextView)findViewById(R.id.groupinfo_name_1)).setText(
+                String.format("%s %s", _groupInfo.get_groupMembers().get(0).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+        ((TextView)findViewById(R.id.groupinfo_address_1))
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+
+        ((TextView)findViewById(R.id.groupinfo_name_2)).setText(
+                String.format("%s %s", _groupInfo.get_groupMembers().get(1).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+        ((TextView)findViewById(R.id.groupinfo_address_2))
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(1).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+        ((TextView)findViewById(R.id.groupinfo_name_3)).setText(
+                String.format("%s %s", _groupInfo.get_groupMembers().get(2).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+        ((TextView)findViewById(R.id.groupinfo_address_3))
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(2).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+
+        ((TextView)findViewById(R.id.groupinfo_name_4)).setText(
+                String.format("%s %s", _groupInfo.get_groupMembers().get(3).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+        ((TextView)findViewById(R.id.groupinfo_address_4))
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(3).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+
+        ((TextView)findViewById(R.id.groupinfo_name_5)).setText(
+                String.format("%s %s", _groupInfo.get_groupMembers().get(4).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+        ((TextView)findViewById(R.id.groupinfo_address_5))
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(4).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+
+
     }
 
     private void GetMembersFromDB()
     {
         //ToDo: Supposed To Be in BL
-        _groupMembers = new ArrayList<UserInfo>();
-        _groupMembers.add(new UserInfo("0542501474"));
-        _groupMembers.add(new UserInfo("972548018050"));
-        _groupMembers.add(new UserInfo("0542501474"));
-        _groupMembers.add(new UserInfo("0542501474"));
-        _groupMembers.add(new UserInfo("0542501474"));
+        if(_groupInfo == null) {
+            DAL.fillFakeData();
+            _groupInfo = DAL.sta_groupInfo;
+        }
+
 
     }
 
@@ -91,17 +122,26 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
         View v = this.findViewById(id);
         v.setOnClickListener(this);
         String tag = v.getTag().toString();
+        String key = "";
+        if(v.getParent() instanceof TableRow) {
+            key = ((View) v.getParent()).getTag().toString();
+        }
+        else
+        {
+            key = Integer.toString(id);
+        }
         if(_dicViews.containsKey(tag))
         {
-            List<View> views = _dicViews.get(tag);
-            views.add(v);
+            Map<String,View> views = _dicViews.get(tag);
+            views.put(key, v);
             _dicViews.remove(tag);
             _dicViews.put(tag, views);
         }
         else
         {
-            List<View> views = new ArrayList<View>();
-            views.add(v);
+            Map<String,View> views = new HashMap<String,View>();
+
+            views.put(key, v);
             _dicViews.put(tag, views);
         }
     }
@@ -113,8 +153,8 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
         try
         {
             String tag = ((View) v.getParent()).getTag().toString();
-            int index = Integer.parseInt(tag);
-            userInfo = _groupMembers.get(index--);
+            int index = Integer.parseInt(tag)-1;
+            userInfo = _groupInfo.get_groupMembers().get(index);
         }
         catch (Exception ex)
         {
@@ -139,6 +179,46 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
         startActivity(i);
     }
 
+    private void showContactInfoButtons(View v)
+    {
+        String key = ((View) v.getParent()).getTag().toString();
+        String tag = v.getTag().toString();
+        ImageView wh = ((ImageView)_dicViews.get("whatsAppButton").get(key));
+        ImageView ph =((ImageView)_dicViews.get("phoneButton").get(key));
+        if(wh.getVisibility() == View.VISIBLE) {
+            wh.setVisibility(View.INVISIBLE);
+            ph.setVisibility(View.INVISIBLE);
+        }
+        else {
+            wh.setVisibility(View.VISIBLE);
+            ph.setVisibility(View.VISIBLE);
+        }
+    }
+    private void editTextInANewWindow(View v)
+    {
+        Intent i = new Intent(this, EditTextActivity.class);
+        i.putExtra("prevText", ((TextView)v).getText());
+        startActivityForResult(i, 1);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        switch (requestCode)
+        {
+            case 1: //edit group name text
+                if(resultCode == RESULT_OK){
+                    String result = data.getStringExtra("changedText");
+                    ((TextView)findViewById(R.id.txtGroupName)).setText(result);
+                    _groupInfo.set_groupName(result);
+                }
+
+            break;
+
+        }
+    }
+
     @Override
     public void onClick(View v)
     {
@@ -154,6 +234,14 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
         else if(s.equals("phoneButton"))
         {
             callContact(getUserInfoByView(v));
+        }
+        else if(s.equals("circularImage"))
+        {
+            showContactInfoButtons(v);
+        }
+        else if(s.equals("editableText"))
+        {
+            editTextInANewWindow(v);
         }
     }
 }
