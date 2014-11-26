@@ -24,7 +24,7 @@
                 android:name=".ProfileActivity"
                 android:exported="true"
                 android:label="ProfileActivity"
-                android:theme="@android:style/Theme.Holo.Light.NoActionBar"/>
+                android:theme="@style/AppTheme"/>
         <activity
                 android:name=".BroadCastActivity"
                 android:exported="true"

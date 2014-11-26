@@ -3,7 +3,7 @@
               style="@style/WizardPageContainer"
               android:orientation="vertical">
 
-    <TextView style="@style/WizardPageTitle"/>
+    <TextView style="@style/WizardPageTitleCarPal"/>
 
     <ScrollView android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -24,7 +24,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_weight="1">
-                    <TextView style="@style/WizardFormLabel"
+                    <TextView style="@style/WizardFormLabelCarPal"
                               android:text="Work start time"/>
 
                     <EditText android:id="@+id/profile_start_work_time"
@@ -42,7 +42,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:layout_weight="1">
-                    <TextView style="@style/WizardFormLabel"
+                    <TextView style="@style/WizardFormLabelCarPal"
                               android:text="Work end time"/>
                     <EditText android:id="@+id/profile_end_work_time"
                               android:layout_width="match_parent"
@@ -60,7 +60,7 @@
                     android:id="@+id/frmmm">
             </FrameLayout>
 
-            <TextView style="@style/WizardFormLabel"
+            <TextView style="@style/WizardFormLabelCarPal"
                 android:text="Preferred days"
                 android:layout_marginTop="25dp"/>
 
@@ -85,7 +85,7 @@
                 <be.billington.calendar.recurrencepicker.WeekButton style="@style/RecurrenceDayOfWeekStyle" android:textOff="THU" android:textOn="THU" />
             </be.billington.calendar.recurrencepicker.LinearLayoutWithMaxWidth>
 
-            <TextView style="@style/WizardFormLabel"
+            <TextView style="@style/WizardFormLabelCarPal"
                 android:text="UnPreferred days"
                 android:layout_marginTop="25dp"/>
 
