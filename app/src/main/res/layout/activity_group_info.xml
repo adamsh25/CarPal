@@ -69,7 +69,7 @@
                         android:tag="circularImage"
 
                         />
-                <LinearLayout android:orientation="vertical"      android:layout_width="110dp"                android:layout_marginTop="18dp"
+                <LinearLayout android:orientation="vertical"      android:layout_width="140dp"                android:layout_marginTop="18dp"
                               android:layout_marginBottom="18dp">
                 <TextView android:layout_height="fill_parent" android:layout_width="fill_parent" android:text="PAT AHARON" android:id="@+id/groupinfo_name_1"/>
                 <TextView  android:layout_height="fill_parent" android:layout_width="fill_parent" android:text="EVEN GVIROL 12" android:id="@+id/groupinfo_address_1"
@@ -79,7 +79,7 @@
                            android:layout_height="36dp"
                            android:layout_marginTop="18dp"
                            android:layout_marginBottom="18dp"
-                           android:layout_marginLeft="30dp"
+                           android:layout_marginLeft="15dp"
                            android:src="@drawable/phone"
                            android:id="@+id/groupinfo_phoneButton1"
                            android:tag="phoneButton"
@@ -89,7 +89,7 @@
                            android:layout_height="36dp"
                            android:layout_marginTop="18dp"
                            android:layout_marginBottom="18dp"
-                           android:layout_marginLeft="30dp"
+                           android:layout_marginLeft="15dp"
                            android:src="@drawable/whats"
                            android:id="@+id/groupinfo_whatsAppButton1"
                            android:tag="whatsAppButton"
@@ -108,7 +108,7 @@
                         android:layout_marginTop="7dp"
                         android:tag="circularImage"
                         />
-                <LinearLayout android:orientation="vertical"     android:layout_width="110dp"                android:layout_marginTop="18dp"
+                <LinearLayout android:orientation="vertical"     android:layout_width="140dp"                android:layout_marginTop="18dp"
                               android:layout_marginBottom="18dp">
                     <TextView android:layout_height="fill_parent" android:layout_width="fill_parent" android:text="TAL LEVI" android:id="@+id/groupinfo_name_2"/>
                     <TextView  android:layout_height="fill_parent" android:layout_width="fill_parent" android:text="ARLOZEROV 12" android:id="@+id/groupinfo_address_2" />
@@ -117,7 +117,7 @@
                            android:layout_height="36dp"
                            android:layout_marginTop="18dp"
                            android:layout_marginBottom="18dp"
-                           android:layout_marginLeft="30dp"
+                           android:layout_marginLeft="15dp"
                            android:src="@drawable/phone"
                            android:id="@+id/groupinfo_phoneButton2"
                            android:tag="phoneButton"
@@ -127,7 +127,7 @@
                            android:layout_height="36dp"
                            android:layout_marginTop="18dp"
                            android:layout_marginBottom="18dp"
-                           android:layout_marginLeft="30dp"
+                           android:layout_marginLeft="15dp"
                            android:src="@drawable/whats"
                            android:id="@+id/groupinfo_whatsAppButton2"
                            android:tag="whatsAppButton"
@@ -145,7 +145,7 @@
                         android:tag="circularImage"
 
                         />
-                <LinearLayout android:orientation="vertical"    android:layout_width="110dp"                       android:layout_marginTop="18dp"
+                <LinearLayout android:orientation="vertical"    android:layout_width="140dp"                       android:layout_marginTop="18dp"
                               android:layout_marginBottom="18dp">
                     <TextView android:layout_height="fill_parent" android:layout_width="fill_parent" android:text="ME" android:id="@+id/groupinfo_name_3"/>
                     <TextView  android:layout_height="fill_parent" android:layout_width="fill_parent" android:text="ARLOZEROV 28" android:id="@+id/groupinfo_address_3" />
@@ -154,7 +154,7 @@
                            android:layout_height="36dp"
                            android:layout_marginTop="18dp"
                            android:layout_marginBottom="18dp"
-                           android:layout_marginLeft="30dp"
+                           android:layout_marginLeft="15dp"
                            android:src="@drawable/phone"
                            android:id="@+id/groupinfo_phoneButton3"
                            android:tag="phoneButton"
@@ -165,7 +165,7 @@
                            android:layout_height="36dp"
                            android:layout_marginTop="18dp"
                            android:layout_marginBottom="18dp"
-                           android:layout_marginLeft="30dp"
+                           android:layout_marginLeft="15dp"
                            android:src="@drawable/whats"
                            android:id="@+id/groupinfo_whatsAppButton3"
                            android:visibility="invisible"
@@ -182,7 +182,7 @@
                         android:layout_marginBottom="7dp"
                         android:tag="circularImage"
                         />
-                <LinearLayout android:orientation="vertical"         android:layout_width="110dp"            android:layout_marginTop="18dp"
+                <LinearLayout android:orientation="vertical"         android:layout_width="140dp"            android:layout_marginTop="18dp"
                               android:layout_marginBottom="18dp">
                     <TextView android:layout_height="fill_parent" android:layout_width="fill_parent" android:text="JONNY CASH" android:id="@+id/groupinfo_name_4"/>
                     <TextView  android:layout_height="fill_parent" android:layout_width="fill_parent" android:text="EVEN GVIROL 15" android:id="@+id/groupinfo_address_4" />
@@ -191,7 +191,7 @@
                            android:layout_height="36dp"
                            android:layout_marginTop="18dp"
                            android:layout_marginBottom="18dp"
-                           android:layout_marginLeft="30dp"
+                           android:layout_marginLeft="15dp"
                            android:src="@drawable/phone"
                            android:visibility="invisible"
                            android:id="@+id/groupinfo_phoneButton4"
@@ -201,7 +201,7 @@
                            android:layout_height="36dp"
                            android:layout_marginTop="18dp"
                            android:layout_marginBottom="18dp"
-                           android:layout_marginLeft="30dp"
+                           android:layout_marginLeft="15dp"
                            android:visibility="invisible"
                            android:src="@drawable/whats"
                            android:id="@+id/groupinfo_whatsAppButton4"
@@ -218,7 +218,7 @@
                         android:layout_marginBottom="7dp"
                         android:tag="circularImage"
                         />
-                <LinearLayout android:orientation="vertical"       android:layout_width="110dp"              android:layout_marginTop="18dp"
+                <LinearLayout android:orientation="vertical"       android:layout_width="140dp"              android:layout_marginTop="18dp"
                               android:layout_marginBottom="18dp">
                     <TextView android:layout_height="fill_parent" android:layout_width="fill_parent" android:text="DAN COHEN" android:id="@+id/groupinfo_name_5"/>
                     <TextView  android:layout_height="fill_parent" android:layout_width="fill_parent" android:text="ARLOZEROV 32" android:id="@+id/groupinfo_address_5" />
@@ -227,7 +227,7 @@
                            android:layout_height="36dp"
                            android:layout_marginTop="18dp"
                            android:layout_marginBottom="18dp"
-                           android:layout_marginLeft="30dp"
+                           android:layout_marginLeft="15dp"
                            android:src="@drawable/phone"
                            android:visibility="invisible"
                            android:id="@+id/groupinfo_phoneButton5"
@@ -237,7 +237,7 @@
                            android:layout_height="36dp"
                            android:layout_marginTop="18dp"
                            android:layout_marginBottom="18dp"
-                           android:layout_marginLeft="30dp"
+                           android:layout_marginLeft="15dp"
                            android:visibility="invisible"
                            android:src="@drawable/whats"
                            android:id="@+id/groupinfo_whatsAppButton5"
