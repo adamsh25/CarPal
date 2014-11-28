@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">CarPal</string>
     <string name="server_base_url">http://ip:port/</string>
     <string name="server_login_method">login</string>
     <string name="login_unexpected_error">Unexpected behavior while trying to log in, please try again.</string>
     <string name="profile_status_message">Please Wait</string>
     <string name="title_activity_profile">Complete your profile</string>
-    <string name="title_activity_group_info">GroupInfoActivity</string>
+    <string name="title_activity_car_pal_main">CarPalMain</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="drawer_open">drawer_open</string>
+    <string name="drawer_close">drawer_open</string>
+
+    <string name="title_activity_group_info">GroupInfoActivity</string>
     <string name="profile_label_full_name">Full Name</string>
     <string name="profile_hint_full_name">e.g. Rony Lutsky</string>
     <string name="profile_label_organization">Organization</string>
