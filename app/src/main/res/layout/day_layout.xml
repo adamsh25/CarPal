@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    >
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="24.1"
+            android:id="@+id/textView"
+        android:layout_alignParentLeft="false"
+        android:gravity="center"
+        android:textSize="14dp"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="S"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView"
+        android:gravity="center"
+        android:textSize="14dp"
+        android:layout_marginBottom="16dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_below="@+id/textView3"
+        android:src="@drawable/nodriver" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="DAN"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:layout_below="@+id/imageView"
+        android:textSize="14dp" />
+
+    <com.pkmmte.view.CircularImageView
+        android:id="@+id/no_driver"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        app:selector="true"
+        app:selector_color="#44FFBB33"
+        app:selector_stroke_color="#88FF8800"
+        app:selector_stroke_width="2dp" />
+
+</RelativeLayout>
