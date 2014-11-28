@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
+import com.pkmmte.view.CircularImageView;
 
 import java.util.*;
 
@@ -84,23 +85,35 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
                 .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
 
         ((TextView)findViewById(R.id.groupinfo_name_2)).setText(
-                String.format("%s %s", _groupInfo.get_groupMembers().get(1).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+                String.format("%s %s", _groupInfo.get_groupMembers().get(1).get_userName(), _groupInfo.get_groupMembers().get(1).get_userLastName()));
         ((TextView)findViewById(R.id.groupinfo_address_2))
-                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(1).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(1).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(1).get_addressHome().get_streetNumberAddress()));
         ((TextView)findViewById(R.id.groupinfo_name_3)).setText(
-                String.format("%s %s", _groupInfo.get_groupMembers().get(2).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+                String.format("%s %s", _groupInfo.get_groupMembers().get(2).get_userName(), _groupInfo.get_groupMembers().get(2).get_userLastName()));
         ((TextView)findViewById(R.id.groupinfo_address_3))
-                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(2).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(2).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(2).get_addressHome().get_streetNumberAddress()));
 
         ((TextView)findViewById(R.id.groupinfo_name_4)).setText(
-                String.format("%s %s", _groupInfo.get_groupMembers().get(3).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+                String.format("%s %s", _groupInfo.get_groupMembers().get(3).get_userName(), _groupInfo.get_groupMembers().get(3).get_userLastName()));
         ((TextView)findViewById(R.id.groupinfo_address_4))
-                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(3).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(3).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(3).get_addressHome().get_streetNumberAddress()));
 
         ((TextView)findViewById(R.id.groupinfo_name_5)).setText(
-                String.format("%s %s", _groupInfo.get_groupMembers().get(4).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
+                String.format("%s %s", _groupInfo.get_groupMembers().get(4).get_userName(), _groupInfo.get_groupMembers().get(4).get_userLastName()));
         ((TextView)findViewById(R.id.groupinfo_address_5))
-                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(4).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(4).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(4).get_addressHome().get_streetNumberAddress()));
+
+
+        ((CircularImageView)findViewById(R.id.groupinfo_circularImage1))
+        .setImageResource(R.drawable.face1);
+        ((CircularImageView)findViewById(R.id.groupinfo_circularImage2))
+        .setImageResource(R.drawable.face2);
+        ((CircularImageView)findViewById(R.id.groupinfo_circularImage3))
+        .setImageResource(R.drawable.face3);
+        ((CircularImageView)findViewById(R.id.groupinfo_circularImage4))
+        .setImageResource(R.drawable.face4);
+        ((CircularImageView)findViewById(R.id.groupinfo_circularImage5))
+        .setImageResource(R.drawable.face5);
 
 
     }
@@ -185,6 +198,16 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
         String tag = v.getTag().toString();
         ImageView wh = ((ImageView)_dicViews.get("whatsAppButton").get(key));
         ImageView ph =((ImageView)_dicViews.get("phoneButton").get(key));
+
+        for(View wab : _dicViews.get("whatsAppButton").values())
+        {
+            ((ImageView)(wab)).setVisibility(View.INVISIBLE);
+        }
+        for(View wab : _dicViews.get("phoneButton").values())
+        {
+            ((ImageView)(wab)).setVisibility(View.INVISIBLE);
+        }
+
         if(wh.getVisibility() == View.VISIBLE) {
             wh.setVisibility(View.INVISIBLE);
             ph.setVisibility(View.INVISIBLE);
@@ -219,6 +242,30 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
         }
     }
 
+    private void changeMapPic(View v)
+    {
+        int key = Integer.parseInt(((View) v.getParent()).getTag().toString());
+        ImageView imageMap = (ImageView)findViewById(R.id.mapImage);
+        switch (key) {
+            case 1:
+                imageMap.setImageResource(R.drawable.map1);
+                break;
+            case 2:
+                imageMap.setImageResource(R.drawable.map2);
+                break;
+            case 3:
+                imageMap.setImageResource(R.drawable.map3);
+                break;
+            case 4:
+                imageMap.setImageResource(R.drawable.map4);
+                break;
+            case 5:
+                imageMap.setImageResource(R.drawable.map5);
+                break;
+
+        }
+    }
+
     @Override
     public void onClick(View v)
     {
@@ -238,6 +285,7 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
         else if(s.equals("circularImage"))
         {
             showContactInfoButtons(v);
+            changeMapPic(v);
         }
         else if(s.equals("editableText"))
         {
