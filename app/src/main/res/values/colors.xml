@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="recurrence_bubble_text_normal">#00897b</color>
+    <color name="action_bar_background">#00897b</color>
 
     <color name="pressed">#ff00897b</color>
 

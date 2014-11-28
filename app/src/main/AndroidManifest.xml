@@ -8,7 +8,7 @@
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/openscreenlogo"
         android:label="@string/app_name"
         tools:replace="android:label"
             >
@@ -47,6 +47,11 @@
             android:name=".EditTextActivity"
             android:label="@string/title_activity_edit_text" >
         </activity>
+        <activity android:name=".CarPalMain"
+            android:exported="true"
+            android:label="CarPalMain"
+            android:theme="@style/CustomActionBarTheme">
+            </activity>
     </application>
 
 </manifest>
