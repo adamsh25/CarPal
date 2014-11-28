@@ -40,4 +40,8 @@ dependencies {
     compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
     compile 'com.makeramen:roundedimageview:1.5.0'
     compile 'com.pkmmte.view:circularimageview:1.1'
+    compile 'com.ikimuhendis:ldrawer:0.1'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.pkmmte.view:circularimageview:1.1'
+    compile project(':viewpageindicatorlib')
 }

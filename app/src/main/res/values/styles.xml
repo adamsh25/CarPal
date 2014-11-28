@@ -29,6 +29,9 @@
         <item name="textAppearanceFinish">@style/TextAppearanceFinish</item>
         <item name="android:editTextStyle">@style/EditTextAppTheme</item>
         <item name="android:textColorHighlight">#9900897b</item>
+        <item name="actionBarStyle">@style/CustomActionBarTheme</item>
+        <item name="android:title">"a"</item>
+        <item name="android:windowActionBar">true</item>
     </style>
 
     <style name="TextAppearanceFinish">

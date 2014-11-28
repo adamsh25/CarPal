@@ -12,4 +12,5 @@
     <color name="step_pager_selected_last_tab_color">#ff669900</color>
     <color name="step_pager_next_tab_color">#10000000</color>
     <color name="review_green">#ff669900</color>
+    <color name="drawer_arrow_second_color">#ffff0000</color>
 </resources>
