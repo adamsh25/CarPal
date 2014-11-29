@@ -28,6 +28,9 @@ repositories {
 
 
 dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.pkmmte.view:circularimageview:1.1'
+    compile project(':viewpageindicatorlib')
     compile 'com.android.support:support-v4:21.0.0'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.4.3'
     compile 'com.github.techfreak:wizardpager:1.0.0'
@@ -41,7 +44,6 @@ dependencies {
     compile 'com.makeramen:roundedimageview:1.5.0'
     compile 'com.pkmmte.view:circularimageview:1.1'
     compile 'com.ikimuhendis:ldrawer:0.1'
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.pkmmte.view:circularimageview:1.1'
-    compile project(':viewpageindicatorlib')
+    compile 'com.google.maps.android:android-maps-utils:0.3.+'
+    compile 'com.google.android.gms:play-services:4.2.42'
 }
