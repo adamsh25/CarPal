@@ -33,9 +33,12 @@ public class CarPalMain extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_pal_main);
-        ActionBar ab = getActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
-        ab.setHomeButtonEnabled(true);
+
+        InitializeActionBar();
+        InitializeDrawer();
+    }
+
+    private void InitializeDrawer() {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.navdrawer);
 
@@ -111,6 +114,12 @@ public class CarPalMain extends Activity {
 
             }
         });
+    }
+
+    private void InitializeActionBar() {
+        ActionBar ab = getActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setHomeButtonEnabled(true);
     }
 
     @Override
