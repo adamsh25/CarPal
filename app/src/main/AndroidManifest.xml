@@ -11,7 +11,7 @@
         android:icon="@drawable/openscreenlogo"
         android:label="@string/app_name"
         tools:replace="android:label"
-            >
+        android:theme="@style/CustomActionBarTheme">
         <activity
             android:name=".CarPalPanel"
             android:label="@string/app_name"
@@ -25,8 +25,7 @@
         <activity
                 android:name=".ProfileActivity"
                 android:exported="true"
-                android:label="ProfileActivity"
-                android:theme="@style/AppTheme"/>
+                android:label="ProfileActivity"/>
         <activity
             android:name=".BroadCastActivity"
             android:exported="true"
@@ -49,8 +48,7 @@
         </activity>
         <activity android:name=".CarPalMain"
             android:exported="true"
-            android:label="CarPalMain"
-            android:theme="@style/CustomActionBarTheme">
+            android:label="CarPalMain">
             </activity>
     </application>
 
