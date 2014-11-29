@@ -75,6 +75,7 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
 
 
         String[] values = new String[]{
+                "HOME",
                 "PROFILE",
                 "MY RIDE GROUP",
                 "NOTIFICATIONS",
@@ -89,22 +90,25 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
                                     int position, long id) {
                 switch (position) {
                     case 0:
+                        finish();
+                        break;
+                    case 1:
                         mDrawerToggle.setAnimateEnabled(true);
                         //drawerArrow.setProgress(1f);
                         mDrawerToggle.syncState();
                         startActivity(new Intent(getBaseContext(), ProfileActivity.class));
                         break;
-                    case 1:
+                    case 2:
                         mDrawerToggle.setAnimateEnabled(true);
                         //drawerArrow.setProgress(0f);
                         mDrawerToggle.syncState();
                         startActivity(new Intent(getBaseContext(), GroupInfoActivity.class));
                         break;
-                    case 2:
+                    case 3:
                         mDrawerToggle.setAnimateEnabled(true);
                         mDrawerToggle.syncState();
                         break;
-                    case 3:
+                    case 4:
                         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://facebook.com/AppCarPal"));
                         startActivity(browserIntent);
                         break;
@@ -126,8 +130,6 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.group_info, menu);
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_car_pal_main, menu);

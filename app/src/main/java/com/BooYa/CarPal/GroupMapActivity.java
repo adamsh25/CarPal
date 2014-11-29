@@ -86,6 +86,7 @@ public class GroupMapActivity extends Activity {
 
 
         String[] values = new String[]{
+                "HOME",
                 "PROFILE",
                 "MY RIDE GROUP",
                 "NOTIFICATIONS",
@@ -100,22 +101,25 @@ public class GroupMapActivity extends Activity {
                                     int position, long id) {
                 switch (position) {
                     case 0:
+                        finish();
+                        break;
+                    case 1:
                         mDrawerToggle.setAnimateEnabled(true);
                         //drawerArrow.setProgress(1f);
                         mDrawerToggle.syncState();
                         startActivity(new Intent(getBaseContext(), ProfileActivity.class));
                         break;
-                    case 1:
+                    case 2:
                         mDrawerToggle.setAnimateEnabled(true);
                         //drawerArrow.setProgress(0f);
                         mDrawerToggle.syncState();
                         startActivity(new Intent(getBaseContext(), GroupInfoActivity.class));
                         break;
-                    case 2:
+                    case 3:
                         mDrawerToggle.setAnimateEnabled(true);
                         mDrawerToggle.syncState();
                         break;
-                    case 3:
+                    case 4:
                         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://facebook.com/AppCarPal"));
                         startActivity(browserIntent);
                         break;
