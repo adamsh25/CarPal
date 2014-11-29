@@ -453,8 +453,7 @@
             android:layout_width="fill_parent"
             android:layout_alignParentBottom="true"
             app:fillColor="#ff00897b"
-            android:layout_below="@+id/pager"
-            android:layout_marginTop="10dp" />
+            android:layout_below="@+id/pager" />
 
         <LinearLayout
             android:orientation="horizontal"
