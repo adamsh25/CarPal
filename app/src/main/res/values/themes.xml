@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="ActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
     </style>
@@ -13,21 +12,15 @@
 
     <!-- the theme applied to the application or activity -->
     <style name="CustomActionBarTheme"
-        parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        parent="@android:style/Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
-
-        <!-- Support library compatibility -->
-        <item name="actionBarStyle">@style/MyActionBar</item>
     </style>
 
     <!-- ActionBar styles -->
     <style name="MyActionBar"
-        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@color/drawer_arrow_second_color</item>
-        <item name="android:title">"a"</item>
-
-        <!-- Support library compatibility -->
-        <item name="background">@color/drawer_arrow_second_color</item>
+        parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/action_bar_background</item>
+        <item name="android:title">action bar</item>
     </style>
 
 </resources>

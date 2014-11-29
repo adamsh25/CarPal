@@ -8,7 +8,10 @@ package com.BooYa.CarPal;
        import android.net.Uri;
         import android.os.Bundle;
         import android.support.v4.widget.DrawerLayout;
-        import android.view.MenuItem;
+       import android.support.v7.app.ActionBarActivity;
+       import android.view.Menu;
+       import android.view.MenuInflater;
+       import android.view.MenuItem;
         import android.view.View;
         import android.widget.AdapterView;
         import android.widget.ArrayAdapter;
@@ -101,7 +104,7 @@ public class CarPalMain extends Activity {
                                 getString(R.string.app_name)));
                         break;
                     case 4:
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/IkiMuhendis/LDrawer"));
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://facebook.com/AppCarPal"));
                         startActivity(browserIntent);
                         break;
                 }
@@ -132,5 +135,13 @@ public class CarPalMain extends Activity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_car_pal_main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }
