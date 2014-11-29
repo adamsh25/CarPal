@@ -3,8 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     tools:context=".CarPalPanel"
-    android:paddingRight="16dp"
-    android:paddingLeft="16dp"
     android:id="@+id/activity_car_pal_panel"
     android:background="@android:color/white"
     android:clickable="false">
@@ -14,7 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="96dp"
         android:id="@+id/Footer"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/Drivers">
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,13 +64,11 @@
 
         <RelativeLayout
             android:layout_width="65.5dp"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:id="@+id/sunday"
             android:layout_alignTop="@+id/monday"
             android:gravity="center"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_centerHorizontal="true">
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -107,14 +105,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="DAN"
+                android:text="JOHN"
                 android:id="@+id/textviewDriverName"
                 android:layout_gravity="center_vertical"
                 android:textSize="14dp"
                 android:textAlignment="center"
                 android:layout_alignWithParentIfMissing="false"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
+                android:textColor="#ff918c7d"
+                android:layout_below="@+id/imageViewDriverPic"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp" />
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -132,20 +133,22 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="65.5dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/monday"
-            android:layout_toRightOf="@+id/sunday"
-            android:gravity="center_vertical|fill_vertical">
+        android:layout_width="65.5dp"
+        android:layout_height="fill_parent"
+        android:id="@+id/monday"
+        android:layout_toRightOf="@+id/sunday"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="25.1"
+                android:text="24.1"
                 android:id="@+id/textView6"
                 android:textSize="14dp"
-
+                android:gravity="center"
                 android:textAlignment="center"
                 android:layout_centerHorizontal="true" />
 
@@ -168,27 +171,30 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp" />
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="DAN"
+                android:text="JOHN"
                 android:id="@+id/textviewDriverName"
                 android:layout_gravity="center_vertical"
-                android:gravity="center"
                 android:textSize="14dp"
                 android:textAlignment="center"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_alignWithParentIfMissing="false"
+                android:textColor="#ff918c7d"
+                android:layout_below="@+id/imageViewDriverPic"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp" />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="M"
-                android:id="@+id/textView9"
                 android:textColor="#ff000000"
-
+                android:id="@+id/textView9"
                 android:textSize="14dp"
                 android:textAlignment="center"
                 android:layout_below="@+id/textView6"
@@ -198,19 +204,19 @@
 
         <RelativeLayout
             android:layout_width="65.5dp"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:id="@+id/tuesday"
             android:layout_toRightOf="@+id/monday"
-            android:gravity="center_vertical|fill_vertical">
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="26.1"
+                android:text="24.1"
                 android:id="@+id/textView6"
                 android:textSize="14dp"
-
+                android:gravity="center"
                 android:textAlignment="center"
                 android:layout_centerHorizontal="true" />
 
@@ -233,39 +239,44 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp" />
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="DAN"
+                android:text="JOHN"
                 android:id="@+id/textviewDriverName"
                 android:layout_gravity="center_vertical"
-                android:gravity="center"
                 android:textSize="14dp"
                 android:textAlignment="center"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_alignWithParentIfMissing="false"
+                android:textColor="#ff918c7d"
+                android:layout_below="@+id/imageViewDriverPic"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp" />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="T"
+                android:textColor="#ff000000"
                 android:id="@+id/textView9"
                 android:textSize="14dp"
-                android:textColor="#ff000000"
                 android:textAlignment="center"
                 android:layout_below="@+id/textView6"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp" />
+
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="65.5dp"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:id="@+id/wednesday"
             android:layout_toRightOf="@+id/tuesday"
-            android:gravity="center_vertical|fill_vertical"
+            android:gravity="center"
             android:background="#ebecf7">
 
             <TextView
@@ -275,7 +286,7 @@
                 android:text="27.1"
                 android:id="@+id/textView6"
                 android:textSize="14dp"
-
+                android:gravity="center"
                 android:textAlignment="center"
                 android:layout_centerHorizontal="true" />
 
@@ -302,14 +313,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="DAN"
+                android:text="DANI"
                 android:id="@+id/textviewDriverName"
                 android:layout_gravity="center_vertical"
-                android:gravity="center"
                 android:textSize="14dp"
                 android:textAlignment="center"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_alignWithParentIfMissing="false"
+                android:textColor="#ff918c7d"
+                android:layout_below="@+id/imageViewDriverPic"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp" />
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -327,19 +341,19 @@
 
         <RelativeLayout
             android:layout_width="65.5dp"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:id="@+id/thursday"
             android:layout_toRightOf="@+id/wednesday"
-            android:gravity="center_vertical|fill_vertical">
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="28.1"
+                android:text="24.1"
                 android:id="@+id/textView6"
                 android:textSize="14dp"
-
+                android:gravity="center"
                 android:textAlignment="center"
                 android:layout_centerHorizontal="true" />
 
@@ -362,31 +376,36 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp" />
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="DAN"
+                android:text="JOHN"
                 android:id="@+id/textviewDriverName"
                 android:layout_gravity="center_vertical"
-                android:gravity="center"
                 android:textSize="14dp"
                 android:textAlignment="center"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_alignWithParentIfMissing="false"
+                android:textColor="#ff918c7d"
+                android:layout_below="@+id/imageViewDriverPic"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp" />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="TH"
-                android:id="@+id/textView9"
                 android:textColor="#ff000000"
+                android:id="@+id/textView9"
                 android:textSize="14dp"
                 android:textAlignment="center"
                 android:layout_below="@+id/textView6"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp" />
+
         </RelativeLayout>
 
     </RelativeLayout>
@@ -396,13 +415,12 @@
         android:layout_width="fill_parent"
         android:layout_height="100dp"
         tools:listitem="@layout/notification_item"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"
+        android:divider="#ffbdb7a6"
+        android:dividerHeight="0.5dp"
+        android:gravity="center"
         android:layout_below="@+id/imageView3"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-
+        android:layout_marginTop="10dp">
     </com.BooYa.CarPal.MyListView>
 
     <ImageView
@@ -441,7 +459,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:weightSum="1"
             android:gravity="center"
             android:id="@+id/linearLayout">
@@ -450,8 +468,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageView2"
-                android:src="@drawable/stats"
-                android:paddingRight="3dp" />
+                android:src="@drawable/favstat"
+                android:paddingRight="6dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -459,8 +477,10 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="STATS"
                 android:id="@+id/textView7"
-                android:layout_weight="0.94"
-                android:textColor="#ffbdb7a6" />
+                android:layout_weight="0.88"
+                android:textColor="#ffbdb7a6"
+                android:textSize="14dp"
+                android:gravity="center_vertical" />
 
             <ImageButton
                 android:layout_width="wrap_content"
