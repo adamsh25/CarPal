@@ -144,8 +144,11 @@ public class CarPalPanel extends FragmentActivity {
 
     private void InitializeActionBar() {
         ActionBar ab = getActionBar();
+        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        ab.setCustomView(R.layout.action_bar_tab);
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setHomeButtonEnabled(true);
+        ab.setTitle("MAROON 5");
     }
 
     public void removeNotificationOnClickHandler(View v)
