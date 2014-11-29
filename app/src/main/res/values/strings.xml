@@ -25,5 +25,6 @@
     <string name="title_activity_edit_text">EditTextActivity</string>
     <string name="title_activity_group_map">GroupMapActivity</string>
     <string name="title_activity_group_google_maps">Map</string>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
 
 </resources>
