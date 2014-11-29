@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -102,6 +101,7 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
                 String.format("%s %s", _groupInfo.get_groupMembers().get(4).get_userName(), _groupInfo.get_groupMembers().get(4).get_userLastName()));
         ((TextView)findViewById(R.id.groupinfo_address_5))
                 .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(4).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(4).get_addressHome().get_streetNumberAddress()));
+
 
 
         ((CircularImageView)findViewById(R.id.groupinfo_circularImage1))
@@ -202,19 +202,29 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
         for(View wab : _dicViews.get("whatsAppButton").values())
         {
             ((ImageView)(wab)).setVisibility(View.INVISIBLE);
+            ((View) wab.getParent()).setBackgroundResource(R.drawable.bottomline);
         }
         for(View wab : _dicViews.get("phoneButton").values())
         {
             ((ImageView)(wab)).setVisibility(View.INVISIBLE);
         }
 
+
+
         if(wh.getVisibility() == View.VISIBLE) {
-            wh.setVisibility(View.INVISIBLE);
-            ph.setVisibility(View.INVISIBLE);
+            if(key.compareTo("1") != 0) {
+                wh.setVisibility(View.INVISIBLE);
+                ph.setVisibility(View.INVISIBLE);
+            }
+            ((View) v.getParent()).setBackgroundResource(R.drawable.bottomline);
+            //((View) v.getParent()).setBackgroundColor(Dra);
         }
         else {
-            wh.setVisibility(View.VISIBLE);
-            ph.setVisibility(View.VISIBLE);
+            if(key.compareTo("1") != 0) {
+                wh.setVisibility(View.VISIBLE);
+                ph.setVisibility(View.VISIBLE);
+            }
+            ((View) v.getParent()).setBackgroundResource(R.drawable.member);
         }
     }
     private void editTextInANewWindow(View v)
