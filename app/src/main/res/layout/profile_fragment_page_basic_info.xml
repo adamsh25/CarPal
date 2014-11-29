@@ -21,7 +21,6 @@
                       android:layout_height="wrap_content"
                       android:saveEnabled="false"
                       android:inputType="textCapWords"
-                      android:hint="@string/profile_hint_full_name"
                 android:layout_marginBottom="16dp"/>
 
             <TextView style="@style/WizardFormLabelCarPal"
@@ -32,6 +31,7 @@
                       android:layout_height="wrap_content"
                       android:saveEnabled="false"
                       android:enabled="false"
+                        android:text="CarPal"
                       android:layout_marginBottom="16dp"/>
 
             <TextView style="@style/WizardFormLabelCarPal"
@@ -51,7 +51,7 @@
                     android:layout_margin="25dp"/>
 
             <TextView style="@style/WizardFormLabelCarPal"
-                      android:text="@string/profile_label_street"/>
+                      android:text="Address"/>
             <GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -60,15 +60,18 @@
                 <EditText android:id="@+id/profile_street"
                           android:saveEnabled="false"
                           android:layout_gravity="fill"
-                          android:layout_marginBottom="16dp"/>
+                          android:layout_marginBottom="16dp"
+                    android:hint="Street"/>
                 <EditText android:id="@+id/profile_house_number"
                           android:saveEnabled="false"
                           android:hint="#"
-                          android:layout_gravity="center_horizontal"/>
+                          android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="16dp"/>
 
                 <EditText android:id="@+id/profile_city"
                           android:saveEnabled="false"
-                          android:layout_gravity="fill"/>
+                          android:layout_gravity="fill"
+                    android:hint="City"/>
                 <EditText android:id="@+id/profile_country"
                           android:saveEnabled="false"
                           android:hint="Country"/>
