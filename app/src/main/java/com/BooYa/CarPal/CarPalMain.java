@@ -32,6 +32,10 @@ public class CarPalMain extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        final Intent mServiceIntent = new Intent(this, NotificationService.class);
+        this.startService(mServiceIntent);
+
         setContentView(R.layout.activity_car_pal_main);
 
         InitializeActionBar();
@@ -73,7 +77,7 @@ public class CarPalMain extends Activity {
                 "SHARE",
                 "ABOUT"
         };
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
         mDrawerList.setAdapter(adapter);
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -84,10 +88,16 @@ public class CarPalMain extends Activity {
                     case 0:
                         mDrawerToggle.setAnimateEnabled(false);
                         drawerArrow.setProgress(1f);
+                        // Handle clicks for btnGroupProfile
+                        Intent intentProfile = new Intent(adapter.getContext(), ProfileActivity.class);
+                        startActivity(intentProfile);
                         break;
                     case 1:
                         mDrawerToggle.setAnimateEnabled(false);
                         drawerArrow.setProgress(0f);
+                        // Handle clicks for btnGroupProfile
+                        Intent intentGroup = new Intent(adapter.getContext(), GroupInfoActivity.class);
+                        startActivity(intentGroup);
                         break;
                     case 2:
                         mDrawerToggle.setAnimateEnabled(true);
