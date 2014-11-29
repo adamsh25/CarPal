@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,11 +29,7 @@ import com.viewpagerindicator.PageIndicator;
 
 import java.util.ArrayList;
 
-// TODO shadow for pics
 // TODO one custom view for five days
-// TODO real divider
-// TODO make button animated
-
 public class CarPalPanel extends FragmentActivity {
 
     private NotificationListAdapter adapter;
@@ -217,13 +214,24 @@ public class CarPalPanel extends FragmentActivity {
         });
     }
 
+    public void ShowPlusMeOnClickHandler(View v)
+    {
+
+        switch (((ImageView)(((RelativeLayout)(v.getParent())).findViewById(R.id.plusme))).getVisibility()) {
+            case View.VISIBLE:
+            ((ImageView)(((RelativeLayout)(v.getParent())).findViewById(R.id.plusme))).setVisibility(View.INVISIBLE);
+             break;
+            case View.INVISIBLE:
+             ((ImageView)(((RelativeLayout)(v.getParent())).findViewById(R.id.plusme))).setVisibility(View.VISIBLE);
+        }
+    }
     private void populateData()
     {
-        adapter.insert(new Notification("WOULD YOU LIKE TO COVER AVI SUNDAY?", 1,R.drawable.notificon), 0);
+        adapter.insert(new Notification("WOULD YOU LIKE TO REPLACE AVI?", 1,R.drawable.notificon), 0);
         adapter.insert(new Notification("50% AT SPAGETTHIM TODAY!", 1,R.drawable.prize), 1);
-        adapter.insert(new Notification("WOULD YOU LIKE TO COVER TAL SUNDAY?", 1,R.drawable.notificon), 0);
+        adapter.insert(new Notification("WOULD YOU LIKE TO REPLACE AVI?", 1,R.drawable.notificon), 0);
         adapter.insert(new Notification("50% AT SPAGETTHIM TODAY!", 1,R.drawable.prize), 1);
-        adapter.insert(new Notification("WOULD YOU LIKE TO COVER RON SUNDAY?", 1,R.drawable.notificon), 0);
+        adapter.insert(new Notification("WOULD YOU LIKE TO REPLACE AVI?", 1,R.drawable.notificon), 0);
         adapter.insert(new Notification("50% AT SPAGETTHIM TODAY!", 1,R.drawable.prize), 1);
 
         DayDriver dayDriverSunday = new DayDriver("ME",1,R.drawable.face1);
