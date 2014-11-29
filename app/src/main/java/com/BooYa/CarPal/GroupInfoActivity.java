@@ -91,6 +91,11 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
                 switch (position) {
                     case 0:
                         finish();
+                        mDrawerToggle.setAnimateEnabled(true);
+                        //drawerArrow.setProgress(1f);
+                        mDrawerToggle.syncState();
+                        startActivity(new Intent(getBaseContext(), CarPalPanel.class));
+
                         break;
                     case 1:
                         mDrawerToggle.setAnimateEnabled(true);

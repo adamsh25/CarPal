@@ -160,7 +160,7 @@
                            android:layout_height="36dp"
                            android:layout_marginTop="18dp"
                            android:layout_marginBottom="18dp"
-                           android:layout_marginLeft="1dp"
+                           android:layout_marginLeft="15dp"
                            android:src="@drawable/phone"
                            android:id="@+id/groupinfo_phoneButton3"
                            android:tag="phoneButton"

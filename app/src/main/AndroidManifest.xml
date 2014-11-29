@@ -44,7 +44,7 @@
             android:name="com.BooYa.CarPal.NotificationService"
             android:enabled="true" />
 
-        <receiver android:name="com.BooYa.CarPal.ButtonListener" />
+        <receiver android:name="com.BooYa.CarPal.ButtonListener" android:enabled="true" android:exported="true" /> />
 
         <activity
             android:name="com.BooYa.CarPal.GroupInfoActivity"

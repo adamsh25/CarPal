@@ -49,7 +49,7 @@ public class NotificationHelper {
                 .setContentIntent(pendingIntent)
                 .setStyle(new Notification.BigTextStyle()
                         .bigText(carPalNotification.get_mText()))
-                .setSmallIcon(R.drawable.logo_new_black)
+                .setSmallIcon(R.drawable.caricon)
                 .setLargeIcon(bit)
                 .build();
 

@@ -30,7 +30,7 @@ public class ButtonListener extends BroadcastReceiver {
                     context.startActivity(newIntent);
                     break;
                 default:
-                    newIntent = new Intent(context, DriverPanel.class);
+                    newIntent = new Intent(context, CarPalPanel.class);
                     newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(newIntent);
                     break;

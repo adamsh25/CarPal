@@ -50,6 +50,10 @@ public class CarPalPanel extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_pal_panel);
 
+        //Start notification service.
+        final Intent mServiceIntent = new Intent(this, NotificationService.class);
+        this.startService(mServiceIntent);
+
         InitializeActionBar();
         InitializeDrawer();
 
