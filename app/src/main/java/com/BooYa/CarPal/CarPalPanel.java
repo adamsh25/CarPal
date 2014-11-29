@@ -216,18 +216,18 @@ public class CarPalPanel extends FragmentActivity {
 
     private void populateData()
     {
-        adapter.insert(new Notification("WOULD YOU LIKE TO COVER DANIEL SUNDAY?", 1,R.drawable.notificon), 0);
+        adapter.insert(new Notification("WOULD YOU LIKE TO COVER AVI SUNDAY?", 1,R.drawable.notificon), 0);
         adapter.insert(new Notification("50% AT SPAGETTHIM TODAY!", 1,R.drawable.prize), 1);
-        adapter.insert(new Notification("WOULD YOU LIKE TO COVER DANIEL SUNDAY?", 1,R.drawable.notificon), 0);
+        adapter.insert(new Notification("WOULD YOU LIKE TO COVER TAL SUNDAY?", 1,R.drawable.notificon), 0);
         adapter.insert(new Notification("50% AT SPAGETTHIM TODAY!", 1,R.drawable.prize), 1);
-        adapter.insert(new Notification("WOULD YOU LIKE TO COVER DANIEL SUNDAY?", 1,R.drawable.notificon), 0);
+        adapter.insert(new Notification("WOULD YOU LIKE TO COVER RON SUNDAY?", 1,R.drawable.notificon), 0);
         adapter.insert(new Notification("50% AT SPAGETTHIM TODAY!", 1,R.drawable.prize), 1);
 
-        DayDriver dayDriverSunday = new DayDriver("DAN",1,R.drawable.nodriver);
-        DayDriver dayDriverMonday = new DayDriver("TAL",2,R.drawable.nodriver);
-        DayDriver dayDriverTuesday = new DayDriver("JOHN",3,R.drawable.nodriver);
-        DayDriver dayDriverWednesday = new DayDriver("PAT",4,R.drawable.nodriver);
-        DayDriver dayDriverThursday = new DayDriver("ME",5,R.drawable.beeri);
+        DayDriver dayDriverSunday = new DayDriver("ME",1,R.drawable.face1);
+        DayDriver dayDriverMonday = new DayDriver("RON",2,R.drawable.face2);
+        DayDriver dayDriverTuesday = new DayDriver("TAL",3,R.drawable.face3);
+        DayDriver dayDriverWednesday = new DayDriver("AVI",4,R.drawable.face4);
+        DayDriver dayDriverThursday = new DayDriver("LINA",5,R.drawable.face5);
 
 
         assignDriverToDay(R.id.sunday,dayDriverSunday);
@@ -298,7 +298,7 @@ public class CarPalPanel extends FragmentActivity {
         String shareBody = mAdapter.getPageTitle(mPagerPosition).toString();
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "WOW!  Using CarPal helps the environment!");
+        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "WoW! Using CarPal helps the environment!");
         sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
