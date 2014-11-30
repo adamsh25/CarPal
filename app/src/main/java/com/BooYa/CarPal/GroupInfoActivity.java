@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ikimuhendis.ldrawer.ActionBarDrawerToggle;
 import com.ikimuhendis.ldrawer.DrawerArrowDrawable;
@@ -226,8 +225,7 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
     {
         //ToDo: Supposed To Be in BL
         if(_groupInfo == null) {
-            DAL.fillFakeData();
-            _groupInfo = DAL.sta_groupInfo;
+            _groupInfo = DAL.getSta_groupInfo();
         }
 
 
@@ -283,7 +281,7 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
 
     private void openWhatsappContact(UserInfo user)
     {
-        Uri uri = Uri.parse("smsto:" + user.getNumber());
+        Uri uri = Uri.parse("smsto:" + user.get_number());
         Intent i = new Intent(Intent.ACTION_SENDTO, uri);
         i.setPackage("com.whatsapp");
         startActivity(Intent.createChooser(i, ""));
@@ -291,7 +289,7 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
 
     private void callContact(UserInfo user)
     {
-        Uri uri = Uri.parse("tel:"+user.getNumber());
+        Uri uri = Uri.parse("tel:"+user.get_number());
         Intent i = new Intent(Intent.ACTION_CALL, uri);
         startActivity(i);
     }

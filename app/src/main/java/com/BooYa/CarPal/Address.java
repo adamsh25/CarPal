@@ -8,7 +8,7 @@ public class Address {
     private String _countryAddress;
     private String _streetNameAddress;
     private String _cityAddress;
-    private int _streetNumberAddress;
+    private String _streetNumberAddress;
 
     public String get_countryAddress() {
         return _countryAddress;
@@ -26,11 +26,11 @@ public class Address {
         this._streetNameAddress = _streetNameAddress;return this;
     }
 
-    public int get_streetNumberAddress() {
+    public String get_streetNumberAddress() {
         return _streetNumberAddress;
     }
 
-    public Address set_streetNumberAddress(int _streetNumberAddress) {
+    public Address set_streetNumberAddress(String _streetNumberAddress) {
         this._streetNumberAddress = _streetNumberAddress;
         return this;
     }
@@ -44,5 +44,12 @@ public class Address {
         return this;
     }
 
-
+    @Override
+    public String toString() {
+        return String.format("%s, %s, %s, %s",
+                get_countryAddress(),
+                get_cityAddress(),
+                get_streetNameAddress(),
+                get_streetNumberAddress());
+    }
 }

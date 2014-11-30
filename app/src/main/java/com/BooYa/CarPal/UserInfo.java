@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class UserInfo
 {
-    private String number;
+    private String _number;
     private String _userName;
     private String _userLastName;
     private String _pictureAddress;
@@ -16,22 +16,23 @@ public class UserInfo
     private Address _addressHome;
     private Address _addressWork;
     private Date _workStartTime;
-    private Date get_workEndTime;
-    private int[] preferredDays;
-    private int[] unPreferredDays;
+    private Date _workEndTime;
+    private int _imgRecourceID;// TODO: will be URI From Server.
+    private int[] _preferredDays;
+    private int[] _unPreferredDays;
 
 
     public UserInfo(String phoneNumber)
     {
-        setNumber(phoneNumber);
+        set_number(phoneNumber);
     }
 
-    public String getNumber() {
-        return number;
+    public String get_number() {
+        return _number;
     }
 
-    public UserInfo setNumber(String number) {
-        this.number = number;
+    public UserInfo set_number(String _number) {
+        this._number = _number;
         return this;
     }
 
@@ -85,20 +86,20 @@ public class UserInfo
         this._workStartTime = _workStartTime;return this;
     }
 
-    public Date getGet_workEndTime() {
-        return get_workEndTime;
+    public Date get_workEndTime() {
+        return _workEndTime;
     }
 
-    public UserInfo setGet_workEndTime(Date get_workEndTime) {
-        this.get_workEndTime = get_workEndTime;return this;
+    public UserInfo set_workEndTime(Date _workEndTime) {
+        this._workEndTime = _workEndTime;return this;
     }
 
-    public int[] getPreferredDays() {
-        return preferredDays;
+    public int[] get_preferredDays() {
+        return _preferredDays;
     }
 
-    public UserInfo setPreferredDays(int[] preferredDays) {
-        this.preferredDays = preferredDays;return this;
+    public UserInfo set_preferredDays(int[] _preferredDays) {
+        this._preferredDays = _preferredDays;return this;
     }
 
     public Address get_addressHome() {
@@ -119,4 +120,12 @@ public class UserInfo
     }
 
 
+    public int get_imgRecourceID() {
+        return _imgRecourceID;
+    }
+
+    public UserInfo set_imgRecourceID(int _imgRecourceID) {
+        this._imgRecourceID = _imgRecourceID;
+        return (this);
+    }
 }

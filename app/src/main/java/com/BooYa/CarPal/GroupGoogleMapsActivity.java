@@ -1,29 +1,55 @@
 package com.BooYa.CarPal;
 
+import android.app.ActionBar;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.location.*;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.*;
+import com.google.maps.android.clustering.ClusterManager;
+import com.ikimuhendis.ldrawer.ActionBarDrawerToggle;
+import com.ikimuhendis.ldrawer.DrawerArrowDrawable;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GroupGoogleMapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_google_maps);
         setUpMapIfNeeded();
-         LatLng HAMBURG = new LatLng(53.558, 9.927);
-         LatLng KIEL = new LatLng(53.551, 9.993);
-        //Move the camera instantly to hamburg with a zoom of 15.
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(HAMBURG, 15));
+        //InitializeActionBar();
+        //InitializeDrawer();
+        BL.CONTEXT = this;
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker)
+            {
+                Toast.makeText(getBaseContext(),"blll",Toast.LENGTH_LONG);
+                return true;
+            }
+        });
 
-// Zoom in, animating the camera.
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 
     }
 
@@ -68,6 +94,56 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+        addMembersToMap();
+        addMeetingLocationToMap();
     }
+
+    private void addMembersToMap()
+    {
+        try
+        {
+            ArrayList<UserInfo> members = DAL.getSta_groupInfo().get_groupMembers();
+            for (UserInfo groupMember : members) {
+
+                LatLng memberLocation = null;
+                memberLocation = BL.GetLatLngFromAddress(this, groupMember.get_addressHome().toString());
+                Marker memberMarker = mMap.addMarker(new MarkerOptions()
+                        .position(memberLocation)
+                        .title("")
+                        .snippet(String.format("%s %s", groupMember.get_userName(), groupMember.get_userLastName()))
+                        .icon(BitmapDescriptorFactory
+                                .fromResource(groupMember.get_imgRecourceID())))
+                        ;
+                //Move the camera instantly to hamburg with a zoom of 15.
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(memberLocation, 15));
+
+                // Zoom in, animating the camera.
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(14.5f), 2000, null);
+            }
+        }
+        catch(Exception ex)
+        {
+            String s = ex.getMessage();
+            s = "";
+        }
+
+
+    }
+
+    private void addMeetingLocationToMap()
+    {
+        ArrayList<UserInfo> members = DAL.getSta_groupInfo().get_groupMembers();
+        MarkerOptions mOptions =  new MarkerOptions()
+                .position(BL.GetCenter(this,members))
+                .title("")
+                .snippet(String.format("%s", "PALS MEET SPOT"))
+                .icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.caricon));
+        mMap.addMarker(mOptions);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mOptions.getPosition(), 15));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(14.5f), 2000, null);
+    }
+
+
+
 }
