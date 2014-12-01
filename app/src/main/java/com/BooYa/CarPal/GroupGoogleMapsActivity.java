@@ -33,6 +33,12 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
 
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
+    private ActionBarDrawerToggle mDrawerToggle;
+    private DrawerArrowDrawable drawerArrow;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +56,90 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
             }
         });
 
+        InitializeActionBar();
+        InitializeDrawer();
 
+    }
+
+    private void InitializeDrawer() {
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView) findViewById(R.id.navdrawer);
+
+        drawerArrow = new DrawerArrowDrawable(this) {
+            @Override
+            public boolean isLayoutRtl() {
+                return false;
+            }
+        };
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+                drawerArrow, R.string.drawer_open,
+                R.string.drawer_close) {
+
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                invalidateOptionsMenu();
+            }
+
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                invalidateOptionsMenu();
+            }
+        };
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        mDrawerToggle.syncState();
+
+
+        String[] values = new String[]{
+                "HOME",
+                "PROFILE",
+                "MY RIDE GROUP",
+                "NOTIFICATIONS",
+                "ABOUT"
+        };
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+        mDrawerList.setAdapter(adapter);
+        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                switch (position) {
+                    case 0:
+                        finish();
+                        break;
+                    case 1:
+                        mDrawerToggle.setAnimateEnabled(true);
+                        //drawerArrow.setProgress(1f);
+                        mDrawerToggle.syncState();
+                        startActivity(new Intent(getBaseContext(), ProfileActivity.class));
+                        break;
+                    case 2:
+                        mDrawerToggle.setAnimateEnabled(true);
+                        //drawerArrow.setProgress(0f);
+                        mDrawerToggle.syncState();
+                        startActivity(new Intent(getBaseContext(), GroupInfoActivity.class));
+                        break;
+                    case 3:
+                        mDrawerToggle.setAnimateEnabled(true);
+                        mDrawerToggle.syncState();
+                        break;
+                    case 4:
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://facebook.com/AppCarPal"));
+                        startActivity(browserIntent);
+                        break;
+                }
+
+            }
+        });
+    }
+
+    private void InitializeActionBar() {
+        ActionBar ab = getActionBar();
+        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        ab.setCustomView(R.layout.action_bar_tab);
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setHomeButtonEnabled(true);
+        ab.setTitle("MAROON 5");
     }
 
     @Override
@@ -145,5 +234,36 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_car_pal_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
+                mDrawerLayout.closeDrawer(mDrawerList);
+            } else {
+                mDrawerLayout.openDrawer(mDrawerList);
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
+    }
 
 }
