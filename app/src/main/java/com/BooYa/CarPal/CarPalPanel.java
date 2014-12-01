@@ -308,6 +308,10 @@ public class CarPalPanel extends FragmentActivity {
         v.startAnimation(anim);
     }
 
+    public void statOnClickHandler(View v)
+    {
+        startActivity(new Intent(getBaseContext(), StatsActivity.class));
+    }
     public void shareStatOnClickHandler(View v)
     {
         String shareBody = mAdapter.getPageTitle(mPagerPosition).toString();
