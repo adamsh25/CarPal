@@ -184,26 +184,26 @@ public class GroupInfoActivity extends Activity implements View.OnClickListener 
         ((TextView)findViewById(R.id.groupinfo_name_1)).setText(
                 String.format("%s %s", _groupInfo.get_groupMembers().get(0).get_userName(), _groupInfo.get_groupMembers().get(0).get_userLastName()));
         ((TextView)findViewById(R.id.groupinfo_address_1))
-                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
+                .setText(String.format("%s %s", _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(0).get_addressHome().get_streetNumberAddress()));
 
         ((TextView)findViewById(R.id.groupinfo_name_2)).setText(
                 String.format("%s %s", _groupInfo.get_groupMembers().get(1).get_userName(), _groupInfo.get_groupMembers().get(1).get_userLastName()));
         ((TextView)findViewById(R.id.groupinfo_address_2))
-                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(1).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(1).get_addressHome().get_streetNumberAddress()));
+                .setText(String.format("%s %s", _groupInfo.get_groupMembers().get(1).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(1).get_addressHome().get_streetNumberAddress()));
         ((TextView)findViewById(R.id.groupinfo_name_3)).setText(
                 String.format("%s %s", _groupInfo.get_groupMembers().get(2).get_userName(), _groupInfo.get_groupMembers().get(2).get_userLastName()));
         ((TextView)findViewById(R.id.groupinfo_address_3))
-                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(2).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(2).get_addressHome().get_streetNumberAddress()));
+                .setText(String.format("%s %s", _groupInfo.get_groupMembers().get(2).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(2).get_addressHome().get_streetNumberAddress()));
 
         ((TextView)findViewById(R.id.groupinfo_name_4)).setText(
                 String.format("%s %s", _groupInfo.get_groupMembers().get(3).get_userName(), _groupInfo.get_groupMembers().get(3).get_userLastName()));
         ((TextView)findViewById(R.id.groupinfo_address_4))
-                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(3).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(3).get_addressHome().get_streetNumberAddress()));
+                .setText(String.format("%s %s", _groupInfo.get_groupMembers().get(3).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(3).get_addressHome().get_streetNumberAddress()));
 
         ((TextView)findViewById(R.id.groupinfo_name_5)).setText(
                 String.format("%s %s", _groupInfo.get_groupMembers().get(4).get_userName(), _groupInfo.get_groupMembers().get(4).get_userLastName()));
         ((TextView)findViewById(R.id.groupinfo_address_5))
-                .setText(String.format("%s %d", _groupInfo.get_groupMembers().get(4).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(4).get_addressHome().get_streetNumberAddress()));
+                .setText(String.format("%s %s", _groupInfo.get_groupMembers().get(4).get_addressHome().get_streetNameAddress(), _groupInfo.get_groupMembers().get(4).get_addressHome().get_streetNumberAddress()));
 
 
 
