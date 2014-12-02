@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Point;
 import android.graphics.PointF;
 import android.location.Geocoder;
+import android.location.Location;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -20,9 +21,25 @@ public class BL {
 
     public static Context CONTEXT;
 
+
     public static LatLng GetDefaultLocation()
     {
         return  new LatLng(32.085300,34.781768);
+    }
+
+    public static LatLng GetCurrentLocation(GoogleMap mMap)
+    {
+        try
+        {
+
+            mMap.setMyLocationEnabled(true);
+            Location myloc =  mMap.getMyLocation();
+            LatLng location = new LatLng(myloc.getLatitude(),myloc.getLongitude());
+            return location;
+        }
+        catch(Exception ex)
+        {}
+        return  GetDefaultLocation();
     }
 
     public static LatLng GetLatLngFromAddress(Context context, String Address)

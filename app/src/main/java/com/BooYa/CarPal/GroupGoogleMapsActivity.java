@@ -3,6 +3,7 @@ package com.BooYa.CarPal;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.location.*;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,7 +27,9 @@ import com.ikimuhendis.ldrawer.DrawerArrowDrawable;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GroupGoogleMapsActivity extends FragmentActivity {
 
@@ -37,7 +40,7 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerArrowDrawable drawerArrow;
-
+    private Map<String,Marker> _dicMarkers = new HashMap<String, Marker>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,6 +181,7 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
                 setUpMap();
+                mMap.setMyLocationEnabled(true);
             }
         }
     }
@@ -191,6 +195,8 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
     private void setUpMap() {
         addMembersToMap();
         addMeetingLocationToMap();
+        addCurrentLocationToMap();
+        focusOnMarker("meetLocation");
     }
 
     private void addMembersToMap()
@@ -198,24 +204,10 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
         try
         {
             ArrayList<UserInfo> members = DAL.getSta_groupInfo().get_groupMembers();
+            int i = 0;
             for (UserInfo groupMember : members) {
 
-                LatLng memberLocation = null;
-                memberLocation = BL.GetLatLngFromAddress(this, groupMember.get_addressHome().toString());
-                Marker memberMarker = mMap.addMarker(new MarkerOptions()
-                        .position(memberLocation)
-                        .title("")
-
-                        .snippet(String.format("%s %s", groupMember.get_userName(), groupMember.get_userLastName()))
-                        .icon(BitmapDescriptorFactory
-                                .fromResource(groupMember.get_imgRecourceID())))
-                        ;
-
-                //Move the camera instantly to hamburg with a zoom of 15.
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(memberLocation, 15));
-
-                // Zoom in, animating the camera.
-                mMap.animateCamera(CameraUpdateFactory.zoomTo(14.5f), 2000, null);
+                addMarkerToMember(i++);
             }
         }
         catch(Exception ex)
@@ -227,6 +219,64 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
 
     }
 
+
+    private void focusOnMarker(String key)
+    {
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(_dicMarkers.get(key).getPosition(), 15));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(14.5f), 2000, null);
+    }
+
+    private void addMarkerToMember(int i)
+    {
+        try
+        {
+            String title ="";
+                UserInfo groupMember = DAL.getSta_groupInfo().get_groupMembers().get(i);
+                int id = groupMember.get_imgRecourceID();
+                if(i == 0)
+                {
+                    title = "Me";
+                    id = R.drawable.house;
+                    addMarkerToWork(groupMember);
+                }
+                else
+                {
+                    title= String.format("%s %s", groupMember.get_userName(), groupMember.get_userLastName());
+                }
+                LatLng memberLocation = null;
+                memberLocation = BL.GetLatLngFromAddress(this, groupMember.get_addressHome().toString());
+                Marker memberMarker = mMap.addMarker(new MarkerOptions()
+                        .position(memberLocation)
+                        .title(title)
+                        .snippet(title)
+                        .icon(BitmapDescriptorFactory
+                                .fromResource(id)))
+                        ;
+                _dicMarkers.put(groupMember.get_number() ,memberMarker);
+
+        }
+        catch(Exception ex)
+        {
+            String s = ex.getMessage();
+            s = "";
+        }
+
+    }
+
+    private void addMarkerToWork(UserInfo groupMember)
+    {
+        LatLng memberLocation = null;
+        memberLocation = BL.GetLatLngFromAddress(this, groupMember.get_addressWork().toString());
+        Marker memberMarker = mMap.addMarker(new MarkerOptions()
+                .position(memberLocation)
+                .title("Work")
+                .snippet("Work")
+                .icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.workplace)))
+                ;
+        _dicMarkers.put("workLocation" ,memberMarker);
+    }
+
     private void addMeetingLocationToMap()
     {
         ArrayList<UserInfo> members = DAL.getSta_groupInfo().get_groupMembers();
@@ -235,12 +285,29 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
                 .title("")
                 .snippet(String.format("%s", "PALS MEET SPOT"))
                 .icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.caricon));
-        mMap.addMarker(mOptions);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mOptions.getPosition(), 15));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(14.5f), 2000, null);
+                        .fromResource(R.drawable.meet));
+        _dicMarkers.put("meetLocation" ,mMap.addMarker(mOptions));
     }
 
+    private void addCurrentLocationToMap()
+    {
+        mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+
+            @Override
+            public void onMyLocationChange(Location arg0) {
+                // TODO Auto-generated method stub
+
+                MarkerOptions mOptions =  new MarkerOptions()
+                        .position(new LatLng(arg0.getLatitude(),arg0.getLongitude()))
+                        .title("My Location")
+                        .snippet(String.format("%s", "My Location"))
+                        .icon(BitmapDescriptorFactory
+                                .fromResource(R.drawable.face1));
+                _dicMarkers.put("myLocation", mMap.addMarker(mOptions));
+            }
+        });
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -265,16 +332,14 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
                 }
                 break;
             case R.id.action_home:
-                startActivity(new Intent(getBaseContext(), GroupGoogleMapsActivity.class));
+                String home = DAL.getSta_groupInfo().get_groupMembers().get(0).get_number();
+                focusOnMarker(home);
                 break;
             case R.id.action_work:
-                startActivity(new Intent(getBaseContext(), GroupGoogleMapsActivity.class));
+                focusOnMarker("workLocation");
                 break;
             case R.id.action_meetLocation:
-                startActivity(new Intent(getBaseContext(), GroupGoogleMapsActivity.class));
-                break;
-            case R.id.action_mylocation:
-                startActivity(new Intent(getBaseContext(), GroupGoogleMapsActivity.class));
+                focusOnMarker("meetLocation");
                 break;
 
             case R.id.action_navigate:
