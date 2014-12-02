@@ -31,7 +31,7 @@ import java.util.List;
 public class GroupGoogleMapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-
+    private Menu      mMenu;
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -47,17 +47,22 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
         //InitializeActionBar();
         //InitializeDrawer();
         BL.CONTEXT = this;
+
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker)
             {
-                Toast.makeText(getBaseContext(),"blll",Toast.LENGTH_LONG);
+
+
+                ActionBar actionBar = getActionBar();
+
                 return true;
             }
         });
 
         InitializeActionBar();
         InitializeDrawer();
+        setMenuItemsVisibleDefault();
 
     }
 
@@ -136,10 +141,11 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
     private void InitializeActionBar() {
         ActionBar ab = getActionBar();
         ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        ab.setCustomView(R.layout.action_bar_tab);
+        ab.setCustomView(R.layout.action_bar_tab_group);
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setHomeButtonEnabled(true);
-        ab.setTitle("MAROON 5");
+
+
     }
 
     @Override
@@ -199,10 +205,12 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
                 Marker memberMarker = mMap.addMarker(new MarkerOptions()
                         .position(memberLocation)
                         .title("")
+
                         .snippet(String.format("%s %s", groupMember.get_userName(), groupMember.get_userLastName()))
                         .icon(BitmapDescriptorFactory
                                 .fromResource(groupMember.get_imgRecourceID())))
                         ;
+
                 //Move the camera instantly to hamburg with a zoom of 15.
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(memberLocation, 15));
 
@@ -238,18 +246,51 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_car_pal_main, menu);
+        //(menu).add(Menu.NONE,555,Menu.NONE,"My location").setIcon(R.drawable.caricon);
+        inflater.inflate(R.menu.menu_car_pal_group_map, menu);
+        mMenu = menu;
+        setMenuItemsVisibleDefault();
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
-                mDrawerLayout.closeDrawer(mDrawerList);
-            } else {
-                mDrawerLayout.openDrawer(mDrawerList);
-            }
+        switch(item.getItemId())
+        {
+            case android.R.id.home:
+                if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
+                    mDrawerLayout.closeDrawer(mDrawerList);
+                } else{
+                    mDrawerLayout.openDrawer(mDrawerList);
+                }
+                break;
+            case R.id.action_home:
+                startActivity(new Intent(getBaseContext(), GroupGoogleMapsActivity.class));
+                break;
+            case R.id.action_work:
+                startActivity(new Intent(getBaseContext(), GroupGoogleMapsActivity.class));
+                break;
+            case R.id.action_meetLocation:
+                startActivity(new Intent(getBaseContext(), GroupGoogleMapsActivity.class));
+                break;
+            case R.id.action_mylocation:
+                startActivity(new Intent(getBaseContext(), GroupGoogleMapsActivity.class));
+                break;
+
+            case R.id.action_navigate:
+                startActivity(new Intent(getBaseContext(), GroupGoogleMapsActivity.class));
+                break;
+            case R.id.action_call:
+                startActivity(new Intent(getBaseContext(), GroupGoogleMapsActivity.class));
+                break;
+            case R.id.action_plusfive:
+                startActivity(new Intent(getBaseContext(), GroupGoogleMapsActivity.class));
+                break;
+            case R.id.action_cancel:
+                startActivity(new Intent(getBaseContext(), GroupGoogleMapsActivity.class));
+                break;
+            default:
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -258,12 +299,41 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
+        setMenuItemsVisibleDefault();
+
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    private void setMenuItemsVisibleDefault()
+    {
+        if(mMenu != null) {
+            //(mMenu).findItem(R.id.action_snooz).setVisible(false);
+            (mMenu).findItem(R.id.action_call).setVisible(false);
+            (mMenu).findItem(R.id.action_navigate).setVisible(false);
+
+
+            (mMenu).findItem(R.id.action_home).setVisible(true);
+            (mMenu).findItem(R.id.action_work).setVisible(true);
+            (mMenu).findItem(R.id.action_meetLocation).setVisible(true);
+
+            (mMenu).findItem(R.id.action_plusfive).setVisible(false);
+            (mMenu).findItem(R.id.action_cancel).setVisible(false);
+        }
+    }
+
+    private void setVisibleOnClickMe()
+    {
+
+    }
+
+    private void setVisibleOnClickMember()
+    {
+
     }
 
 }

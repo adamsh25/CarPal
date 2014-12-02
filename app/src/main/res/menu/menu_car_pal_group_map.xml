@@ -1,0 +1,55 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.BooYa.CarPal.CarPalMain"
+    xmlns:carpal="http://schemas.android.com/apk/res-auto" android:id="@+id/groupmenu">
+
+    <item android:id="@+id/action_navigate"
+          android:icon="@android:drawable/ic_menu_directions"
+          android:title="Ride"
+          android:showAsAction="always"
+            android:visible="false"/>
+
+    <item android:id="@+id/action_mylocation"
+          android:icon="@android:drawable/ic_menu_mylocation"
+          android:title="Ride"
+          android:showAsAction="always"
+          android:visible="true"/>
+
+  <item android:id="@+id/action_plusfive"
+      android:icon="@drawable/five"
+      android:title="Ride"
+      android:showAsAction="always"
+      android:visible="false"/>
+  <item android:id="@+id/action_cancel"
+        android:icon="@drawable/cancel"
+        android:title="Ride"
+        android:showAsAction="always"
+        android:visible="false"/>
+  <item android:id="@+id/action_meetLocation"
+        android:icon="@drawable/meet"
+        android:title="Ride"
+        android:showAsAction="always"
+        android:visible="true"/>
+  <item android:id="@+id/action_work"
+        android:icon="@drawable/workplace"
+        android:title="Ride"
+        android:showAsAction="always"
+        android:visible="true"/>
+  <item android:id="@+id/action_home"
+        android:icon="@drawable/house"
+        android:title="Ride"
+        android:showAsAction="always"
+        android:visible="true"/>
+  <item android:id="@+id/action_call"
+        android:icon="@android:drawable/ic_menu_call"
+        android:title="Ride"
+        android:showAsAction="always"
+        android:visible="false"/>
+ <item android:id="@+id/action_snooz"
+        android:icon="@android:drawable/ic_lock_idle_alarm"
+        android:title="Ride"
+        android:showAsAction="always"
+        android:visible="false"/>
+
+
+</menu>

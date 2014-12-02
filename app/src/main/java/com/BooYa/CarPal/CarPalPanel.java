@@ -51,8 +51,8 @@ public class CarPalPanel extends FragmentActivity {
         setContentView(R.layout.activity_car_pal_panel);
 
         //Start notification service.
-        final Intent mServiceIntent = new Intent(this, NotificationService.class);
-        this.startService(mServiceIntent);
+        //final Intent mServiceIntent = new Intent(this, NotificationService.class);
+        //this.startService(mServiceIntent);
 
         InitializeActionBar();
         InitializeDrawer();
@@ -319,13 +319,23 @@ public class CarPalPanel extends FragmentActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
-                mDrawerLayout.closeDrawer(mDrawerList);
-            } else {
-                mDrawerLayout.openDrawer(mDrawerList);
+
+            switch(item.getItemId())
+            {
+                case android.R.id.home:
+                    if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
+                        mDrawerLayout.closeDrawer(mDrawerList);
+                    } else{
+                        mDrawerLayout.openDrawer(mDrawerList);
+                    }
+                break;
+                case R.id.action_search:
+                    startActivity(new Intent(getBaseContext(), GroupGoogleMapsActivity.class));
+                    break;
+                default:
+                    break;
             }
-        }
+
         return super.onOptionsItemSelected(item);
     }
 
