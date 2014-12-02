@@ -126,22 +126,22 @@ public class AvatarFragment extends Fragment {
 
                                             default:
                                                 // Camera
-                                                mNewImageUri = getActivity()
-                                                        .getContentResolver()
-                                                        .insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                                                                new ContentValues());
-                                                Intent photoFromCamera = new Intent(
-                                                        MediaStore.ACTION_IMAGE_CAPTURE);
-                                                photoFromCamera.putExtra(
-                                                        MediaStore.EXTRA_OUTPUT,
-                                                        mNewImageUri);
-                                                photoFromCamera
-                                                        .putExtra(
-                                                                MediaStore.EXTRA_VIDEO_QUALITY,
-                                                                0);
-                                                getActivity().startActivityForResult(
-                                                        photoFromCamera,
-                                                        CAMERA_REQUEST_CODE);
+//                                                mNewImageUri = getActivity()
+//                                                        .getContentResolver()
+//                                                        .insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+//                                                                new ContentValues());
+//                                                Intent photoFromCamera = new Intent(
+//                                                        MediaStore.ACTION_IMAGE_CAPTURE);
+//                                                photoFromCamera.putExtra(
+//                                                        MediaStore.EXTRA_OUTPUT,
+//                                                        mNewImageUri);
+//                                                photoFromCamera
+//                                                        .putExtra(
+//                                                                MediaStore.EXTRA_VIDEO_QUALITY,
+//                                                                0);
+//                                                getActivity().startActivityForResult(
+//                                                        photoFromCamera,
+//                                                        CAMERA_REQUEST_CODE);
                                                 break;
                                         }
 

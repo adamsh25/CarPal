@@ -36,7 +36,7 @@ public class SplashScreenActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if (mEmail.getText().toString().equals("demo") && mPass.getText().toString().equals("demo")) {
-                    startActivity(new Intent(getBaseContext(), CarPalPanel.class));
+                    startActivity(new Intent(getBaseContext(), ProfileActivity.class));
                 }
             }
         });

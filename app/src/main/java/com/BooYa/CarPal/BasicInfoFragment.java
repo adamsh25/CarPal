@@ -57,7 +57,7 @@ public class BasicInfoFragment extends Fragment {
         mFullNameView.setText(mPage.getData().getString(BasicInfoPage.FULL_NAME_DATA_KEY));
 
         mOrganizationView = ((TextView) rootView.findViewById(R.id.profile_organization));
-        mOrganizationView.setText(mPage.getData().getString(BasicInfoPage.ORGANIZATION_DATA_KEY));
+        mOrganizationView.setText(mPage.getData().getString(BasicInfoPage.ORGANIZATION_DATA_KEY, "CarPal"));
 
         mMotoView = ((TextView) rootView.findViewById(R.id.profile_moto));
         mMotoView.setText(mPage.getData().getString(BasicInfoPage.MOTO_DATA_KEY));
