@@ -8,18 +8,27 @@
           android:title="Ride"
           android:showAsAction="always"
             android:visible="false"/>
-
-
+    <item android:id="@+id/action_call"
+          android:icon="@android:drawable/ic_menu_call"
+          android:title="Ride"
+          android:showAsAction="always"
+          android:visible="false"/>
+    <item android:id="@+id/action_snooz"
+          android:icon="@android:drawable/ic_lock_idle_alarm"
+          android:title="Ride"
+          android:showAsAction="always"
+          android:visible="false"/>
+    <item android:id="@+id/action_cancel"
+          android:icon="@drawable/cancel"
+          android:title="Ride"
+          android:showAsAction="always"
+          android:visible="false"/>
   <item android:id="@+id/action_plusfive"
       android:icon="@drawable/five"
       android:title="Ride"
       android:showAsAction="always"
       android:visible="false"/>
-  <item android:id="@+id/action_cancel"
-        android:icon="@drawable/cancel"
-        android:title="Ride"
-        android:showAsAction="always"
-        android:visible="false"/>
+
   <item android:id="@+id/action_meetLocation"
         android:icon="@drawable/meet"
         android:title="Ride"
@@ -35,16 +44,7 @@
         android:title="Ride"
         android:showAsAction="always"
         android:visible="true"/>
-  <item android:id="@+id/action_call"
-        android:icon="@android:drawable/ic_menu_call"
-        android:title="Ride"
-        android:showAsAction="always"
-        android:visible="false"/>
- <item android:id="@+id/action_snooz"
-        android:icon="@android:drawable/ic_lock_idle_alarm"
-        android:title="Ride"
-        android:showAsAction="always"
-        android:visible="false"/>
+
 
 
 </menu>

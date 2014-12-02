@@ -41,24 +41,67 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerArrowDrawable drawerArrow;
     private Map<String,Marker> _dicMarkers = new HashMap<String, Marker>();
-
+    private Map<Marker,UserInfo> _dicMarkersMembers = new HashMap<Marker, UserInfo>();
+    private Marker currentMarker = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_group_google_maps);
-        setUpMapIfNeeded();
-        //InitializeActionBar();
-        //InitializeDrawer();
-        BL.CONTEXT = this;
+                            setContentView(R.layout.activity_group_google_maps);
+                    setUpMapIfNeeded();
+                    //InitializeActionBar();
+                    //InitializeDrawer();
+                    BL.CONTEXT = this;
 
-        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(Marker marker)
-            {
+                    mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                        @Override
+                        public boolean onMarkerClick(Marker marker)
+                        {
+                            try {
+                                currentMarker = marker;
+                                if (marker.getTitle().equals("Work")) {
+                                    setMenuItemsVisibleDefault();
 
+                                    //(mMenu).findItem(R.id.action_snooz).setVisible(false);
+                                    (mMenu).findItem(R.id.action_call).setVisible(false);
+                                    (mMenu).findItem(R.id.action_navigate).setVisible(true);
 
-                ActionBar actionBar = getActionBar();
+                                }
+                        else if (marker.getTitle().equals("My Location")) {
+                        setMenuItemsVisibleDefault();
+                        (mMenu).findItem(R.id.action_cancel).setVisible(true);
+                        (mMenu).findItem(R.id.action_plusfive).setVisible(true);
+                        (mMenu).findItem(R.id.action_call).setVisible(false);
+                        (mMenu).findItem(R.id.action_navigate).setVisible(false);
+                    } else if (marker.getTitle().equals("Meet Location")) {
+                        setMenuItemsVisibleDefault();
+                        (mMenu).findItem(R.id.action_call).setVisible(false);
+                        (mMenu).findItem(R.id.action_navigate).setVisible(true);
+                    } else if (marker.getTitle().equals("Home")) {
+                        setMenuItemsVisibleDefault();
+                        (mMenu).findItem(R.id.action_call).setVisible(false);
+                        (mMenu).findItem(R.id.action_navigate).setVisible(true);
+                    } else {
+                        try {
+                            UserInfo user = _dicMarkersMembers.get(marker);
+                            if (user.get_imgRecourceID() == R.drawable.face1) {
+                                (mMenu).findItem(R.id.action_cancel).setVisible(true);
+                                (mMenu).findItem(R.id.action_plusfive).setVisible(true);
+                            } else {
+                                (mMenu).findItem(R.id.action_cancel).setVisible(false);
+                                (mMenu).findItem(R.id.action_plusfive).setVisible(false);
+                                (mMenu).findItem(R.id.action_call).setVisible(true);
+                                (mMenu).findItem(R.id.action_navigate).setVisible(true);
+                            }
+                        } catch (Exception ex) {
+                            setMenuItemsVisibleDefault();
+                        }
+                    }
 
+                    ActionBar actionBar = getActionBar();
+                }
+                    catch (Exception ex) {
+                        setMenuItemsVisibleDefault();
+                    }
                 return true;
             }
         });
@@ -209,6 +252,7 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
 
                 addMarkerToMember(i++);
             }
+
         }
         catch(Exception ex)
         {
@@ -235,7 +279,7 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
                 int id = groupMember.get_imgRecourceID();
                 if(i == 0)
                 {
-                    title = "Me";
+                    title = "Home";
                     id = R.drawable.house;
                     addMarkerToWork(groupMember);
                 }
@@ -253,6 +297,7 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
                                 .fromResource(id)))
                         ;
                 _dicMarkers.put(groupMember.get_number() ,memberMarker);
+            _dicMarkersMembers.put(memberMarker, groupMember);
 
         }
         catch(Exception ex)
@@ -282,7 +327,7 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
         ArrayList<UserInfo> members = DAL.getSta_groupInfo().get_groupMembers();
         MarkerOptions mOptions =  new MarkerOptions()
                 .position(BL.GetCenter(this,members))
-                .title("")
+                .title("Meet Location")
                 .snippet(String.format("%s", "PALS MEET SPOT"))
                 .icon(BitmapDescriptorFactory
                         .fromResource(R.drawable.meet));
@@ -322,6 +367,7 @@ public class GroupGoogleMapsActivity extends FragmentActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        setMenuItemsVisibleDefault();
         switch(item.getItemId())
         {
             case android.R.id.home:
