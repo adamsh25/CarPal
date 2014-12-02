@@ -20,7 +20,7 @@
         android:id="@+id/Footer"
         android:gravity="center"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/Drivers">
+        android:layout_centerHorizontal="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,7 +61,7 @@
         android:background="@drawable/divider" />
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="327.5dp"
+        android:layout_width="350dp"
         android:layout_height="150dp"
         android:id="@+id/Drivers"
         android:paddingTop="0dp"
@@ -70,7 +70,7 @@
         android:layout_centerHorizontal="true">
 
         <RelativeLayout
-            android:layout_width="65.5dp"
+            android:layout_width="70dp"
             android:layout_height="fill_parent"
             android:id="@+id/sunday"
             android:layout_alignTop="@+id/monday"
@@ -83,7 +83,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="30.11"
                 android:id="@+id/textView6"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:layout_centerHorizontal="true" />
@@ -106,7 +106,8 @@
                 app:shadow="true"
                 android:layout_below="@+id/textView9"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:paddingRight="10dp" />
 
 
             <TextView
@@ -116,7 +117,7 @@
                 android:text="JOHN"
                 android:id="@+id/textviewDriverName"
                 android:layout_gravity="center_vertical"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:textAlignment="center"
                 android:layout_alignWithParentIfMissing="false"
                 android:textColor="#ff918c7d"
@@ -129,31 +130,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="S"
+                android:text="SUN"
                 android:textColor="#ff000000"
                 android:id="@+id/textView9"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:textAlignment="center"
                 android:layout_below="@+id/textView6"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="8dp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp" />
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:gravity="right"
                 android:id="@+id/plusme"
-                android:src="@drawable/plusme"
+                android:src="@drawable/xme"
                 android:visibility="invisible"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="40dp"
                 android:layout_alignRight="@+id/imageViewDriverPic"
                 android:layout_alignParentRight="false" />
 
         </RelativeLayout>
 
         <RelativeLayout
-        android:layout_width="65.5dp"
+        android:layout_width="70dp"
         android:layout_height="fill_parent"
         android:id="@+id/monday"
         android:layout_toRightOf="@+id/sunday"
@@ -167,7 +167,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="1.12"
                 android:id="@+id/textView6"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:layout_centerHorizontal="true" />
@@ -181,6 +181,7 @@
                 android:src="@drawable/beeri"
                 app:border="true"
                 app:border_color="@android:color/darker_gray"
+                android:onClick="ShowPlusMeOnClickHandler"
                 app:border_width="0.1dp"
                 app:selector="true"
                 app:selector_color="#4403a9f4"
@@ -199,7 +200,7 @@
                 android:text="JOHN"
                 android:id="@+id/textviewDriverName"
                 android:layout_gravity="center_vertical"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:textAlignment="center"
                 android:layout_alignWithParentIfMissing="false"
                 android:textColor="#ff918c7d"
@@ -212,20 +213,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="M"
+                android:text="MON"
                 android:textColor="#ff000000"
                 android:id="@+id/textView9"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:textAlignment="center"
                 android:layout_below="@+id/textView6"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/plusme"
+                android:src="@drawable/xme"
+                android:visibility="invisible"
+                android:layout_marginTop="40dp"
+                android:layout_alignRight="@+id/imageViewDriverPic"
+                android:layout_alignParentRight="false" />
                 android:layout_marginTop="8dp"
                 android:textStyle="bold" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="65.5dp"
+            android:layout_width="70dp"
             android:layout_height="fill_parent"
             android:id="@+id/tuesday"
             android:layout_toRightOf="@+id/monday"
@@ -237,7 +249,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="2.12"
                 android:id="@+id/textView6"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:layout_centerHorizontal="true" />
@@ -249,6 +261,7 @@
                 android:layout_gravity="center_horizontal"
                 android:clickable="true"
                 android:src="@drawable/beeri"
+                android:onClick="ShowPlusMeOnClickHandler"
                 app:border="true"
                 app:border_color="@android:color/darker_gray"
                 app:border_width="0.1dp"
@@ -269,7 +282,7 @@
                 android:text="JOHN"
                 android:id="@+id/textviewDriverName"
                 android:layout_gravity="center_vertical"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:textAlignment="center"
                 android:layout_alignWithParentIfMissing="false"
                 android:textColor="#ff918c7d"
@@ -282,20 +295,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="T"
+                android:text="TUE"
                 android:textColor="#ff000000"
                 android:id="@+id/textView9"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:textAlignment="center"
                 android:layout_below="@+id/textView6"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="8dp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/plusme"
+                android:src="@drawable/xme"
+                android:visibility="invisible"
+                android:layout_marginTop="40dp"
+                android:layout_alignRight="@+id/imageViewDriverPic"
+                android:layout_alignParentRight="false" />
 
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="65.5dp"
+            android:layout_width="70dp"
             android:layout_height="fill_parent"
             android:id="@+id/wednesday"
             android:layout_toRightOf="@+id/tuesday"
@@ -308,7 +330,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="3.12"
                 android:id="@+id/textView6"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:layout_centerHorizontal="true" />
@@ -322,6 +344,7 @@
                 android:src="@drawable/beeri"
                 app:border="true"
                 app:border_color="@android:color/darker_gray"
+                android:onClick="ShowPlusMeOnClickHandler"
                 app:border_width="0.1dp"
                 app:selector="true"
                 app:selector_color="#4403a9f4"
@@ -339,7 +362,7 @@
                 android:text="DANI"
                 android:id="@+id/textviewDriverName"
                 android:layout_gravity="center_vertical"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:textAlignment="center"
                 android:layout_alignWithParentIfMissing="false"
                 android:textColor="#ff918c7d"
@@ -352,19 +375,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="W"
+                android:text="WED"
                 android:id="@+id/textView9"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:textColor="#ff000000"
                 android:textAlignment="center"
                 android:layout_below="@+id/textView6"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="8dp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/plusme"
+                android:src="@drawable/xme"
+                android:visibility="invisible"
+                android:layout_marginTop="40dp"
+                android:layout_alignRight="@+id/imageViewDriverPic"
+                android:layout_alignParentRight="false" />
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="65.5dp"
+            android:layout_width="70dp"
             android:layout_height="fill_parent"
             android:id="@+id/thursday"
             android:layout_toRightOf="@+id/wednesday"
@@ -376,7 +408,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="4.12"
                 android:id="@+id/textView6"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:layout_centerHorizontal="true" />
@@ -390,6 +422,7 @@
                 android:src="@drawable/beeri"
                 app:border="true"
                 app:border_color="@android:color/darker_gray"
+                android:onClick="ShowPlusMeOnClickHandler"
                 app:border_width="0.1dp"
                 app:selector="true"
                 app:selector_color="#4403a9f4"
@@ -408,7 +441,7 @@
                 android:text="JOHN"
                 android:id="@+id/textviewDriverName"
                 android:layout_gravity="center_vertical"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:textAlignment="center"
                 android:layout_alignWithParentIfMissing="false"
                 android:textColor="#ff918c7d"
@@ -417,19 +450,28 @@
                 android:layout_marginTop="15dp" />
 
 
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/plusme"
+                android:src="@drawable/xme"
+                android:visibility="invisible"
+                android:layout_marginTop="40dp"
+                android:layout_alignRight="@+id/imageViewDriverPic"
+                android:layout_alignParentRight="false" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="TH"
+                android:text="THU"
                 android:textColor="#ff000000"
                 android:id="@+id/textView9"
-                android:textSize="14dp"
+                android:textSize="12dp"
                 android:textAlignment="center"
                 android:layout_below="@+id/textView6"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="8dp"
-                android:textStyle="bold" />
+                android:layout_marginTop="8dp" />
 
         </RelativeLayout>
 
@@ -466,13 +508,13 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/pager"
             android:layout_width="fill_parent"
-            android:layout_height="130dp"
-            android:layout_alignParentTop="true"
+            android:layout_height="100dp"
             android:layout_alignParentLeft="false"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="false"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp" />
+            android:paddingRight="16dp"
+            android:layout_below="@+id/linearLayout" />
 
         <com.viewpagerindicator.CirclePageIndicator
             android:id="@+id/indicator"
@@ -488,6 +530,7 @@
             android:layout_height="wrap_content"
             android:weightSum="1"
             android:gravity="center"
+            android:onClick="statOnClickHandler"
             android:id="@+id/linearLayout">
 
             <ImageView

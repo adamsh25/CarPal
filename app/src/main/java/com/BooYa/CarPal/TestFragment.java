@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
 
 public final class TestFragment extends Fragment {
     private static final String KEY_CONTENT = "TestFragment:Content";
@@ -36,11 +37,11 @@ public final class TestFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-//        TextView text = new TextView(getActivity());
-//        text.setGravity(Gravity.CENTER);
-//        text.setText(mContent.getStatsText());
-//        text.setTextSize(20 * getResources().getDisplayMetrics().density);
-//        text.setPadding(20, 20, 20, 20);
+//       TextView text = new TextView(getActivity());
+//       text.setGravity(Gravity.CENTER);
+//       text.setText(mContent.getStatsText());
+//       text.setTextSize(20 * getResources().getDisplayMetrics().density);
+//       text.setPadding(20, 20, 20, 20);
 
         ImageView imageView = new ImageView(getActivity());
         imageView.setImageResource(mContent.getStatsPicResourceID());

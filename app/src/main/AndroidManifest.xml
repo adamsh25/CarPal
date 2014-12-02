@@ -32,8 +32,8 @@
         tools:replace="android:label" >
         <activity
             android:name="com.BooYa.CarPal.CarPalPanel"
-            android:label="@string/app_name"
-            android:exported="true">
+            android:exported="true"
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.BooYa.CarPal.ProfileActivity"
@@ -86,12 +86,16 @@
             android:name="com.BooYa.CarPal.SplashScreenActivity"
             android:label="@string/app_name"
             android:exported="true"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.BooYa.CarPal.StatsActivity"
+            android:label="@string/title_activity_stats" >
         </activity>
     </application>
 

@@ -44,6 +44,11 @@ public class CarPalPanel extends FragmentActivity {
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerArrowDrawable drawerArrow;
+    DayDriver dayDriverSunday;
+    DayDriver dayDriverMonday;
+    DayDriver dayDriverTuesday;
+    DayDriver dayDriverWednesday;
+    DayDriver dayDriverThursday;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -172,6 +177,9 @@ public class CarPalPanel extends FragmentActivity {
         Toast.makeText(CarPalPanel.this, "YOU ACCEPTED THE OFFER!", Toast.LENGTH_SHORT).show();
         manageEmptyListView();
 
+        if(itemToRemove.getNotificationId() == 1)
+            assignDriverToDay(R.id.wednesday,dayDriverSunday);
+
     }
 
     private void manageEmptyListView()
@@ -233,16 +241,12 @@ public class CarPalPanel extends FragmentActivity {
     {
         adapter.insert(new Notification("WOULD YOU LIKE TO REPLACE AVI?", 1,R.drawable.notificon), 0);
         adapter.insert(new Notification("50% AT SPAGETTHIM TODAY!", 1,R.drawable.prize), 1);
-        adapter.insert(new Notification("WOULD YOU LIKE TO REPLACE AVI?", 1,R.drawable.notificon), 0);
-        adapter.insert(new Notification("50% AT SPAGETTHIM TODAY!", 1,R.drawable.prize), 1);
-        adapter.insert(new Notification("WOULD YOU LIKE TO REPLACE AVI?", 1,R.drawable.notificon), 0);
-        adapter.insert(new Notification("50% AT SPAGETTHIM TODAY!", 1,R.drawable.prize), 1);
 
-        DayDriver dayDriverSunday = new DayDriver("ME",1,R.drawable.face1);
-        DayDriver dayDriverMonday = new DayDriver("RON",2,R.drawable.face2);
-        DayDriver dayDriverTuesday = new DayDriver("TAL",3,R.drawable.face3);
-        DayDriver dayDriverWednesday = new DayDriver("AVI",4,R.drawable.face4);
-        DayDriver dayDriverThursday = new DayDriver("LINA",5,R.drawable.face5);
+        dayDriverSunday = new DayDriver("ME",1,R.drawable.face1);
+        dayDriverMonday = new DayDriver("RON",2,R.drawable.face2);
+        dayDriverTuesday = new DayDriver("TAL",3,R.drawable.face3);
+        dayDriverWednesday = new DayDriver("AVI",4,R.drawable.face4);
+        dayDriverThursday = new DayDriver("LINA",5,R.drawable.face5);
 
 
         assignDriverToDay(R.id.sunday,dayDriverSunday);
@@ -308,6 +312,10 @@ public class CarPalPanel extends FragmentActivity {
         v.startAnimation(anim);
     }
 
+    public void statOnClickHandler(View v)
+    {
+        startActivity(new Intent(getBaseContext(), StatsActivity.class));
+    }
     public void shareStatOnClickHandler(View v)
     {
         String shareBody = mAdapter.getPageTitle(mPagerPosition).toString();
