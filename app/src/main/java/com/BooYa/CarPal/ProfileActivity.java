@@ -115,6 +115,10 @@ public class ProfileActivity extends FragmentActivity implements
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
+                if (position == mCurrentPageSequence.size()) { //todo: remove
+                    startActivity(new Intent(getBaseContext(), CarPalPanel.class));
+                    finish();
+                }
                 mStepPagerStrip.setCurrentPage(position);
 
                 if (mConsumePageSelectedEvent) {
@@ -130,7 +134,9 @@ public class ProfileActivity extends FragmentActivity implements
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mPager.getCurrentItem() == mCurrentPageSequence.size()) {
+                if (mPager.getCurrentItem() == mCurrentPageSequence.size()-1) { //todo: remove -1
+                    startActivity(new Intent(getBaseContext(), CarPalPanel.class));
+                    finish();
 //                    DialogFragment dg = new DialogFragment() {
 //                        @Override
 //                        public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -170,7 +176,7 @@ public class ProfileActivity extends FragmentActivity implements
     public void onPageTreeChanged() {
         mCurrentPageSequence = mWizardModel.getCurrentPageSequence();
         recalculateCutOffPage();
-        mStepPagerStrip.setPageCount(mCurrentPageSequence.size() + 1); // + 1 =
+        mStepPagerStrip.setPageCount(mCurrentPageSequence.size()); // + 1 = //todo: was +1
         // review
         // step
         mPagerAdapter.notifyDataSetChanged();
@@ -179,7 +185,7 @@ public class ProfileActivity extends FragmentActivity implements
 
     private void updateBottomBar() {
         int position = mPager.getCurrentItem();
-        if (position == mCurrentPageSequence.size()) {
+        if (position == mCurrentPageSequence.size()-1) { //todo: change to without -1
             mNextButton.setText(R.string.wizard_finish);
             mNextButton.setBackgroundResource(R.drawable.finish_background);
             mNextButton.setTextAppearance(this, R.style.TextAppearanceFinish);

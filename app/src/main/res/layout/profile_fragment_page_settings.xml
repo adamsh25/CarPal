@@ -86,7 +86,7 @@
             </be.billington.calendar.recurrencepicker.LinearLayoutWithMaxWidth>
 
             <TextView style="@style/WizardFormLabelCarPal"
-                android:text="UnPreferred days"
+                android:text="Idle days"
                 android:layout_marginTop="25dp"/>
 
             <be.billington.calendar.recurrencepicker.LinearLayoutWithMaxWidth
