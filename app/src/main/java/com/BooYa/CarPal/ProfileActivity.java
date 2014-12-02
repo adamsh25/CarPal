@@ -187,8 +187,8 @@ public class ProfileActivity extends FragmentActivity implements
         int position = mPager.getCurrentItem();
         if (position == mCurrentPageSequence.size()-1) { //todo: change to without -1
             mNextButton.setText(R.string.wizard_finish);
-            mNextButton.setBackgroundResource(R.drawable.finish_background);
-            mNextButton.setTextAppearance(this, R.style.TextAppearanceFinish);
+            //mNextButton.setBackgroundResource(R.drawable.finish_background);
+            //mNextButton.setTextAppearance(this, R.style.TextAppearanceFinish);
         } else {
             mNextButton.setText(mEditingAfterReview ? R.string.review
                     : R.string.wizard_next);
